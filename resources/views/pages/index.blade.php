@@ -8,7 +8,7 @@
 <section class="card">
     <div class="card-header">
         <div class="dropdown pull-right">
-           <a href="{{ url('pages/create')}}" class="btn btn-success "><i class="fa fa-plus"></i>&nbsp; &nbsp; Add Page &nbsp; &nbsp;</a>
+           <a href="{{ url('pages/create')}}" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Add &nbsp; &nbsp;</a>
        </div>
         <span class="cat__core__title">
             <strong>Pages List</strong>
@@ -63,7 +63,8 @@
                 <td>{{ $page->meta_title }}</td>
                 <td>{{ $page->created_at->format('d-M-Y') }}</td>
                <td style="width:250px;">
-                    <a href="{{ route('pages.edit',$page->page_id ) }}" class="btn btn-primary btn-sm" style="margin-left:40px;"> Edit</a>
+               <a href="{{ route('pages.edit',$page->page_id ) }}" class="btn btn-info btn-sm" style="margin-left:40px;"><i class="fa fa-eye"> Preview</i></a>
+                    <a href="{{ route('pages.edit',$page->page_id ) }}" class="btn btn-info btn-sm" style="margin-left:40px;"> Edit</a>
                    {!! Form::open(['method' => 'DELETE','route' => ['pages.destroy', $page->page_id],'style'=>'display:inline','role'=>'form','onsubmit' => 'return confirm("Do you want to delete this ?")']) !!}
 					{!! Form::submit('Remove', ['class' => 'btn btn-danger btn-sm']) !!}
 					{!! Form::close() !!}
