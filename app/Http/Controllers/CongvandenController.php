@@ -5,17 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Pages;
-
+use Illuminate\Support\Facades\Auth;
 class CongvandenController extends Controller
 {
-        public function __construct()
-    {
-        $this->middleware('auth');
-    }
-    public function getDanhSach()
-    {
-        $pages = Pages::all();
-        return view('congvanden.index', ['congvanden' => $pages]);
+    public function getDangNhap(){
+        if(Auth::check()){
+            $pages = Pages::all();            
+            return view('pages/index', ['pages' => $pages]);
+        }
+        return view('Auth.login');
     }
     // /**
     //  * Display a listing of the resource.

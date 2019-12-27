@@ -11,9 +11,17 @@
 |
 */
 
- Route::get('/', function () {
-    return view('/login');
-});
+//  Route::get('/', function () {
+//     return view('/login');
+// });
+Auth::routes();
+Route::get('dangnhap', 'LoginController@getDangNhap');
+Route::post('dangnhap', 'LoginController@postDangNhap');
+Route::get('dangxuat','LoginController@dangxuat');
+Route::get('pages_index','PagesController@pages_index');//->middleware('MyMiddleware');
+
+
+
 Route::get ('password/lost','ForgotPasswordController@forgotPassword');
 
 Auth::routes();
