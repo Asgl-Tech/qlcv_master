@@ -22,7 +22,10 @@ Route::get ('changepassword', 'UserController@changepassword');
 Route::post('updatepassword','UserController@updatePassword');
 Route::get ('profile', 'UserController@profile');
 Route::resource ('pages', 'PagesController');
-Route::resource ('congvanden', 'CongvandenController');
+
+Route::get ('congvanden', 'CongvandenController@getDanhSach');
+
+
 Route::post ('update/{user_id}', 'UserController@updateprofile');
 Route::post('changePassword/{user_id}','UserController@updatePassword')->name('changePassword');
 Route::get ('user/profile', 'UserController@profile');

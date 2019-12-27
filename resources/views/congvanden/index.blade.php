@@ -8,10 +8,10 @@
 <section class="card">
     <div class="card-header">
         <div class="dropdown pull-right">
-           <a href="{{ url('congvanden/create')}}" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Add &nbsp; &nbsp;</a>
+           <a href="{{ url('congvanden/create')}}" class="btn btn-info btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Thêm &nbsp; &nbsp;</a>
        </div>
         <span class="cat__core__title">
-            <strong>Công vắn đến</strong>
+            <strong>Công văn đến</strong>
         </span>
     </div>
 	
@@ -35,7 +35,7 @@
 		@endif
         <table class="table table-hover nowrap" id="example1" width="100%">
             <thead class="thead-default">
-            <tr style="text-align: center;">
+            <tr>
                 <th>ID</th>
                 <th>Page Name</th>
                 <th>Page Title</th>
@@ -46,7 +46,7 @@
             </thead>
 
             <tbody>
-			@foreach($pages as $page)
+			@foreach($congvanden as $page)
             <tr>
                 <td>{{ $page->page_id }}</td>
                 <td>{{ $page->page_name }}</td>

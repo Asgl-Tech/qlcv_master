@@ -8,10 +8,10 @@
 <section class="card">
     <div class="card-header">
         <div class="dropdown pull-right">
-           <a href="<?php echo e(url('congvanden/create')); ?>" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Add &nbsp; &nbsp;</a>
+           <a href="<?php echo e(url('congvanden/create')); ?>" class="btn btn-info btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Thêm &nbsp; &nbsp;</a>
        </div>
         <span class="cat__core__title">
-            <strong>Công vắn đến</strong>
+            <strong>Công văn đến</strong>
         </span>
     </div>
 	
@@ -36,7 +36,7 @@
 		<?php endif; ?>
         <table class="table table-hover nowrap" id="example1" width="100%">
             <thead class="thead-default">
-            <tr style="text-align: center;">
+            <tr>
                 <th>ID</th>
                 <th>Page Name</th>
                 <th>Page Title</th>
@@ -47,7 +47,7 @@
             </thead>
 
             <tbody>
-			<?php $__currentLoopData = $pages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $page): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+			<?php $__currentLoopData = $congvanden; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $page): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <tr>
                 <td><?php echo e($page->page_id); ?></td>
                 <td><?php echo e($page->page_name); ?></td>
