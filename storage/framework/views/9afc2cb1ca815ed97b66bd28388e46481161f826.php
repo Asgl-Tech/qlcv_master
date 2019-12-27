@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('title', 'Login'); ?>
 <?php echo $__env->make('main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <body class="cat__pages__login">
@@ -8,7 +7,7 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="cat__pages__login__block__promo text-white text-center">
-                    <h2 class="mb-">
+                    <h2 class="mb-3">
                         <strong>WELCOME TO EZEELIVE TECHNOLOGIES - ADMIN PANEL</strong>
                     </h2>
                 </div>
@@ -18,9 +17,9 @@
                             <strong>Please log in</strong>
                         </h4>
                         <br />
-						
-                            
-						
+						<?php if(isset(Auth::user()->email)): ?>
+							<script>window.location="/main/dashboard"</script>
+						<?php endif; ?>
 						<?php if($message = Session::get('error')): ?>
 							<div class="alert alert-danger alert-block">
 								<button type="button" class="close" data-dismiss="alert">x</button>
@@ -35,22 +34,10 @@
 									<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>	
 								</ul>
 							</div>
-                        <?php endif; ?>	
-                        
-                        <?php if(count($errors) > 0): ?>
-                            <div class="alert-danger">
-                                <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <?php echo e($item); ?><br>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            </div>
-                        <?php endif; ?>
-                        <?php if(session('thongbao')): ?>
-                            <div class="alert alert-success"><?php echo e(session('thongbao')); ?></div>
-                        <?php endif; ?>
-                        <form id="form-validation" name="form-validation" method="POST" action="dangnhap">
-                        
-                            
-                            <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+						<?php endif; ?>	
+                        <form id="form-validation" name="form-validation" method="POST" action="<?php echo e(route('login')); ?>">
+						<?php echo e(csrf_field()); ?>
+
                             <div class="form-group">
                                 <label class="form-label">Username</label>
                                 <input id="validation-email"
@@ -132,4 +119,3 @@
 </script>
 <!-- END: page scripts -->
 </body>
-

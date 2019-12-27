@@ -18,9 +18,10 @@
                             <strong>Please log in</strong>
                         </h4>
                         <br />
-						@if(isset(Auth::user()->email))
-							<script>window.location="/main/dashboard"</script>
-						@endif
+						{{-- @if(isset(Auth::user()->email))
+                            <script>window.location="/pages/index"</script> --}}
+                            {{-- <script>window.location="/main/dashboard"</script> --}}
+						{{-- @endif --}}
 						@if($message = Session::get('error'))
 							<div class="alert alert-danger alert-block">
 								<button type="button" class="close" data-dismiss="alert">x</button>
@@ -35,9 +36,22 @@
 									@endforeach	
 								</ul>
 							</div>
-						@endif	
-                        <form id="form-validation" name="form-validation" method="POST" action="{{ route('login') }}">
-						{{ csrf_field() }}
+                        @endif	
+                        
+                        @if (count($errors) > 0)
+                            <div class="alert-danger">
+                                @foreach ($errors->all() as $item)
+                                    {{$item}}<br>
+                                @endforeach
+                            </div>
+                        @endif
+                        @if (session('thongbao'))
+                            <div class="alert alert-success">{{session('thongbao')}}</div>
+                        @endif
+                        <form id="form-validation" name="form-validation" method="POST" action="dangnhap">
+                        {{-- <form id="form-validation" name="form-validation" method="POST" action="{{ route('login') }}"> --}}
+                            {{-- {{ csrf_field() }} --}}
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <div class="form-group">
                                 <label class="form-label">Username</label>
                                 <input id="validation-email"

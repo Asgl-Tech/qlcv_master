@@ -21,7 +21,7 @@
             </li>-->
             <li class="cat__menu-left__item cat__menu-left__submenu">
                 <a href="javascript: void(0);">
-                    <span class="cat__menu-left__icon icmn-sphere"></span>
+                    <span class="cat__menu-left__icon fa fa-list-ol"></span>
                     Danh mục
                 </a>
                 <ul class="cat__menu-left__list">
@@ -34,10 +34,26 @@
                 </ul>
             </li>
             <li class="cat__menu-left__item cat__menu-left__submenu">
-                <a href="javascript: void(0);">
+                <a href="javascript: void(0);"> 
                     <span class="cat__menu-left__icon icmn-file-text2"></span>
                     Công văn đến
                 </a>
+                <ul class="cat__menu-left__list">
+                    <li class="cat__menu-left__item">
+                        <a href="{{ url('congvanden')}}">
+                            <span class="cat__menu-left__icon icmn-file-text2"></span>
+                            Danh sách
+                        </a>
+                    </li>
+                    <li class="cat__menu-left__item">
+                        <a href="{{ url('congvanden/create')}}">
+                            <span class="cat__menu-left__icon fa fa-plus"></span>
+                            Thêm mới
+                        </a>
+                    </li>
+                </ul>
+
+               
             </li> 
             <li class="cat__menu-left__item cat__menu-left__submenu">
                 <a href="javascript: void(0);">
@@ -59,7 +75,7 @@
             </li>
 			<li class="cat__menu-left__item cat__menu-left__submenu">
                 <a href="javascript: void(0);">
-                    <span class="cat__menu-left__icon icmn-file-text2"></span>
+                    <span class="cat__menu-left__icon fa fa-database"></span>
                     Hệ thống
                 </a>
                 <ul class="cat__menu-left__list">

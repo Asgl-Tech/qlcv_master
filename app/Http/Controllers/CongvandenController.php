@@ -2,28 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Pages;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Pages;
 use Illuminate\Support\Facades\Auth;
-
-class PagesController extends Controller
+class CongvandenController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function getDangNhap(){
+        if(Auth::check()){
+            $pages = Pages::all();            
+            return view('pages/index', ['pages' => $pages]);
+        }
+        return view('Auth.login');
+    }
+    // /**
+    //  * Display a listing of the resource.
+    //  *
+    //  * @return \Illuminate\Http\Response
+    //  */
      
-    //  public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
 
-	// public function index()
+
+	// public function getDanhsach()
     // {
     //     //
 	// 	$pages = Pages::all();
-    //     return view('pages.index', ['pages' => $pages]);
+    //     return view('congvanden.index', ['pages' => $pages]);
 		
 		
     // }
@@ -117,14 +121,4 @@ class PagesController extends Controller
     //     return redirect()->route('pages.index')
     //                     ->with('success','Pages deleted successfully');
     // }
-
-    public function pages_index(){
-        if(!Auth::check()){
-            //$pages = Pages::all();            
-            return redirect('dangnhap');//view('Auth.login');
-        }
-        $pages = Pages::all();
-        //return redirect('pages/index')->with('thongbao','Đã thêm thành công');
-        return view('pages/index', ['pages' => $pages]);
-    }
 }
