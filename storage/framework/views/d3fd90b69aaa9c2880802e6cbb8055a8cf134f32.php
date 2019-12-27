@@ -8,10 +8,10 @@
 <section class="card">
     <div class="card-header">
         <div class="dropdown pull-right">
-           <a href="<?php echo e(url('pages/create')); ?>" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Add &nbsp; &nbsp;</a>
+           <a href="<?php echo e(url('congvanden/create')); ?>" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Add &nbsp; &nbsp;</a>
        </div>
         <span class="cat__core__title">
-            <strong>Pages List</strong>
+            <strong>Công vắn đến</strong>
         </span>
     </div>
 	
@@ -45,7 +45,7 @@
                 <th>Action</th>
             </tr>
             </thead>
-            
+
             <tbody>
 			<?php $__currentLoopData = $pages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $page): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <tr>
@@ -55,11 +55,8 @@
                 <td><?php echo e($page->meta_title); ?></td>
                 <td><?php echo e($page->created_at->format('d-M-Y')); ?></td>
                <td style="width:250px;">
-                     <a href=""><i class="fa fa-eye"></i> View</a>
-                    <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a href="href="<?php echo e(route('pages.edit',$page->page_id )); ?>"> Sửa</a>
-                    
-                    <!-- <a href="<?php echo e(route('pages.edit',$page->page_id )); ?>" class="btn btn-info btn-sm" ><i class="fa fa-eye fa-1x"></i></a>
-                    <a href="<?php echo e(route('pages.edit',$page->page_id )); ?>" class="btn btn-info btn-sm" style="margin-left:4px;margin-right:4px;"> Edit</a> -->
+                    <a href="<?php echo e(route('congvanden.edit',$page->page_id )); ?>" class="btn btn-info btn-sm" ><i class="fa fa-eye fa-1x"></i> View</a>
+                    <a href="<?php echo e(route('congvanden.edit',$page->page_id )); ?>" class="btn btn-info btn-sm" style="margin-left:4px;margin-right:4px;"><i class="fa fa-eye fa-1x"></i> Edit</a>
                     
                    <?php echo Form::open(['method' => 'DELETE','route' => ['pages.destroy', $page->page_id],'style'=>'display:inline','role'=>'form','onsubmit' => 'return confirm("Do you want to delete this ?")']); ?>
 
@@ -173,4 +170,4 @@
     } );
 </script>
 <!-- END: page scripts -->
-
+<?php echo $__env->make('components/footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
