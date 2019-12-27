@@ -14,30 +14,43 @@
 //  Route::get('/', function () {
 //     return view('/login');
 // });
-Auth::routes();
+// Auth::routes();
 Route::get('dangnhap', 'LoginController@getDangNhap');
 Route::post('dangnhap', 'LoginController@postDangNhap');
 Route::get('dangxuat','LoginController@dangxuat');
-Route::get('pages_index','PagesController@pages_index');//->middleware('MyMiddleware');
+// Route::get('pages','PagesController@pages_index');//->middleware('MyMiddleware');
 
 
 
-Route::get ('password/lost','ForgotPasswordController@forgotPassword');
+// Route::get ('password/lost','ForgotPasswordController@forgotPassword');
 
-Auth::routes();
-Route::get ('dashboard', 'DashboardController@index');
-Route::get ('changepassword', 'UserController@changepassword');
-Route::post('updatepassword','UserController@updatePassword');
-Route::get ('profile', 'UserController@profile');
-Route::resource ('pages', 'PagesController');
+// Auth::routes();
+// Route::get ('dashboard', 'DashboardController@index');
+// Route::get ('changepassword', 'UserController@changepassword');
+// Route::post('updatepassword','UserController@updatePassword');
+// Route::get ('profile', 'UserController@profile');
+// Route::resource ('pages', 'PagesController');
 
-Route::get ('congvanden', 'CongvandenController@getDanhSach');
+// Route::get ('congvanden', 'CongvandenController@getDanhSach');
 
 
-Route::post ('update/{user_id}', 'UserController@updateprofile');
-Route::post('changePassword/{user_id}','UserController@updatePassword')->name('changePassword');
-Route::get ('user/profile', 'UserController@profile');
-Route::get ('main/logout', 'MainController@logout');
-Auth::routes();
+// Route::post ('update/{user_id}', 'UserController@updateprofile');
+// Route::post('changePassword/{user_id}','UserController@updatePassword')->name('changePassword');
+// Route::get ('user/profile', 'UserController@profile');
+// Route::get ('main/logout', 'MainController@logout');
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix'=>'pages','middleware'=> 'MyMiddleware'],function(){
+    Route::group(['prefix'=>'congvanden'],function(){
+        Route::get('danhsach','PagesController@pages_index');
+        Route::get('edit/{id}','PagesController@getEdit');
+        Route::post('edit/{id}','PagesController@postEdit');
+        Route::get('destroy/{id}','PagesController@getDestroy');
+        Route::get('them','PagesController@getThem');        
+		Route::post('them','PagesController@postThem');
+
+    });
+
+});

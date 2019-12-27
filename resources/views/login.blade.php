@@ -35,7 +35,7 @@
 								</ul>
 							</div>
 						@endif	
-                        <form id="form-validation" name="form-validation" method="POST" action="{{ route('login') }}">
+                        <form id="form-validation" name="form-validation" method="POST" action="{{ route('dangnhap') }}">
 						{{ csrf_field() }}
                             <div class="form-group">
                                 <label class="form-label">Username</label>

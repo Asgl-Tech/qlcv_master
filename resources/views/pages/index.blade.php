@@ -8,7 +8,7 @@
 <section class="card">
     <div class="card-header">
         <div class="dropdown pull-right">
-           <a href="{{ url('pages/create')}}" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Add &nbsp; &nbsp;</a>
+           <a href="them" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Add &nbsp; &nbsp;</a>
        </div>
         <span class="cat__core__title">
             <strong>Pages List</strong>
@@ -17,7 +17,7 @@
 	
 	
 	<div class="card-body">
-		 @if ($message = Session::get('error'))
+		 {{-- @if ($message = Session::get('error'))
 			<div class="alert alert-danger" role="alert" id="id">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -32,7 +32,10 @@
                 </button>
                 <strong>Well done! </strong> {{ $message }} !
             </div>
-		@endif
+        @endif --}}
+        @if (session('thongbao'))
+            <div class="alert alert-success">{{session('thongbao')}}</div>
+        @endif
         <table class="table table-hover nowrap" id="example1" width="100%">
             <thead class="thead-default">
             <tr style="text-align: center;">
@@ -64,14 +67,13 @@
                 <td>{{ $page->created_at->format('d-M-Y') }}</td>
                <td style="width:250px;">
                      <a href=""><i class="fa fa-eye"></i> View</a>
-                    <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a href="href="{{ route('pages.edit',$page->page_id ) }}"> Sửa</a>
+                     {{-- href="pages/edit/{{$tl->id}}" --}}
+                     <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a  href="edit/{{$page->page_id}}"> Sửa</a>
                     
-                    <!-- <a href="{{ route('pages.edit',$page->page_id ) }}" class="btn btn-info btn-sm" ><i class="fa fa-eye fa-1x"></i></a>
-                    <a href="{{ route('pages.edit',$page->page_id ) }}" class="btn btn-info btn-sm" style="margin-left:4px;margin-right:4px;"> Edit</a> -->
-                    
-                   {!! Form::open(['method' => 'DELETE','route' => ['pages.destroy', $page->page_id],'style'=>'display:inline','role'=>'form','onsubmit' => 'return confirm("Do you want to delete this ?")']) !!}
+                     <i class="fa fa-delete  fa-fw"></i><a href="destroy/{{$page->page_id}}"> Delete</a>
+                   {{-- {!! Form::open(['method' => 'POST','action' => ['pages.congvanden.destroy', $page->page_id],'style'=>'display:inline','role'=>'form','onsubmit' => 'return confirm("Do you want to delete this ?")']) !!}
 					{!! Form::submit('Remove', ['class' => 'btn btn-danger btn-sm']) !!}
-					{!! Form::close() !!}
+					{!! Form::close() !!} --}}
                 </td>
             </tr>
 			@endforeach
