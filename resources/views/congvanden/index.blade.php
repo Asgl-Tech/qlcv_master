@@ -8,10 +8,10 @@
 <section class="card">
     <div class="card-header">
         <div class="dropdown pull-right">
-           <a href="{{ url('pages/create')}}" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Add &nbsp; &nbsp;</a>
+           <a href="{{ url('congvanden/create')}}" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Add &nbsp; &nbsp;</a>
        </div>
         <span class="cat__core__title">
-            <strong>Pages List</strong>
+            <strong>Công vắn đến</strong>
         </span>
     </div>
 	
@@ -44,16 +44,7 @@
                 <th>Action</th>
             </tr>
             </thead>
-            {{-- <tfoot>
-            <tr style="text-align: center;">
-                <th>ID</th>
-                <th>Page Name</th>
-                <th>Page Title</th>
-                <th>Meta Title</th>
-                <th>Created</th>
-                <th>Action</th>
-            </tr>
-            </tfoot> --}}
+
             <tbody>
 			@foreach($pages as $page)
             <tr>
@@ -63,11 +54,8 @@
                 <td>{{ $page->meta_title }}</td>
                 <td>{{ $page->created_at->format('d-M-Y') }}</td>
                <td style="width:250px;">
-                     <a href=""><i class="fa fa-eye"></i> View</a>
-                    <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a href="href="{{ route('pages.edit',$page->page_id ) }}"> Sửa</a>
-                    
-                    <!-- <a href="{{ route('pages.edit',$page->page_id ) }}" class="btn btn-info btn-sm" ><i class="fa fa-eye fa-1x"></i></a>
-                    <a href="{{ route('pages.edit',$page->page_id ) }}" class="btn btn-info btn-sm" style="margin-left:4px;margin-right:4px;"> Edit</a> -->
+                    <a href="{{ route('congvanden.edit',$page->page_id ) }}" class="btn btn-info btn-sm" ><i class="fa fa-eye fa-1x"></i> View</a>
+                    <a href="{{ route('congvanden.edit',$page->page_id ) }}" class="btn btn-info btn-sm" style="margin-left:4px;margin-right:4px;"><i class="fa fa-eye fa-1x"></i> Edit</a>
                     
                    {!! Form::open(['method' => 'DELETE','route' => ['pages.destroy', $page->page_id],'style'=>'display:inline','role'=>'form','onsubmit' => 'return confirm("Do you want to delete this ?")']) !!}
 					{!! Form::submit('Remove', ['class' => 'btn btn-danger btn-sm']) !!}
@@ -99,7 +87,7 @@
 <!-- END: page scripts -->
 <!-- END: page scripts -->
 <!-- START: page scripts -->
-{{-- <script>
+<script>
     $( function() {
 		$("#m_section_name").html("Pages");
         ///////////////////////////////////////////////////////////
@@ -176,6 +164,6 @@
         }
 
     } );
-</script> --}}
+</script>
 <!-- END: page scripts -->
-{{-- @include('components/footer') --}}
+@include('components/footer')

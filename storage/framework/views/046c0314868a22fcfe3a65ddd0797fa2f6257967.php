@@ -8,7 +8,7 @@
 <section class="card">
     <div class="card-header">
         <div class="dropdown pull-right">
-           <a href="<?php echo e(url('pages/create')); ?>" class="btn btn-success "><i class="fa fa-plus"></i>&nbsp; &nbsp; Add Page &nbsp; &nbsp;</a>
+           <a href="<?php echo e(url('pages/create')); ?>" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Add &nbsp; &nbsp;</a>
        </div>
         <span class="cat__core__title">
             <strong>Pages List</strong>
@@ -36,7 +36,7 @@
 		<?php endif; ?>
         <table class="table table-hover nowrap" id="example1" width="100%">
             <thead class="thead-default">
-            <tr>
+            <tr style="text-align: center;">
                 <th>ID</th>
                 <th>Page Name</th>
                 <th>Page Title</th>
@@ -55,7 +55,12 @@
                 <td><?php echo e($page->meta_title); ?></td>
                 <td><?php echo e($page->created_at->format('d-M-Y')); ?></td>
                <td style="width:250px;">
-                    <a href="<?php echo e(route('pages.edit',$page->page_id )); ?>" class="btn btn-primary btn-sm" style="margin-left:40px;"> Edit</a>
+                     <a href=""><i class="fa fa-eye"></i> View</a>
+                    <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a href="href="<?php echo e(route('pages.edit',$page->page_id )); ?>"> Sửa</a>
+                    
+                    <!-- <a href="<?php echo e(route('pages.edit',$page->page_id )); ?>" class="btn btn-info btn-sm" ><i class="fa fa-eye fa-1x"></i></a>
+                    <a href="<?php echo e(route('pages.edit',$page->page_id )); ?>" class="btn btn-info btn-sm" style="margin-left:4px;margin-right:4px;"> Edit</a> -->
+                    
                    <?php echo Form::open(['method' => 'DELETE','route' => ['pages.destroy', $page->page_id],'style'=>'display:inline','role'=>'form','onsubmit' => 'return confirm("Do you want to delete this ?")']); ?>
 
 					<?php echo Form::submit('Remove', ['class' => 'btn btn-danger btn-sm']); ?>

@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="cat__footer__company">
-                    <img class="cat__footer__company-logo" src="{!! asset('/dist/modules/dummy-assets/common/img/mediatec.png') !!}" target="_blank" title="Ezeelive">
+                    <img class="cat__footer__company-logo" src="<?php echo asset('/dist/modules/dummy-assets/common/img/mediatec.png'); ?>" target="_blank" title="Ezeelive">
                     <span>
                         &copy; <?php echo date("Y");?> <a href="https://ezeelive.com/" target="_blank">ASG LOGISTIC &amp; Company</a>
                         <br>
