@@ -14,43 +14,29 @@
 //  Route::get('/', function () {
 //     return view('/login');
 // });
+Auth::routes();
 Route::get('dangnhap', 'LoginController@getDangNhap');
-Route::post('dangnhap', 'LoginController@postDangNhap')->name('pages');
+Route::post('dangnhap', 'LoginController@postDangNhap');
 Route::get('dangxuat','LoginController@dangxuat');
+Route::get('pages_index','PagesController@pages_index');//->middleware('MyMiddleware');
 
 
-// Route::get ('password/lost','ForgotPasswordController@forgotPassword');
 
-// Auth::routes();
-// Route::get ('dashboard', 'DashboardController@index');
-// Route::get ('changepassword', 'UserController@changepassword');
-// Route::post('updatepassword','UserController@updatePassword');
-// Route::get ('profile', 'UserController@profile');
-// Route::resource ('pages', 'PagesController');
-// Route::get ('pages', function(){
-//     return view('/pages.index');
-// });
-// Route::post ('update/{user_id}', 'UserController@updateprofile');
-// Route::post('changePassword/{user_id}','UserController@updatePassword')->name('changePassword');
-// Route::get ('user/profile', 'UserController@profile');
-// Route::get ('main/logout', 'MainController@logout');
-// Auth::routes();
+Route::get ('password/lost','ForgotPasswordController@forgotPassword');
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+Route::get ('dashboard', 'DashboardController@index');
+Route::get ('changepassword', 'UserController@changepassword');
+Route::post('updatepassword','UserController@updatePassword');
+Route::get ('profile', 'UserController@profile');
+Route::resource ('pages', 'PagesController');
+Route::get ('pages', function(){
+    return view('pages.index');
+});
+Route::post ('update/{user_id}', 'UserController@updateprofile');
+Route::post('changePassword/{user_id}','UserController@updatePassword')->name('changePassword');
+Route::get ('user/profile', 'UserController@profile');
+Route::get ('main/logout', 'MainController@logout');
+Auth::routes();
 
-Route::group(['prefix'=>'qlcv'],function(){
-
-	Route::group(['prefix'=>'theloai'],function(){
-		//admin/theloai/them
-		Route::get('danhsach','TheLoaiController@getDanhSach');
-		
-		Route::get('sua/{id}','TheLoaiController@getSua');
-		Route::post('sua/{id}','TheloaiController@postSua');
-		
-		Route::get('them','TheLoaiController@getThem');
-		Route::post('them','TheLoaiController@postThem');
-
-		Route::get('xoa/{id}','TheLoaiController@getXoa');
-		
-    });
-}
+Route::get('/home', 'HomeController@index')->name('home');

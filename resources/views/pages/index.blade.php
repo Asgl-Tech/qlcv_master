@@ -94,7 +94,7 @@
 <!-- END: page scripts -->
 <!-- END: page scripts -->
 <!-- START: page scripts -->
-<script>
+{{-- <script>
     $( function() {
 		$("#m_section_name").html("Pages");
         ///////////////////////////////////////////////////////////
@@ -171,6 +171,6 @@
         }
 
     } );
-</script>
+</script> --}}
 <!-- END: page scripts -->
 {{-- @include('components/footer') --}}

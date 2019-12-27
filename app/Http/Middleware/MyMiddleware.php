@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
-
+use Illuminate\Support\Facades\Auth;
 use Closure;
 
 class MyMiddleware
@@ -19,9 +19,9 @@ class MyMiddleware
         // if($request->has('diem') && $request['diem']>=5)
             return $next($request);
         else
-        return redirect()->route('dangnhap');
+            return redirect()->route('dangnhap');
 
-        //return $next($request);
+        
     }
 
     

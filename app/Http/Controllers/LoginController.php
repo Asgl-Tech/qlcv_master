@@ -10,9 +10,17 @@ use App\Pages;
 class LoginController extends Controller
 {
     public function getDangNhap(){
+        if(Auth::check()){
+            $pages = Pages::all();            
+            return view('pages/index', ['pages' => $pages]);
+        }
         return view('Auth.login');
     }
     public function postDangNhap(Request $request){
+        if(Auth::check()){
+            $pages = Pages::all();            
+            return view('pages/index', ['pages' => $pages]);
+        }
     	$email= $request['email'];
     	$password= $request['password'];
     	//đoạn này login theo ID cố định
@@ -30,7 +38,7 @@ class LoginController extends Controller
     	}
     	else
     	{
-    	 return view('dangnhap',['error'=>'Đăng nhập thất bại']);
+            return view('dangnhap',['error'=>'Đăng nhập thất bại']);
     	}
     }
     public function dangxuat(){
