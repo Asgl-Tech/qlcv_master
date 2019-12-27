@@ -33,6 +33,14 @@ Route::resource ('pages', 'PagesController');
 Route::get ('pages', function(){
     return view('pages.index');
 });
+
+// Route::resource ('congvanden', 'CongvandenController');
+// Route::get ('pages', function(){
+//     return view('pages.index');
+// });
+
+
+Route::resource ('congvanden', 'CongvandenController');
 Route::post ('update/{user_id}', 'UserController@updateprofile');
 Route::post('changePassword/{user_id}','UserController@updatePassword')->name('changePassword');
 Route::get ('user/profile', 'UserController@profile');
