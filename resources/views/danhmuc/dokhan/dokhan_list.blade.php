@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @section('title', 'Manage Pages')
 @include('main')
 @include('components/mainmenu')
@@ -181,3 +182,6 @@
 </script> --}}
 <!-- END: page scripts -->
 {{-- @include('components/footer')--}}
+=======
+<?php
+>>>>>>> e54c62c58488a1a932e3b56fcaa1eaa3713f4f65
