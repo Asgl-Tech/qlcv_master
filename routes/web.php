@@ -17,9 +17,8 @@
 // Auth::routes();
 Route::get('dangnhap', 'LoginController@getDangNhap');
 Route::post('dangnhap', 'LoginController@postDangNhap');
-Route::get('dangxuat','LoginController@dangxuat');
+Route::get('dangxuat', 'LoginController@dangxuat');
 // Route::get('pages','PagesController@pages_index');//->middleware('MyMiddleware');
-
 
 
 // Route::get ('password/lost','ForgotPasswordController@forgotPassword');
@@ -42,15 +41,24 @@ Route::get('dangxuat','LoginController@dangxuat');
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix'=>'pages','middleware'=> 'MyMiddleware'],function(){
-    Route::group(['prefix'=>'congvanden'],function(){
-        Route::get('danhsach','PagesController@pages_index');
-        Route::get('edit/{id}','PagesController@getEdit');
-        Route::post('edit/{id}','PagesController@postEdit');
-        Route::get('destroy/{id}','PagesController@getDestroy');
-        Route::get('them','PagesController@getThem');        
-		Route::post('them','PagesController@postThem');
+Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () {
+    Route::group(['prefix' => 'congvanden'], function () {
+        Route::get('danhsach', 'PagesController@pages_index');
+        Route::get('edit/{id}', 'PagesController@getEdit');
+        Route::post('edit/{id}', 'PagesController@postEdit');
+        Route::get('destroy/{id}', 'PagesController@getDestroy');
+        Route::get('them', 'PagesController@getThem');
+        Route::post('them', 'PagesController@postThem');
 
     });
+    // hello các em, phần route danh mục anh Huy nhé
+    // localhost:8080/qlcv/public/pages/danhmuc/dokhan/dokhan_list
+    Route::group(['prefix' => 'danhmuc'], function () {
+        Route::group(['prefix' => 'dokhan'], function () {
+            Route::get('dokhan_list', 'DoKhanController@getDoKhan');
+            Route::post('dokhan_edit', 'DoKhanController@posDoKhan');
+        });
+    });
 
+    //------------------end here :)-----------------
 });
