@@ -58,6 +58,23 @@ Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () 
             Route::get('dokhan_list', 'DoKhanController@getDoKhan');
             Route::post('dokhan_edit', 'DoKhanController@posDoKhan');
         });
+        Route::group(['prefix' => 'domat'], function () {
+            Route::get('domat_list', 'DoMatController@getDoMat');
+            Route::post('domat_edit', 'DoMatController@posDoMat');
+        });
+//
+//        Route::group(['prefix' => 'dokhan'], function () {
+//            Route::get('dokhan_list', 'DoKhanController@getDoKhan');
+//            Route::post('dokhan_edit', 'DoKhanController@posDoKhan');
+//        });
+//        Route::group(['prefix' => 'dokhan'], function () {
+//            Route::get('dokhan_list', 'DoKhanController@getDoKhan');
+//            Route::post('dokhan_edit', 'DoKhanController@posDoKhan');
+//        });
+//        Route::group(['prefix' => 'dokhan'], function () {
+//            Route::get('dokhan_list', 'DoKhanController@getDoKhan');
+//            Route::post('dokhan_edit', 'DoKhanController@posDoKhan');
+//        });
     });
 
     //------------------end here :)-----------------
