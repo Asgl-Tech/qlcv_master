@@ -15,10 +15,28 @@
 //     return view('/login');
 // });
 Auth::routes();
-Route::get('dangnhap', 'LoginController@getDangNhap');
-Route::post('dangnhap', 'LoginController@postDangNhap');
-Route::get('dangxuat','LoginController@dangxuat');
-Route::get('pages_index','PagesController@pages_index');//->middleware('MyMiddleware');
+// Route::get('dangnhap', 'LoginController@getDangNhap');
+// Route::post('dangnhap', 'LoginController@postDangNhap');
+// Route::get('dangxuat','LoginController@dangxuat');
+
+// Route::group(['prefix'=>'page'],function(){
+//     Route::get('danhsach','PagesController@pages_index');//->middleware('MyMiddleware');
+
+// });
+
+// Route::get('pages_index','PagesController@pages_index');//->middleware('MyMiddleware');
+Route::group(['prefix'=>'user'],function(){
+    Route::get('danhsach','UserController@getDanhSach');
+
+    Route::get('sua/{id}','UserController@getSua');
+    Route::post('sua/{id}','UserController@postSua');
+
+    Route::get('xoa/{id}','UserController@getXoa');
+
+    Route::get('them','UserController@getThem');
+    Route::post('them','UserController@postThem');
+
+});
 
 
 

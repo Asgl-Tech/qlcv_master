@@ -8,25 +8,26 @@ use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
      
-    //  public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+     public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
-	// public function index()
-    // {
-    //     //
-	// 	$pages = Pages::all();
-    //     return view('pages.index', ['pages' => $pages]);
+	public function index()
+    {
+        //
+		$pages = Pages::all();
+        return view('pages', ['pages' => $pages]);
 		
 		
-    // }
+    }
 	
 	
 	// public function showpages()
@@ -125,6 +126,6 @@ class PagesController extends Controller
         }
         $pages = Pages::all();
         //return redirect('pages/index')->with('thongbao','Đã thêm thành công');
-        return view('pages/index', ['pages' => $pages]);
+        return view('pages', ['pages' => $pages]);
     }
 }

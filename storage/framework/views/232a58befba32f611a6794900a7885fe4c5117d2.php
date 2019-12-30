@@ -26,7 +26,7 @@
                 </a>
                 <ul class="cat__menu-left__list">
                     <li class="cat__menu-left__item">
-                        <a href="<?php echo e(url('pages')); ?>">
+                        <a href="pages">
                             <span class="cat__menu-left__icon icmn-file-text2"></span>
                             Pages
                         </a>
