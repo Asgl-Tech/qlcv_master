@@ -22,39 +22,24 @@
             <li class="cat__menu-left__item cat__menu-left__submenu">
                 <a href="javascript: void(0);">
                     <span class="cat__menu-left__icon fa fa-list-ol"></span>
-                    Danh mục
-                </a>
-                <ul class="cat__menu-left__list">
-                    <li class="cat__menu-left__item">
-                        <a href="pages">
-                            <span class="cat__menu-left__icon icmn-file-text2"></span>
-                            Pages
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="cat__menu-left__item cat__menu-left__submenu">
-                <a href="javascript: void(0);"> 
-                    <span class="cat__menu-left__icon icmn-file-text2"></span>
                     Công văn đến
                 </a>
                 <ul class="cat__menu-left__list">
                     <li class="cat__menu-left__item">
-                        <a href="{{ url('congvanden')}}">
+                        <a href="danhsach">                            
                             <span class="cat__menu-left__icon icmn-file-text2"></span>
                             Danh sách
                         </a>
                     </li>
                     <li class="cat__menu-left__item">
-                        <a href="{{ url('congvanden/create')}}">
+                        <a href="them">
                             <span class="cat__menu-left__icon fa fa-plus"></span>
                             Thêm mới
                         </a>
                     </li>
                 </ul>
-
-               
-            </li> 
+            </li>
+            
             <li class="cat__menu-left__item cat__menu-left__submenu">
                 <a href="javascript: void(0);">
                 <span class="cat__menu-left__icon icmn-file-text2"></span>

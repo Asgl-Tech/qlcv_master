@@ -1,17 +1,17 @@
 @section('title', 'Update Pages')
 @include('main')
 @include('components/mainmenu')
-@include('components/breadcrumb')
+{{-- @include('components/breadcrumb') --}}
 <div class="cat__content">
 
 <!-- START: ecommerce/Pages-edit -->
 <section class="card">
     <div class="card-header">
-        <div class="dropdown pull-right">
+        {{-- <div class="dropdown pull-right">
            <a href="{{ url('pages/create')}}" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp; &nbsp; Add Page &nbsp; &nbsp;</a>
-       </div>
+       </div> --}}
         <span class="cat__core__title">
-            <strong>Edit Pages</strong>
+            <strong>Edit {{$pages->page_name}}</strong>
         </span>
     </div>
     <div class="card-body">
@@ -27,7 +27,9 @@
 					</ul>
 				</div>
 			@endif
-			 {!! Form::model($pages, ['method' => 'PATCH', 'id'=>'form-validation', 'name'=>'form-validation', 'route' => ['pages.update', $pages->page_id]]) !!}
+             {{-- {!! Form::model($pages, ['method' => 'PATCH', 'id'=>'form-validation', 'name'=>'form-validation', 'route' => ['pages.update', $pages->page_id]]) !!} --}}
+             <form action="{{$pages->page_id}}" method="POST">    
+                    <input type="hidden" name="_token" value="{{csrf_token()}}">               
 				<div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
@@ -79,7 +81,8 @@
                     <button type="reset" class="btn btn-warning width-150" >Reset</button>
                     <a href="{{ url('pages')}}"  class="btn btn-default">Cancel</a>
                 </div>
-			{!! Form::close() !!}
+            {{-- {!! Form::close() !!} --}}
+             </form>
             </div>
  
         </div>

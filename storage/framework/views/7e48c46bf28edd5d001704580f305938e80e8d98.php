@@ -21,12 +21,13 @@
             </li>-->
             <li class="cat__menu-left__item cat__menu-left__submenu">
                 <a href="javascript: void(0);">
-                    <span class="cat__menu-left__icon icmn-sphere"></span>
+                    <span class="cat__menu-left__icon fa fa-list-ol"></span>
                     Danh mục
                 </a>
                 <ul class="cat__menu-left__list">
                     <li class="cat__menu-left__item">
-                        <a href="<?php echo e(url('pages')); ?>">
+                        <a href="danhsach">
+                            
                             <span class="cat__menu-left__icon icmn-file-text2"></span>
                             Pages
                         </a>
@@ -75,7 +76,7 @@
             </li>
 			<li class="cat__menu-left__item cat__menu-left__submenu">
                 <a href="javascript: void(0);">
-                    <span class="cat__menu-left__icon icmn-file-text2"></span>
+                    <span class="cat__menu-left__icon fa fa-database"></span>
                     Hệ thống
                 </a>
                 <ul class="cat__menu-left__list">
