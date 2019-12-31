@@ -40,20 +40,22 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="form-group">
-                        <label>Năm: </label>
-                                <select class="form-control" id="idNam" name="nam">                               
-                                    <option value="">select</option>                                                       
+                            <label>Năm: </label>
+                            <select class="form-control" id="idNam" name="nam">                               
+                                <?php $__currentLoopData = $namcv; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ncv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($ncv->Nam); ?>"><?php echo e($ncv->Nam); ?></option>  
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                                       
                             </select>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label>Nơi phát hành: </label>
-                                <select class="form-control" id="idNoiPhathanh" name="NoiPhathanh">                               
-                                    <?php $__currentLoopData = $Noiphathanh; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $nph): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($nph->id); ?>"><?php echo e($nph->TenCoQuan); ?></option>  
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                                      
-                                </select>
+                            <select class="form-control" id="idNoiPhathanh" name="NoiPhathanh">                               
+                                <?php $__currentLoopData = $Noiphathanh; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $nph): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($nph->id); ?>"><?php echo e($nph->TenCoQuan); ?></option>  
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                                      
+                            </select>
                         </div>
                     </div> 
                 </div>
@@ -82,13 +84,13 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label for="validation-pagename">Ngày tháng đến <span style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                            <input id="validation-pagename" class="form-control"  placeholder="Số công văn đến"   name="Soden"  type="datetime-local" data-validation="[NOTEMPTY]" data-validation-message="Page Name must not be empty!">
+                            <input id="validation-pagename" class="form-control"  placeholder="Số công văn đến"   name="Ngayden"  type="date" data-validation="[NOTEMPTY]" data-validation-message="Page Name must not be empty!">
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label for="pagetitle">Ngày phát hành <span style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                            <input id="validation-pagetitle" class="form-control"  placeholder="Số ký hiệu"   name="Sokyhieu"  type="datetime-local" data-validation="[NOTEMPTY]" data-validation-message="Page Title must not be empty!">
+                            <input id="validation-pagetitle" class="form-control"  placeholder="Số ký hiệu"   name="Ngayphathanh"  type="date" data-validation="[NOTEMPTY]" data-validation-message="Page Title must not be empty!">
                         </div>
                     </div>                    
                 </div>
@@ -175,15 +177,15 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label for="pagetitle">Thời hạn xử lý <span style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                            <input id="validation-pagetitle" class="form-control"  placeholder="Thời hạn xử lý"   name="Thoihanxuly "  type="datetime-local" data-validation="[NOTEMPTY]" data-validation-message="Page Title must not be empty!">
+                            <input id="validation-pagetitle" class="form-control"  placeholder="Thời hạn xử lý"   name="Thoihanxuly "  type="date" data-validation="[NOTEMPTY]" data-validation-message="Page Title must not be empty!">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="form-group"> 
-                            <label>Hình ảnh</label>
-                            <input type="file" class="form-control" name="Hinh"></input>
+                            <label>File đính kèm</label>
+                            <input type="file" class="form-control" name="filedinhkem"></input>
                         </div>
                     </div>
                     <div class="col-lg-3">

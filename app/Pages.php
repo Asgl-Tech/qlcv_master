@@ -13,7 +13,7 @@ class Pages extends Model
      * @var array
      */
    protected $primaryKey = 'page_id';
-  //  public $timestamps = false;
+   public $timestamps = false;
 	 protected $fillable = [
         'page_name', 'page_title', 'page_detail', 'meta_title', 'meta_keyword', 'meta_description', 'is_active', 'created_at', 'updated_at'
     ];

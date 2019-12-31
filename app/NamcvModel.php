@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DomatModel extends Model
+class NamcvModel extends Model
 {
-    protected $table ='tbl_domat';
+    protected $table ='tbl_namcv';
     public $timestamps = false;
     public function tbl_congvanden()
     {
