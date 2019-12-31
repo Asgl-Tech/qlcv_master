@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Update Pages'); ?>
+<?php $__env->startSection('title', 'Add Pages'); ?>
 <?php echo $__env->make('main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('components/mainmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
@@ -6,15 +6,14 @@
 
 <!-- START: ecommerce/Pages-edit -->
 <section class="card">
-    <div class="card-header">
+   <div class="card-header">
         
         <span class="cat__core__title">
-            <strong>Edit <?php echo e($pages->page_name); ?></strong>
+            <strong>Add Pages</strong>
         </span>
     </div>
     <div class="card-body">
         <div class="row">
-            <div class="col-lg-12">
 			<?php if(count($errors) > 0): ?>
 				<div class="alert alert-danger">
 					<strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -25,46 +24,48 @@
 					</ul>
 				</div>
 			<?php endif; ?>
+            <div class="col-lg-12">
              
-             <form action="<?php echo e($pages->page_id); ?>" method="POST">    
-                    <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">               
+             <form action="them" method="POST">    
+                <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">               
 				<div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="validation-pagename">Page Name <span style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                           <input id="validation-pagename" class="form-control"  placeholder="Page Name"   name="page_name" value="<?php echo e($pages->page_name); ?>"  type="text" data-validation="[NOTEMPTY]" data-validation-message="Page Name must not be empty!">
+                            <input id="validation-pagename" class="form-control"  placeholder="Page Name"   name="page_name"  type="text" data-validation="[NOTEMPTY]" data-validation-message="Page Name must not be empty!">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="pagetitle">Page Title <span style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                             <input id="validation-pagetitle" class="form-control"  placeholder="Page Title" value="<?php echo e($pages->page_title); ?>"   name="page_title"  type="text" data-validation="[NOTEMPTY]" data-validation-message="Page Title must not be empty!">
+                            <input id="validation-pagetitle" class="form-control"  placeholder="Page Title"   name="page_title"  type="text" data-validation="[NOTEMPTY]" data-validation-message="Page Title must not be empty!">
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label">Page Detail</label>
-                        <textarea class="summernote" rows="4" id="l15" name="page_detail" placeholder="Page Detail"><?php echo e($pages->page_detail); ?></textarea>
+                    <textarea class="summernote" rows="4" id="l15" name="page_detail" placeholder="Page Detail"></textarea>
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="validation-metatitle">Meta Title <span style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                            <input id="validation-metatitle" class="form-control"  placeholder="Meta Title"  value="<?php echo e($pages->meta_title); ?>"   name="meta_title"  type="text" data-validation="[NOTEMPTY]" data-validation-message="Meta Title must not be empty!">
+                            <input id="validation-metatitle" class="form-control"  placeholder="Meta Title"   name="meta_title"  type="text" data-validation="[NOTEMPTY]" data-validation-message="Meta Title must not be empty!">
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="validation-metatitle" style="margin-top:9px;">Meta Keyword</label>
-                            <input class="form-control"  placeholder="Meta Keyword"   name="meta_keyword" value="<?php echo e($pages->meta_keyword); ?>"  type="text" >
+                            <input class="form-control"  placeholder="Meta Keyword"   name="meta_keyword"  type="text" >
                         </div>
                     </div>
+                   
                 </div>
-				 <div class="row">
+                <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="metadescription">Meta Description</label>
-                            <textarea  rows="4" class="form-control"  placeholder="Meta Description" name="meta_description"  type="text" ><?php echo e($pages->meta_description); ?></textarea>
+                            <textarea  rows="4" class="form-control"  placeholder="Meta Description"   name="meta_description"  type="text" ></textarea>
                         </div>
                     </div>
                      <div class="col-lg-6">
@@ -75,7 +76,7 @@
                      </div>   
                </div>
                 <div class="form-actions">
-                    <button type="submit" class="btn btn-primary width-150">Submit</button>
+                    <button type="submit" class="btn btn-primary width-150" >Submit</button>
                     <button type="reset" class="btn btn-warning width-150" >Reset</button>
                     <a href="<?php echo e(url('pages')); ?>"  class="btn btn-default">Cancel</a>
                 </div>
