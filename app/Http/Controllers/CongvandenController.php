@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Pages;
+use App\tbl_congvanden;
 use Illuminate\Support\Facades\Auth;
 class CongvandenController extends Controller
 {
@@ -15,30 +16,20 @@ class CongvandenController extends Controller
 
 	public function index()
     {
-        //
-		$pages = Pages::all();
-        return view('congvanden', ['congvanden' => $pages]);
-		
-		
+		$pages = tbl_congvanden::all();
+        return view('congvanden', ['Pages' => $pages]);				
     }
 	
-
     public function pages_index(){
-        // if(!Auth::check()){
-        //     //$pages = Pages::all();            
-        //     return redirect('dangnhap');//view('Auth.login');
-        // }
-        $pages = Pages::all();
-        //return redirect('pages/index')->with('thongbao','Đã thêm thành công');
-
-        return view('pages.index', ['pages' => $pages]);
+        $pages = tbl_congvanden::all();
+        return view('congvanden.index', ['Pages' => $pages]);
     }
     public function getEdit($id){
-        $pages = Pages::find($id);
-        return view('pages.edit',['pages'=>$pages]);        
+        $pages = tbl_congvanden::find($id);
+        return view('congvanden.edit',['Pages'=>$pages]);        
     }
     public function getDestroy($id){
-        Pages::find($id)->delete();
+        tbl_congvanden::find($id)->delete();
             return redirect('pages/congvanden/danhsach')->with('thongbao','Pages deleted successfully');
     }
     public function getThem(){
@@ -56,7 +47,7 @@ class CongvandenController extends Controller
        
         // return redirect()->route('pages.index')
         //                 ->with('success','Pages created successfully');
-        $pages = new Pages;
+        $pages = new tbl_congvanden;
         $pages->page_name=$request->page_name;
         $pages->page_title = $request->page_name;
         $pages->meta_title = $request->meta_title;
@@ -65,8 +56,6 @@ class CongvandenController extends Controller
         $pages->is_active = $request->is_active;
         $pages->page_detail = $request->page_detail;
         
-        
-        // 'page_name', 'page_title', 'page_detail', 'meta_title', 'meta_keyword', 'meta_description', 'is_active', 'created_at', 'updated_at'
         $pages->save();
         return redirect('pages/congvanden/danhsach')->with('thongbao','Added successfully');
     }
@@ -79,7 +68,7 @@ class CongvandenController extends Controller
 			'meta_title' => 'required',
         ]);
         // Pages::find($id)->update($request->all());
-        $pages = Pages::find($id);
+        $pages = tbl_congvanden::find($id);
         $pages->page_name=$request->page_name;
         $pages->page_title = $request->page_name;
         $pages->meta_title = $request->meta_title;

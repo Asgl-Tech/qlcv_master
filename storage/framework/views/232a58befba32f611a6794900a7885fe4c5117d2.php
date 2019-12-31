@@ -140,7 +140,7 @@
                         <a class="dropdown-item" href="<?php echo e(URL ('changepassword')); ?>"><i class="dropdown-icon icmn-circle-right"></i> Change Password</a>
                         <!--<a class="dropdown-item" href="javascript:void(0)"><i class="dropdown-icon icmn-circle-right"></i> Support Ticket</a>-->
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?php echo e(url('/main/logout')); ?>"><i class="dropdown-icon icmn-exit"></i> Logout</a>
+                        <a class="dropdown-item" href="dangxuat"><i class="dropdown-icon icmn-exit"></i> Logout</a>
                     </ul>
                 </div>
             </div>

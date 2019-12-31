@@ -7,13 +7,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Pages;
+use App\tbl_congvanden;
 class LoginController extends Controller
 {
     public function getDangNhap(){
         if(Auth::check()){
-            $pages = Pages::all();            
-            return view('pages.congvanden.danhsach', ['pages' => $pages]);
-            // return view('page.danhsach', ['pages' => $pages]);
+            $pages = tbl_congvanden::all();            
+            // return view('pages.congvanden.danhsach', ['Pages' => $pages]);
+            return view('congvanden.index', ['Pages' => $pages]);
         }
         return view('Auth.login');
     }
@@ -34,7 +35,7 @@ class LoginController extends Controller
     	//đoạn này login theo form người dùng
     	if(Auth::attempt(['email'=>$email,'password'=>$password])){
            // return view('pages.index',['user'=>Auth::user()]);
-            $pages = Pages::all();
+            $pages = tbl_congvanden::all();
             //return redirect('pages/index')->with('thongbao','Đã thêm thành công');
             // return view('pages/index', ['pages' => $pages]);
             //return view('pages.index', ['pages' => $pages]);

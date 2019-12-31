@@ -17,63 +17,46 @@
 	
 	
 	<div class="card-body">
-		 {{-- @if ($message = Session::get('error'))
+		 @if ($thongbao = Session::get('error'))
 			<div class="alert alert-danger" role="alert" id="id">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <strong>Oh snap! </strong> {{ $message }}
+                <strong>Oh snap! </strong> {{ $thongbao }}
             </div>
 		@endif
-		 @if ($message = Session::get('success'))
+		 @if ($thongbao = Session::get('thongbao'))
 			<div class="alert alert-success" role="alert" id="id">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <strong>Well done! </strong> {{ $message }} !
+                <strong>Well done! </strong> {{ $thongbao }} !
             </div>
-        @endif --}}
-        @if (session('thongbao'))
-            <div class="alert alert-success">{{session('thongbao')}}</div>
         @endif
+        <!-- @if (session('thongbao'))
+            <div class="alert alert-success">{{session('thongbao')}}</div>
+        @endif -->
         <table class="table table-hover nowrap" id="example1" width="100%">
             <thead class="thead-default">
-            <tr style="text-align: center;">
+            <tr >
                 <th>ID</th>
-                <th>Page Name</th>
-                <th>Page Title</th>
-                <th>Meta Title</th>
-                <th>Created</th>
+                <th>Số/Ký hiệu</th>
+                <th>Ngày phát hành</th>
+                <th>Trích yếu nội dung</th>
                 <th>Action</th>
             </tr>
             </thead>
-            {{-- <tfoot>
-            <tr style="text-align: center;">
-                <th>ID</th>
-                <th>Page Name</th>
-                <th>Page Title</th>
-                <th>Meta Title</th>
-                <th>Created</th>
-                <th>Action</th>
-            </tr>
-            </tfoot> --}}
             <tbody>
-			@foreach($pages as $page)
+			@foreach($Pages as $page)
             <tr>
-                <td>{{ $page->page_id }}</td>
-                <td>{{ $page->page_name }}</td>
-                <td>{{ $page->page_title }}</td>
-                <td>{{ $page->meta_title }}</td>
-                <td>{{ $page->created_at->format('d-M-Y') }}</td>
+                <td>{{ $page->id }}</td>
+                <td>{{ $page->KyHieu }}</td>
+                <td>{{ $page->NgayPhatHanh }}</td>
+                <td>{{ $page->TrichYeu }}</td>
                <td style="width:250px;">
                      <a href=""><i class="fa fa-eye"></i> View</a>
-                     {{-- href="pages/edit/{{$tl->id}}" --}}
-                     <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a  href="edit/{{$page->page_id}}"> Sửa</a>
-                    
-                     <i class="fa fa-delete  fa-fw"></i><a href="destroy/{{$page->page_id}}"> Delete</a>
-                   {{-- {!! Form::open(['method' => 'POST','action' => ['pages.congvanden.destroy', $page->page_id],'style'=>'display:inline','role'=>'form','onsubmit' => 'return confirm("Do you want to delete this ?")']) !!}
-					{!! Form::submit('Remove', ['class' => 'btn btn-danger btn-sm']) !!}
-					{!! Form::close() !!} --}}
+                     <a  href="edit/{{$page->id}}"><i class="fa fa-pencil-square-o" style="margin-left:6px;margin-right:6px;"></i>Sửa</a>                   
+                     <a href="destroy/{{$page->id}}"> <i class="fa fa-trash fa-fw"></i>Delete</a>
                 </td>
             </tr>
 			@endforeach
