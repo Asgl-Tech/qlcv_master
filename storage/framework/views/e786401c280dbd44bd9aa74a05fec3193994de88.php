@@ -8,7 +8,7 @@
 <section class="card">
     <div class="card-header">
         <div class="dropdown pull-right">
-           <a href="<?php echo e(url('pages/create')); ?>" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Add &nbsp; &nbsp;</a>
+           <a href="them" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Add &nbsp; &nbsp;</a>
        </div>
         <span class="cat__core__title">
             <strong>Pages List</strong>
@@ -17,23 +17,26 @@
 	
 	
 	<div class="card-body">
-		 <?php if($message = Session::get('error')): ?>
+		  <?php if($thongbao = Session::get('error')): ?>
 			<div class="alert alert-danger" role="alert" id="id">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <strong>Oh snap! </strong> <?php echo e($message); ?>
+                <strong>Oh snap! </strong> <?php echo e($thongbao); ?>
 
             </div>
 		<?php endif; ?>
-		 <?php if($message = Session::get('success')): ?>
+		 <?php if($thongbao = Session::get('thongbao')): ?>
 			<div class="alert alert-success" role="alert" id="id">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <strong>Well done! </strong> <?php echo e($message); ?> !
+                <strong>Well done! </strong> <?php echo e($thongbao); ?> !
             </div>
-		<?php endif; ?>
+        <?php endif; ?>
+        <!-- <?php if(session('thongbao')): ?>
+            <div class="alert alert-success"><?php echo e(session('thongbao')); ?></div>
+        <?php endif; ?> -->
         <table class="table table-hover nowrap" id="example1" width="100%">
             <thead class="thead-default">
             <tr style="text-align: center;">
@@ -56,17 +59,11 @@
                 <td><?php echo e($page->created_at->format('d-M-Y')); ?></td>
                <td style="width:250px;">
                      <a href=""><i class="fa fa-eye"></i> View</a>
-                    <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a href="href="<?php echo e(route('pages.edit',$page->page_id )); ?>"> Sửa</a>
+                     
+                     <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a  href="edit/<?php echo e($page->page_id); ?>"> Sửa</a>
                     
-                    <!-- <a href="<?php echo e(route('pages.edit',$page->page_id )); ?>" class="btn btn-info btn-sm" ><i class="fa fa-eye fa-1x"></i></a>
-                    <a href="<?php echo e(route('pages.edit',$page->page_id )); ?>" class="btn btn-info btn-sm" style="margin-left:4px;margin-right:4px;"> Edit</a> -->
-                    
-                   <?php echo Form::open(['method' => 'DELETE','route' => ['pages.destroy', $page->page_id],'style'=>'display:inline','role'=>'form','onsubmit' => 'return confirm("Do you want to delete this ?")']); ?>
-
-					<?php echo Form::submit('Remove', ['class' => 'btn btn-danger btn-sm']); ?>
-
-					<?php echo Form::close(); ?>
-
+                     <i class="fa fa-delete  fa-fw"></i><a href="destroy/<?php echo e($page->page_id); ?>"> Delete</a>
+                   
                 </td>
             </tr>
 			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

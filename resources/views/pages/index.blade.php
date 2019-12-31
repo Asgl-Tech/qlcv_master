@@ -17,25 +17,25 @@
 	
 	
 	<div class="card-body">
-		 {{-- @if ($message = Session::get('error'))
+		  @if ($thongbao = Session::get('error'))
 			<div class="alert alert-danger" role="alert" id="id">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <strong>Oh snap! </strong> {{ $message }}
+                <strong>Oh snap! </strong> {{ $thongbao }}
             </div>
 		@endif
-		 @if ($message = Session::get('success'))
+		 @if ($thongbao = Session::get('thongbao'))
 			<div class="alert alert-success" role="alert" id="id">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <strong>Well done! </strong> {{ $message }} !
+                <strong>Well done! </strong> {{ $thongbao }} !
             </div>
-        @endif --}}
-        @if (session('thongbao'))
-            <div class="alert alert-success">{{session('thongbao')}}</div>
         @endif
+        <!-- @if (session('thongbao'))
+            <div class="alert alert-success">{{session('thongbao')}}</div>
+        @endif -->
         <table class="table table-hover nowrap" id="example1" width="100%">
             <thead class="thead-default">
             <tr style="text-align: center;">

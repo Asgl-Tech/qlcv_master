@@ -8,16 +8,16 @@
 <section class="card">
     <div class="card-header">
         <div class="dropdown pull-right">
-           <a href="{{ url('congvanden/create')}}" class="btn btn-info btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Thêm &nbsp; &nbsp;</a>
+           <a href="them" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Add &nbsp; &nbsp;</a>
        </div>
         <span class="cat__core__title">
-            <strong>Công văn đến</strong>
+            <strong>Pages List</strong>
         </span>
     </div>
 	
 	
 	<div class="card-body">
-		 @if ($message = Session::get('error'))
+		 {{-- @if ($message = Session::get('error'))
 			<div class="alert alert-danger" role="alert" id="id">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -32,10 +32,13 @@
                 </button>
                 <strong>Well done! </strong> {{ $message }} !
             </div>
-		@endif
+        @endif --}}
+        @if (session('thongbao'))
+            <div class="alert alert-success">{{session('thongbao')}}</div>
+        @endif
         <table class="table table-hover nowrap" id="example1" width="100%">
             <thead class="thead-default">
-            <tr>
+            <tr style="text-align: center;">
                 <th>ID</th>
                 <th>Page Name</th>
                 <th>Page Title</th>
@@ -44,9 +47,18 @@
                 <th>Action</th>
             </tr>
             </thead>
-
+            {{-- <tfoot>
+            <tr style="text-align: center;">
+                <th>ID</th>
+                <th>Page Name</th>
+                <th>Page Title</th>
+                <th>Meta Title</th>
+                <th>Created</th>
+                <th>Action</th>
+            </tr>
+            </tfoot> --}}
             <tbody>
-			@foreach($congvanden as $page)
+			@foreach($pages as $page)
             <tr>
                 <td>{{ $page->page_id }}</td>
                 <td>{{ $page->page_name }}</td>
@@ -54,12 +66,14 @@
                 <td>{{ $page->meta_title }}</td>
                 <td>{{ $page->created_at->format('d-M-Y') }}</td>
                <td style="width:250px;">
-                    <a href="{{ route('congvanden.edit',$page->page_id ) }}" class="btn btn-info btn-sm" ><i class="fa fa-eye fa-1x"></i> View</a>
-                    <a href="{{ route('congvanden.edit',$page->page_id ) }}" class="btn btn-info btn-sm" style="margin-left:4px;margin-right:4px;"><i class="fa fa-eye fa-1x"></i> Edit</a>
+                     <a href=""><i class="fa fa-eye"></i> View</a>
+                     {{-- href="pages/edit/{{$tl->id}}" --}}
+                     <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a  href="edit/{{$page->page_id}}"> Sửa</a>
                     
-                   {!! Form::open(['method' => 'DELETE','route' => ['pages.destroy', $page->page_id],'style'=>'display:inline','role'=>'form','onsubmit' => 'return confirm("Do you want to delete this ?")']) !!}
+                     <i class="fa fa-delete  fa-fw"></i><a href="destroy/{{$page->page_id}}"> Delete</a>
+                   {{-- {!! Form::open(['method' => 'POST','action' => ['pages.congvanden.destroy', $page->page_id],'style'=>'display:inline','role'=>'form','onsubmit' => 'return confirm("Do you want to delete this ?")']) !!}
 					{!! Form::submit('Remove', ['class' => 'btn btn-danger btn-sm']) !!}
-					{!! Form::close() !!}
+					{!! Form::close() !!} --}}
                 </td>
             </tr>
 			@endforeach
@@ -87,7 +101,7 @@
 <!-- END: page scripts -->
 <!-- END: page scripts -->
 <!-- START: page scripts -->
-<script>
+{{-- <script>
     $( function() {
 		$("#m_section_name").html("Pages");
         ///////////////////////////////////////////////////////////
@@ -164,6 +178,6 @@
         }
 
     } );
-</script>
+</script> --}}
 <!-- END: page scripts -->
-@include('components/footer')
+{{-- @include('components/footer') --}}

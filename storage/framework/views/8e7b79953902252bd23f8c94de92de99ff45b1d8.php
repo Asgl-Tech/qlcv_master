@@ -1,35 +1,33 @@
-@section('title', 'Add Pages')
-@include('main')
-@include('components/mainmenu')
-{{-- @include('components/breadcrumb') --}}
+<?php $__env->startSection('title', 'Add Pages'); ?>
+<?php echo $__env->make('main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('components/mainmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
 <div class="cat__content">
 
 <!-- START: ecommerce/Pages-edit -->
 <section class="card">
    <div class="card-header">
-        {{-- <div class="dropdown pull-right">
-           <a href="{{ url('pages/create')}}" class="btn btn-success "><i class="fa fa-plus"></i>&nbsp; &nbsp; Add Page &nbsp; &nbsp;</a>
-       </div> --}}
+        
         <span class="cat__core__title">
             <strong>Add Pages</strong>
         </span>
     </div>
     <div class="card-body">
         <div class="row">
-			@if (count($errors) > 0)
+			<?php if(count($errors) > 0): ?>
 				<div class="alert alert-danger">
 					<strong>Whoops!</strong> There were some problems with your input.<br><br>
 					<ul>
-						@foreach ($errors->all() as $error)
-							<li>{{ $error }}</li>
-						@endforeach
+						<?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+							<li><?php echo e($error); ?></li>
+						<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 					</ul>
 				</div>
-			@endif
+			<?php endif; ?>
             <div class="col-lg-12">
-             {{-- {!! Form::open(array('action' => 'them','method'=>'POST', 'id'=>'form-validation', 'name'=>'form-validation')) !!} --}}
+             
              <form action="them" method="POST">    
-                <input type="hidden" name="_token" value="{{csrf_token()}}">               
+                <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">               
 				<div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
@@ -80,9 +78,9 @@
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary width-150" >Submit</button>
                     <button type="reset" class="btn btn-warning width-150" >Reset</button>
-                    <a href="{{ url('pages')}}"  class="btn btn-default">Cancel</a>
+                    <a href="<?php echo e(url('pages')); ?>"  class="btn btn-default">Cancel</a>
                 </div>
-            {{-- {!! Form::close() !!} --}}
+            
              </form>
             </div>
  
@@ -209,4 +207,4 @@
     });
 </script>
 <!-- END: page scripts -->
-@include('components/footer')
+<?php echo $__env->make('components/footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
