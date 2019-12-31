@@ -22,5 +22,16 @@ Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () 
             Route::get('domat_list', 'DoMatController@getDoMat');
             Route::post('domat_edit', 'DoMatController@posDoMat');
         });
+});
+    // tung add controler cong van di
+    Route::group(['prefix'=>'pages','middleware'=> 'MyMiddleware'],function() {
+        Route::group(['prefix' => 'congvandi'], function () {
+            Route::get('danhsach', 'CongvandiController@pages_index');
+            Route::get('edit/{id}', 'CongvandiController@getEdit');
+            Route::post('edit/{id}', 'CongvandiController@postEdit');
+            Route::get('destroy/{id}', 'CongvandiController@getDestroy');
+            Route::get('them', 'CongvandiController@getThem');
+            Route::post('them', 'CongvandiController@postThem');
+        });
     });
 });
