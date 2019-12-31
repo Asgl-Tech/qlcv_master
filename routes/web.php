@@ -16,7 +16,7 @@ Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () 
     // localhost:8080/qlcv/public/pages/danhmuc/dokhan/dokhan_list
     Route::group(['prefix' => 'danhmuc'], function () {
         Route::group(['prefix' => 'dokhan'], function () {
-            Route::get('dokhan_list', 'DoKhanController@getDoKhan');
+            Route::get('dokhan_list', 'DoKhanController@getDoKhan')->name('dokhan_list');
             Route::post('dokhan_edit', 'DoKhanController@postDoKhan');
         });
         Route::group(['prefix' => 'domat'], function () {
