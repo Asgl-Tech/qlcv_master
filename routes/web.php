@@ -15,7 +15,8 @@
 //     return view('/login');
 // });
 // Auth::routes();
-Route::get('dangnhap', 'LoginController@getDangNhap');
+
+Route::get('/', 'LoginController@getDangNhap');
 Route::post('dangnhap', 'LoginController@postDangNhap');
 Route::get('dangxuat','LoginController@dangxuat');
 // Route::get('pages','PagesController@pages_index');//->middleware('MyMiddleware');
@@ -42,14 +43,25 @@ Route::get('dangxuat','LoginController@dangxuat');
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
+Route::group(['prefix'=>'pages','middleware'=> 'MyMiddleware'],function() {
+    Route::group(['prefix' => 'congvanden'], function () {
+        Route::get('danhsach', 'PagesController@pages_index');
+        Route::get('edit/{id}', 'PagesController@getEdit');
+        Route::post('edit/{id}', 'PagesController@postEdit');
+        Route::get('destroy/{id}', 'PagesController@getDestroy');
+        Route::get('them', 'PagesController@getThem');
+        Route::post('them', 'PagesController@postThem');
+
+    });
+});
 Route::group(['prefix'=>'pages','middleware'=> 'MyMiddleware'],function(){
-    Route::group(['prefix'=>'congvanden'],function(){
-        Route::get('danhsach','PagesController@pages_index');
-        Route::get('edit/{id}','PagesController@getEdit');
-        Route::post('edit/{id}','PagesController@postEdit');
-        Route::get('destroy/{id}','PagesController@getDestroy');
-        Route::get('them','PagesController@getThem');        
-		Route::post('them','PagesController@postThem');
+    Route::group(['prefix'=>'congvandi'],function(){
+        Route::get('danhsach','CongvandiController@pages_index');
+        Route::get('edit/{id}','CongvandiController@getEdit');
+        Route::post('edit/{id}','CongvandiController@postEdit');
+        Route::get('destroy/{id}','CongvandiController@getDestroy');
+        Route::get('them','CongvandiController@getThem');
+        Route::post('them','CongvandiController@postThem');
 
     });
 
