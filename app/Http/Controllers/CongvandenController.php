@@ -6,6 +6,14 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Pages;
 use App\tbl_congvanden;
+use App\Loaicongvan;
+use App\Noiphathanh;
+use App\Theloaicongvan;
+use App\Linhvuc;
+use App\DokhanModel;
+use App\DomatModel;
+use App\PhongbanModel;
+use App\NoiluuModel;
 use Illuminate\Support\Facades\Auth;
 class CongvandenController extends Controller
 {
@@ -34,19 +42,25 @@ class CongvandenController extends Controller
     }
     public function getThem(){
         // echo 'xin chào';
-        return view ('congvanden.create');
+        $loaicongvan = Loaicongvan::all();
+        $noiphathanh = Noiphathanh::all();
+        $theloaicongvan = Theloaicongvan::all();
+        $linhvuc = Linhvuc::all();
+        $domat = DomatModel::all();
+        $dokhan = DokhanModel::all();
+        $phongban = PhongbanModel::all();
+        $noiluucv = NoiluuModel::all();
+
+        return view ('congvanden.create',['Loaicongvan' => $loaicongvan,'Noiphathanh' => $noiphathanh,'Theloaicongvan' => $theloaicongvan,'Theloaicongvan' => $theloaicongvan,'linhvuc' => $linhvuc,'domat' => $domat,'dokhan' => $dokhan,'phongban' => $phongban,'noiluu' => $noiluucv]);
     }
      public function postThem(Request $request)
     {
-        $this->validate($request, [
-            'page_name' => 'required',
-            'page_title' => 'required',
-			'meta_title' => 'required',
-        ]);
-        // Pages::create($request->all());
+        // $this->validate($request, [
+        //     'page_name' => 'required',
+        //     'page_title' => 'required',
+		// 	'meta_title' => 'required',
+        // ]);
        
-        // return redirect()->route('pages.index')
-        //                 ->with('success','Pages created successfully');
         $pages = new tbl_congvanden;
         $pages->page_name=$request->page_name;
         $pages->page_title = $request->page_name;

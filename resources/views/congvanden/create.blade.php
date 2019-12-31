@@ -7,11 +7,8 @@
 <!-- START: ecommerce/Pages-edit -->
 <section class="card">
    <div class="card-header">
-        {{-- <div class="dropdown pull-right">
-           <a href="{{ url('pages/create')}}" class="btn btn-success "><i class="fa fa-plus"></i>&nbsp; &nbsp; Add Page &nbsp; &nbsp;</a>
-       </div> --}}
         <span class="cat__core__title">
-            <strong>Add Pages</strong>
+            <strong>Thêm công văn</strong>
         </span>
     </div>
     <div class="card-body">
@@ -34,7 +31,10 @@
                         <div class="form-group">
                             <label>Loại công văn</label>
                                 <select class="form-control" id="idLoaicongvan" name="Loaicongvan">                               
-                                    <option value="">select</option>                                                       
+                                    <!-- <option value="">select</option>                                                        -->
+                                    @foreach($Loaicongvan as $lcv)
+                                    <option value="{{$lcv->id}}">{{$lcv->TenLoaiCV}}</option>  
+                                    @endforeach
                             </select>
                         </div>
                     </div>
@@ -50,7 +50,9 @@
                         <div class="form-group">
                             <label>Nơi phát hành: </label>
                                 <select class="form-control" id="idNoiPhathanh" name="NoiPhathanh">                               
-                                    <option value="">select</option>                                                       
+                                    @foreach($Noiphathanh as $nph)
+                                        <option value="{{$nph->id}}">{{$nph->TenCoQuan}}</option>  
+                                    @endforeach                                                      
                                 </select>
                         </div>
                     </div> 
@@ -96,7 +98,9 @@
                         <div class="form-group">
                             <label>Thể loại công văn</label>
                                 <select class="form-control" id="idTheLoaicongvan" name="TheLoaicongvan">                               
-                                    <option value="">select</option>                                                       
+                                    @foreach($Theloaicongvan as $tl)
+                                        <option value="{{$tl->id}}">{{$tl->TenTheLoai}}</option>  
+                                    @endforeach                                                        
                             </select>
                         </div>
                     </div>
@@ -104,7 +108,9 @@
                         <div class="form-group">
                         <label>Lĩnh vực: </label>
                                 <select class="form-control" id="idLinhvuc" name="Linhvuc">                               
-                                    <option value="">select</option>                                                       
+                                    @foreach($linhvuc as $lv)
+                                        <option value="{{$lv->id}}">{{$lv->TenLinhVuc}}</option>  
+                                    @endforeach                                                       
                             </select>
                         </div>
                     </div>
@@ -112,7 +118,9 @@
                         <div class="form-group">
                             <label>Độ mật: </label>
                                 <select class="form-control" id="idDomat" name="Domat">                               
-                                    <option value="">select</option>                                                       
+                                    @foreach($domat as $dm)
+                                        <option value="{{$dm->id}}">{{$dm->TenDoMat}}</option>  
+                                    @endforeach                                                        
                                 </select>
                         </div>
                     </div>
@@ -120,7 +128,9 @@
                         <div class="form-group">
                             <label>Độ khẩn: </label>
                                 <select class="form-control" id="idDokhan" name="Dokhan">                               
-                                    <option value="">select</option>                                                       
+                                    @foreach($dokhan as $dk)
+                                        <option value="{{$dk->id}}">{{$dk->TenDoKhan}}</option>  
+                                    @endforeach                                                        
                                 </select>
                         </div>
                     </div> 
@@ -180,7 +190,9 @@
                         <div class="form-group">
                             <label>Phòng xử lý</label>
                                 <select class="form-control" id="idPhongbanxuly" name="Phongbanxuly">                               
-                                    <option value="">select</option>                                                       
+                                    @foreach($phongban as $pb)
+                                        <option value="{{$pb->id}}">{{$pb->TenPhong}}</option>  
+                                    @endforeach                                                       
                             </select>
                         </div>
                     </div>
@@ -188,7 +200,9 @@
                         <div class="form-group">
                         <label>Nơi lưu: </label>
                                 <select class="form-control" id="idNoiluu" name="Noiluu">                               
-                                    <option value="">select</option>                                                       
+                                    @foreach($noiluu as $luucv)
+                                        <option value="{{$luucv->id}}">{{$luucv->TenNoiLuu}}</option>  
+                                    @endforeach                                                       
                             </select>
                         </div>
                     </div>

@@ -45,6 +45,20 @@
                 <span class="cat__menu-left__icon icmn-file-text2"></span>
                     Công văn đi
                 </a>
+                <ul class="cat__menu-left__list">
+                    <li class="cat__menu-left__item">
+                        <a href="<?php echo e(url('congvanden')); ?>">
+                            <span class="cat__menu-left__icon icmn-file-text2"></span>
+                            Danh sách
+                        </a>
+                    </li>
+                    <li class="cat__menu-left__item">
+                        <a href="<?php echo e(url('congvanden/create')); ?>">
+                            <span class="cat__menu-left__icon fa fa-plus"></span>
+                            Thêm mới
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li class="cat__menu-left__item cat__menu-left__submenu">
                 <a href="javascript: void(0);">

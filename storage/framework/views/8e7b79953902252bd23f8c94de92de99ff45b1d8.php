@@ -7,9 +7,8 @@
 <!-- START: ecommerce/Pages-edit -->
 <section class="card">
    <div class="card-header">
-        
         <span class="cat__core__title">
-            <strong>Add Pages</strong>
+            <strong>Thêm công văn</strong>
         </span>
     </div>
     <div class="card-body">
@@ -32,7 +31,10 @@
                         <div class="form-group">
                             <label>Loại công văn</label>
                                 <select class="form-control" id="idLoaicongvan" name="Loaicongvan">                               
-                                    <option value="">select</option>                                                       
+                                    <!-- <option value="">select</option>                                                        -->
+                                    <?php $__currentLoopData = $Loaicongvan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lcv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($lcv->id); ?>"><?php echo e($lcv->TenLoaiCV); ?></option>  
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                         </div>
                     </div>
@@ -48,7 +50,9 @@
                         <div class="form-group">
                             <label>Nơi phát hành: </label>
                                 <select class="form-control" id="idNoiPhathanh" name="NoiPhathanh">                               
-                                    <option value="">select</option>                                                       
+                                    <?php $__currentLoopData = $Noiphathanh; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $nph): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($nph->id); ?>"><?php echo e($nph->TenCoQuan); ?></option>  
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                                      
                                 </select>
                         </div>
                     </div> 
@@ -94,7 +98,9 @@
                         <div class="form-group">
                             <label>Thể loại công văn</label>
                                 <select class="form-control" id="idTheLoaicongvan" name="TheLoaicongvan">                               
-                                    <option value="">select</option>                                                       
+                                    <?php $__currentLoopData = $Theloaicongvan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tl): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($tl->id); ?>"><?php echo e($tl->TenTheLoai); ?></option>  
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                                        
                             </select>
                         </div>
                     </div>
@@ -102,7 +108,9 @@
                         <div class="form-group">
                         <label>Lĩnh vực: </label>
                                 <select class="form-control" id="idLinhvuc" name="Linhvuc">                               
-                                    <option value="">select</option>                                                       
+                                    <?php $__currentLoopData = $linhvuc; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($lv->id); ?>"><?php echo e($lv->TenLinhVuc); ?></option>  
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                                       
                             </select>
                         </div>
                     </div>
@@ -110,7 +118,9 @@
                         <div class="form-group">
                             <label>Độ mật: </label>
                                 <select class="form-control" id="idDomat" name="Domat">                               
-                                    <option value="">select</option>                                                       
+                                    <?php $__currentLoopData = $domat; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dm): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($dm->id); ?>"><?php echo e($dm->TenDoMat); ?></option>  
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                                        
                                 </select>
                         </div>
                     </div>
@@ -118,7 +128,9 @@
                         <div class="form-group">
                             <label>Độ khẩn: </label>
                                 <select class="form-control" id="idDokhan" name="Dokhan">                               
-                                    <option value="">select</option>                                                       
+                                    <?php $__currentLoopData = $dokhan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($dk->id); ?>"><?php echo e($dk->TenDoKhan); ?></option>  
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                                        
                                 </select>
                         </div>
                     </div> 
@@ -178,7 +190,9 @@
                         <div class="form-group">
                             <label>Phòng xử lý</label>
                                 <select class="form-control" id="idPhongbanxuly" name="Phongbanxuly">                               
-                                    <option value="">select</option>                                                       
+                                    <?php $__currentLoopData = $phongban; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pb): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($pb->id); ?>"><?php echo e($pb->TenPhong); ?></option>  
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                                       
                             </select>
                         </div>
                     </div>
@@ -186,7 +200,9 @@
                         <div class="form-group">
                         <label>Nơi lưu: </label>
                                 <select class="form-control" id="idNoiluu" name="Noiluu">                               
-                                    <option value="">select</option>                                                       
+                                    <?php $__currentLoopData = $noiluu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $luucv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($luucv->id); ?>"><?php echo e($luucv->TenNoiLuu); ?></option>  
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                                       
                             </select>
                         </div>
                     </div>

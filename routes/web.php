@@ -2,6 +2,7 @@
 Route::get('dangnhap', 'LoginController@getDangNhap');
 Route::post('dangnhap', 'LoginController@postDangNhap');
 Route::get('dangxuat', 'LoginController@dangxuat');
+//Tân controller congvanden
 Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () {
     Route::group(['prefix' => 'congvanden'], function () {
         Route::get('danhsach', 'CongvandenController@pages_index');
