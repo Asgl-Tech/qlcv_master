@@ -17,12 +17,37 @@ Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () 
     Route::group(['prefix' => 'danhmuc'], function () {
         Route::group(['prefix' => 'dokhan'], function () {
             Route::get('dokhan_list', 'DoKhanController@getDoKhan');
-            Route::post('dokhan_edit', 'DoKhanController@posDoKhan');
+            Route::post('dokhan_edit', 'DoKhanController@postDoKhan');
         });
         Route::group(['prefix' => 'domat'], function () {
             Route::get('domat_list', 'DoMatController@getDoMat');
-            Route::post('domat_edit', 'DoMatController@posDoMat');
+            Route::post('domat_edit', 'DoMatController@postDoMat');
         });
+        Route::group(['prefix' => 'coquan'], function () {
+            Route::get('coquan_list', 'CoQuanController@getCoQuan');
+            Route::post('coquan_edit', 'CoQuanController@postCoQuan');
+        });
+        Route::group(['prefix' => 'linhvuc'], function () {
+            Route::get('linhvuc_list', 'LinhVucController@getLinhVuc');
+            Route::post('linhvuc_edit', 'LinhVucController@postLinhVuc');
+        });
+        Route::group(['prefix' => 'loaicv'], function () {
+            Route::get('loaicv_list', 'LoaiCvController@getLoaiCv');
+            Route::post('loaicv_edit', 'LoaiCvController@postLoaiCv');
+        });
+        Route::group(['prefix' => 'nguoiky'], function () {
+            Route::get('nguoiky_list', 'NguoiKyController@getNguoiKy');
+            Route::post('nguoiky_edit', 'NguoiKyController@postNguoiKy');
+        });
+        Route::group(['prefix' => 'phongban'], function () {
+            Route::get('phongban_list', 'PhongBanController@getPhongBan');
+            Route::post('phongban_edit', 'PhongBanController@postPhongBan');
+        });
+        Route::group(['prefix' => 'theloaicv'], function () {
+            Route::get('theloaicv_list', 'TheLoaiCvController@getTheLoaiCv');
+            Route::post('theloaicv_edit', 'TheLoaiCvController@postTheLoaiCv');
+        });
+
 });
     // tung add controler cong van di
     Route::group(['prefix'=>'pages','middleware'=> 'MyMiddleware'],function() {
