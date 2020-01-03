@@ -44,7 +44,7 @@
                         </a>
                     </li>
                     <li class="cat__menu-left__item">
-                        <a href="pages/danhmuc/dokhan/domat_list">
+                        <a href="pages/danhmuc/domat/domat_list">
                             1.4. Độ mật
                         </a>
                     </li>

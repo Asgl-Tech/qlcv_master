@@ -15,14 +15,33 @@ Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () 
     // hello các em, phần route danh mục anh Huy nhé
     // localhost:8080/qlcv/public/pages/danhmuc/dokhan/dokhan_list
     Route::group(['prefix' => 'danhmuc'], function () {
+        // độ khẩn
         Route::group(['prefix' => 'dokhan'], function () {
             Route::get('dokhan_list', 'DoKhanController@getDoKhan');
-            Route::post('dokhan_edit', 'DoKhanController@postDoKhan');
+
+            Route::get('dokhan_add', 'DoKhanController@getDoKhan_Add');
+            Route::post('dokhan_add', 'DoKhanController@postDoKhan_Add');
+
+            Route::get('dokhan_edit/{id}', 'DoKhanController@getDoKhan_Edit');
+            Route::post('dokhan_edit/{id}', 'DoKhanController@postDoKhan_Edit');
+
+            Route::get('dokhan_del/{id}','DoKhanController@getDoKhan_Del');
         });
+        // localhost:8080/qlcv/public/pages/danhmuc/domat/domat_list
+        // độ mật
         Route::group(['prefix' => 'domat'], function () {
             Route::get('domat_list', 'DoMatController@getDoMat');
-            Route::post('domat_edit', 'DoMatController@postDoMat');
+
+            Route::get('domat_add', 'DoMatController@getDoMat_Add');
+            Route::post('domat_add', 'DoMatController@postDoMat_Add');
+
+            Route::get('domat_edit/{id}', 'DoMatController@getDoMat_Edit');
+            Route::post('domat_edit/{id}', 'DoMatController@postDoMat_Edit');
+
+            Route::get('domat_del/{id}','DoMatController@getDoMat_Del');
         });
+        //-----------------------------------------------------------
+
         Route::group(['prefix' => 'coquan'], function () {
             Route::get('coquan_list', 'CoQuanController@getCoQuan');
             Route::post('coquan_edit', 'CoQuanController@postCoQuan');

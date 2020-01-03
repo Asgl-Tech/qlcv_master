@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-@section('title', 'Update Pages')
+@section('title', 'Edit Pages')
 @include('main')
 @include('components/mainmenu')
 {{-- @include('components/breadcrumb') --}}
@@ -9,80 +8,47 @@
     <section class="card">
         <div class="card-header">
             {{-- <div class="dropdown pull-right">
-               <a href="{{ url('pages/create')}}" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp; &nbsp; Add Page &nbsp; &nbsp;</a>
+               <a href="{{ url('pages/create')}}" class="btn btn-success "><i class="fa fa-plus"></i>&nbsp; &nbsp; Add Page &nbsp; &nbsp;</a>
            </div> --}}
             <span class="cat__core__title">
-            <strong>Edit {{$pages->page_name}}</strong>
+            <strong>Chỉnh sửa</strong>
         </span>
         </div>
         <div class="card-body">
             <div class="row">
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                @if(session('thongbao'))
+                    <div class="alert alert-success">
+                        {{session('thongbao')}}
+                    </div>
+                @endif
                 <div class="col-lg-12">
-                    @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    {{-- {!! Form::model($pages, ['method' => 'PATCH', 'id'=>'form-validation', 'name'=>'form-validation', 'route' => ['pages.update', $pages->page_id]]) !!} --}}
-                    <form action="{{$pages->page_id}}" method="POST">
+                    <form action="pages/danhmuc/dokhan/dokhan_edit/{{$doKhan->id}}" method="POST">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="validation-pagename">Page Name <span style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                                    <input id="validation-pagename" class="form-control"  placeholder="Page Name"   name="page_name" value="{{ $pages->page_name}}"  type="text" data-validation="[NOTEMPTY]" data-validation-message="Page Name must not be empty!">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="pagetitle">Page Title <span style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                                    <input id="validation-pagetitle" class="form-control"  placeholder="Page Title" value="{{ $pages->page_title}}"   name="page_title"  type="text" data-validation="[NOTEMPTY]" data-validation-message="Page Title must not be empty!">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-control-label">Page Detail</label>
-                            <textarea class="summernote" rows="4" id="l15" name="page_detail" placeholder="Page Detail">{{ $pages->page_detail}}</textarea>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="validation-metatitle">Meta Title <span style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                                    <input id="validation-metatitle" class="form-control"  placeholder="Meta Title"  value="{{ $pages->meta_title}}"   name="meta_title"  type="text" data-validation="[NOTEMPTY]" data-validation-message="Meta Title must not be empty!">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="validation-metatitle" style="margin-top:9px;">Meta Keyword</label>
-                                    <input class="form-control"  placeholder="Meta Keyword"   name="meta_keyword" value="{{ $pages->meta_keyword}}"  type="text" >
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="metadescription">Meta Description</label>
-                                    <textarea  rows="4" class="form-control"  placeholder="Meta Description" name="meta_description"  type="text" >{{ $pages->meta_description}}</textarea>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label class="form-control-label">Is active &nbsp; &nbsp; &nbsp; &nbsp;</label>
-                                    <input type="checkbox" name="is_active" checked value="1" >
+                                    <label for="validation-pagename">Độ khẩn <span
+                                                style="color:red; font-weight:900; font-size:20px;">*</span></label>
+                                    <input value="{{$doKhan->TenDoKhan}}" id="validation-pagename" class="form-control" placeholder="Độ khẩn"
+                                           name="txtTenDoKhan" type="text" data-validation="[NOTEMPTY]"
+                                           data-validation-message="Page Name must not be empty!">
                                 </div>
                             </div>
                         </div>
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-primary width-150">Submit</button>
-                            <button type="reset" class="btn btn-warning width-150" >Reset</button>
-                            <a href="{{ url('pages')}}"  class="btn btn-default">Cancel</a>
+                            <button type="submit" class="btn btn-primary width-150">Sửa</button>
+                            <a href="pages/danhmuc/dokhan/dokhan_list" class="btn btn-danger">Hủy bỏ</a>
                         </div>
-                        {{-- {!! Form::close() !!} --}}
                     </form>
                 </div>
 
@@ -94,7 +60,7 @@
 
     <!-- START: page scripts -->
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('.summernote').summernote();
         });
     </script>
@@ -103,7 +69,7 @@
 
             // Datatables
             $('#example1').DataTable({
-                "lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25,50, 100, 200, "All"]],
+                "lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]],
                 responsive: true,
                 "autoWidth": false
             });
@@ -114,7 +80,7 @@
     <!-- END: page scripts -->
     <!-- START: page scripts -->
     <script>
-        $( function() {
+        $(function () {
             $("#m_section_name").html("Pages");
             ///////////////////////////////////////////////////////////
             // tooltips
@@ -158,7 +124,7 @@
                     ["", {
                         seriesBarDistance: 5,
                         axisX: {
-                            labelInterpolationFnc: function(value) {
+                            labelInterpolationFnc: function (value) {
                                 return value[0]
                             }
                         }
@@ -170,7 +136,7 @@
             ///////////////////////////////////////////////////////////
             // custom scroll
             if (!('ontouchstart' in document.documentElement) && jQuery().jScrollPane) {
-                $('.custom-scroll').each(function() {
+                $('.custom-scroll').each(function () {
                     $(this).jScrollPane({
                         contentWidth: '100%',
                         autoReinitialise: true,
@@ -178,9 +144,9 @@
                     });
                     var api = $(this).data('jsp'),
                         throttleTimeout;
-                    $(window).bind('resize', function() {
+                    $(window).bind('resize', function () {
                         if (!throttleTimeout) {
-                            throttleTimeout = setTimeout(function() {
+                            throttleTimeout = setTimeout(function () {
                                 api.reinitialise();
                                 throttleTimeout = null;
                             }, 50);
@@ -189,10 +155,10 @@
                 });
             }
 
-        } );
+        });
     </script>
     <script>
-        $(function() {
+        $(function () {
 
             // Form Validation
             $('#form-validation').validate({
@@ -210,6 +176,3 @@
     </script>
     <!-- END: page scripts -->
 @include('components/footer')
-=======
-<?php
->>>>>>> e54c62c58488a1a932e3b56fcaa1eaa3713f4f65
