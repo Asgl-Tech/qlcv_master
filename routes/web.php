@@ -17,7 +17,14 @@ Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () 
     Route::group(['prefix' => 'danhmuc'], function () {
         Route::group(['prefix' => 'dokhan'], function () {
             Route::get('dokhan_list', 'DoKhanController@getDoKhan');
-            Route::post('dokhan_edit', 'DoKhanController@postDoKhan');
+
+            Route::get('dokhan_add', 'DoKhanController@getDoKhan_Add');
+            Route::post('dokhan_add', 'DoKhanController@postDoKhan_Add');
+
+            Route::get('dokhan_edit/{id}', 'DoKhanController@getDoKhan_Edit');
+            Route::post('dokhan_edit/{id}', 'DoKhanController@postDoKhan_Edit');
+
+            Route::get('dokhan_del/{id}','DoKhanController@getDoKhan_Del');
         });
         Route::group(['prefix' => 'domat'], function () {
             Route::get('domat_list', 'DoMatController@getDoMat');
