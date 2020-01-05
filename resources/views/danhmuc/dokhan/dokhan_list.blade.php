@@ -8,55 +8,38 @@
     <section class="card">
         <div class="card-header">
             <div class="dropdown pull-right">
-                <a href="them" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Add &nbsp; &nbsp;</a>
+                <a href="pages/danhmuc/dokhan/dokhan_add" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Add &nbsp; &nbsp;</a>
             </div>
             <span class="cat__core__title">
-            <strong>Pages List</strong>
+            <strong>Danh mục độ khẩn</strong>
         </span>
         </div>
-
-
         <div class="card-body">
+            @if(session('thongbao'))
+                <div class="alert alert-success">
+                    {{session('thongbao')}}
+                </div>
+            @endif
             <table class="table table-hover nowrap" id="example1" width="100%">
                 <thead class="thead-default">
                 <tr style="text-align: center;">
                     <th>ID</th>
-                    <th>Page Name</th>
-                    <th>Page Title</th>
-                    <th>Meta Title</th>
-                    <th>Created</th>
-                    <th>Action</th>
+                    <th>Tên độ khẩn</th>
                 </tr>
                 </thead>
-                {{-- <tfoot>
-                <tr style="text-align: center;">
-                    <th>ID</th>
-                    <th>Page Name</th>
-                    <th>Page Title</th>
-                    <th>Meta Title</th>
-                    <th>Created</th>
-                    <th>Action</th>
-                </tr>
-                </tfoot> --}}
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td style="width:250px;">
-                            <a href=""><i class="fa fa-eye"></i> View</a>
-                            {{-- href="pages/edit/{{$tl->id}}" --}}
-                            <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a  href="edit/"> Sửa</a>
 
-                            <i class="fa fa-delete  fa-fw"></i><a href="destroy/"> Delete</a>
-                            {{-- {!! Form::open(['method' => 'POST','action' => ['pages.congvanden.destroy', $page->page_id],'style'=>'display:inline','role'=>'form','onsubmit' => 'return confirm("Do you want to delete this ?")']) !!}
-                             {!! Form::submit('Remove', ['class' => 'btn btn-danger btn-sm']) !!}
-                             {!! Form::close() !!} --}}
+                <tbody>
+                @foreach($dokhan as $dk)
+                    <tr>
+                        <td>{{$dk->id}}</td>
+                        <td>{{$dk->TenDoKhan}}</td>
+                        <td style="width:250px;">
+
+                            <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a  href="pages/danhmuc/dokhan/dokhan_edit/{{$dk->id}}"> Sửa</a>
+                            <i class="fa fa-delete  fa-fw"></i><a href="pages/danhmuc/dokhan/dokhan_del/{{$dk->id}}"> Xóa</a>
                         </td>
                     </tr>
-
+                @endforeach
                 </tbody>
             </table>
         </div>
