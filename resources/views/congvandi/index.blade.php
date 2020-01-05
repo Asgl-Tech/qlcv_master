@@ -11,7 +11,7 @@
            <a href="{{ url('congvanden/create')}}" class="btn btn-info btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Thêm &nbsp; &nbsp;</a>
        </div>
         <span class="cat__core__title">
-            <strong>Công văn đến</strong>
+            <strong>Công văn đi</strong>
         </span>
     </div>
 	
@@ -37,10 +37,9 @@
             <thead class="thead-default">
             <tr>
                 <th>ID</th>
-                <th>Page Name</th>
-                <th>Page Title</th>
-                <th>Meta Title</th>
-                <th>Created</th>
+                <th>Số/Ký hiệu</th>
+                <th>Ngày phát hành</th>
+                <th>Trích yếu nội dung</th>
                 <th>Action</th>
             </tr>
             </thead>

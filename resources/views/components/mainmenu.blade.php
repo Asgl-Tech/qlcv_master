@@ -101,13 +101,13 @@
                 </a>
                 <ul class="cat__menu-left__list">
                     <li class="cat__menu-left__item">
-                        <a href="{{ url('congvanden')}}">
+                        <a href="{{ url('pages/congvandi/danhsach')}}">
                             <span class="cat__menu-left__icon icmn-file-text2"></span>
                             Danh sách
                         </a>
                     </li>
                     <li class="cat__menu-left__item">
-                        <a href="{{ url('congvanden/create')}}">
+                        <a href="{{ url('pages/congvandi/create')}}">
                             <span class="cat__menu-left__icon fa fa-plus"></span>
                             Thêm mới
                         </a>
