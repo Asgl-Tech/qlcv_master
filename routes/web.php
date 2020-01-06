@@ -40,8 +40,20 @@ Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () 
 
             Route::get('domat_del/{id}','DoMatController@getDoMat_Del');
         });
-        //-----------------------------------------------------------
+        // localhost:8080/qlcv/public/pages/danhmuc/loaicv/loaicv_list
+        // Loại công văn: pages/danhmuc/loaicv/loaicv_list
+        Route::group(['prefix' => 'loaicv'], function () {
+            Route::get('loaicv_list', 'LoaiCongVanController@getLoaiCv');
 
+            Route::get('loaicv_add', 'LoaiCongVanController@getLoaiCv_Add');
+            Route::post('loaicv_add', 'LoaiCongVanController@postLoaiCv_Add');
+
+            Route::get('loaicv_edit/{id}', 'LoaiCongVanController@getLoaiCv_Edit');
+            Route::post('loaicv_edit/{id}', 'LoaiCongVanController@postLoaiCv_Edit');
+
+            Route::get('loaicv_del/{id}','LoaiCongVanController@getLoaiCv_Del');
+        });
+        //-----------------------------------------------------------
         Route::group(['prefix' => 'coquan'], function () {
             Route::get('coquan_list', 'CoQuanController@getCoQuan');
             Route::post('coquan_edit', 'CoQuanController@postCoQuan');
@@ -50,10 +62,7 @@ Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () 
             Route::get('linhvuc_list', 'LinhVucController@getLinhVuc');
             Route::post('linhvuc_edit', 'LinhVucController@postLinhVuc');
         });
-        Route::group(['prefix' => 'loaicv'], function () {
-            Route::get('loaicv_list', 'LoaiCvController@getLoaiCv');
-            Route::post('loaicv_edit', 'LoaiCvController@postLoaiCv');
-        });
+
         Route::group(['prefix' => 'nguoiky'], function () {
             Route::get('nguoiky_list', 'NguoiKyController@getNguoiKy');
             Route::post('nguoiky_edit', 'NguoiKyController@postNguoiKy');

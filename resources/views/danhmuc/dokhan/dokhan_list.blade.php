@@ -8,7 +8,7 @@
     <section class="card">
         <div class="card-header">
             <div class="dropdown pull-right">
-                <a href="pages/danhmuc/dokhan/dokhan_add" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Add &nbsp; &nbsp;</a>
+                <a href="pages/danhmuc/dokhan/dokhan_add" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Thêm &nbsp; &nbsp;</a>
             </div>
             <span class="cat__core__title">
             <strong>Danh mục độ khẩn</strong>

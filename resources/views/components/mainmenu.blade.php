@@ -29,17 +29,17 @@
                 </a>
                 <ul class="cat__menu-left__list">
                     <li class="cat__menu-left__item">
-                        <a href="pages/danhmuc/dokhan/loaicv_list">
+                        <a href="pages/danhmuc/loaicv/loaicv_list">
                             1.1. Loại công văn
                         </a>
                     </li>
                     <li class="cat__menu-left__item">
-                        <a href="pages/danhmuc/dokhan/theloaicv_list">
+                        <a href="pages/danhmuc/theloaicv/theloaicv_list">
                             1.2. Thể loại công văn
                         </a>
                     </li>
                     <li class="cat__menu-left__item">
-                        <a href="pages/danhmuc/dokhan/linhvuc_list">
+                        <a href="pages/danhmuc/linhvuc/linhvuc_list">
                             1.3. Lĩnh vực
                         </a>
                     </li>
@@ -54,17 +54,17 @@
                         </a>
                     </li>
                     <li class="cat__menu-left__item">
-                        <a href="pages/danhmuc/dokhan/nguoiky_list">
+                        <a href="pages/danhmuc/nguoiky/nguoiky_list">
                             1.6. Người ký
                         </a>
                     </li>
                     <li class="cat__menu-left__item">
-                        <a href="pages/danhmuc/dokhan/phongban_list">
+                        <a href="pages/danhmuc/phongban/phongban_list">
                             1.7. Phòng ban
                         </a>
                     </li>
                     <li class="cat__menu-left__item">
-                        <a href="pages/danhmuc/dokhan/coquan_list">
+                        <a href="pages/danhmuc/coquan/coquan_list">
                             1.8. Cơ quan
                         </a>
                     </li>
