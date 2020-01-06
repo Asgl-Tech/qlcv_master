@@ -53,28 +53,21 @@ Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () 
 
             Route::get('loaicv_del/{id}','LoaiCongVanController@getLoaiCv_Del');
         });
-        //-----------------------------------------------------------
+        // Cơ quan: pages/danhmuc/coquan/coquan_list
+
         Route::group(['prefix' => 'coquan'], function () {
             Route::get('coquan_list', 'CoQuanController@getCoQuan');
-            Route::post('coquan_edit', 'CoQuanController@postCoQuan');
-        });
-        Route::group(['prefix' => 'linhvuc'], function () {
-            Route::get('linhvuc_list', 'LinhVucController@getLinhVuc');
-            Route::post('linhvuc_edit', 'LinhVucController@postLinhVuc');
-        });
 
-        Route::group(['prefix' => 'nguoiky'], function () {
-            Route::get('nguoiky_list', 'NguoiKyController@getNguoiKy');
-            Route::post('nguoiky_edit', 'NguoiKyController@postNguoiKy');
+            Route::get('coquan_add', 'CoQuanController@getCoQuan_Add');
+            Route::post('coquan_add', 'CoQuanController@postCoQuan_Add');
+
+            Route::get('coquan_edit/{id}', 'CoQuanController@getCoQuan_Edit');
+            Route::post('coquan_edit/{id}', 'CoQuanController@postCoQuan_Edit');
+
+            Route::get('coquan_del/{id}','CoQuanController@getCoQuan_Del');
         });
-        Route::group(['prefix' => 'phongban'], function () {
-            Route::get('phongban_list', 'PhongBanController@getPhongBan');
-            Route::post('phongban_edit', 'PhongBanController@postPhongBan');
-        });
-        Route::group(['prefix' => 'theloaicv'], function () {
-            Route::get('theloaicv_list', 'TheLoaiCvController@getTheLoaiCv');
-            Route::post('theloaicv_edit', 'TheLoaiCvController@postTheLoaiCv');
-        });
+        //-----------------------------------------------------------
+
         Route::group(['prefix' => 'congvandi'], function () {
             Route::get('danhsach', 'CongvandiController@pages_index');
             Route::get('edit/{id}', 'CongvandiController@getEdit');
