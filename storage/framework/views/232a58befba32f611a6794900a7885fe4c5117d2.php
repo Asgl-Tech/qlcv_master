@@ -22,10 +22,9 @@
 
             
             <li class="cat__menu-left__item cat__menu-left__submenu">
-                <base href="<?php echo e(asset('')); ?>">
-                <a href="javascript: void(0);">
-                    <i class="fa fa-bars"></i>
-                    1. Danh mục
+            <a href="javascript: void(0);">
+                    <span class="cat__menu-left__icon fa fa-list-ol"></span>
+                   Danh Mục
                 </a>
                 <ul class="cat__menu-left__list">
                     <li class="cat__menu-left__item">
