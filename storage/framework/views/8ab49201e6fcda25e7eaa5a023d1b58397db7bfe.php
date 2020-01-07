@@ -1,7 +1,7 @@
-@section('title', 'Add Pages')
-@include('main')
-@include('components/mainmenu')
-{{-- @include('components/breadcrumb') --}}
+<?php $__env->startSection('title', 'Add Pages'); ?>
+<?php echo $__env->make('main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('components/mainmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
 <div class="cat__content">
 
     <!-- START: ecommerce/Pages-edit -->
@@ -13,28 +13,28 @@
         </div>
         <div class="card-body">
             <div class="row">
-                @if (count($errors) > 0)
+                <?php if(count($errors) > 0): ?>
                     <div class="alert alert-danger">
                         <strong>Whoops!</strong> There were some problems with your input.<br><br>
                         <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
+                            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <li><?php echo e($error); ?></li>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </ul>
                     </div>
-                @endif
+                <?php endif; ?>
                 <div class="col-lg-12">
                     <form action="them" method="POST">
-                        <input type="hidden" name="_token" value="{{csrf_token()}}">
+                        <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
                         <div class="row">
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label>Loại công văn</label>
                                     <select class="form-control" id="idLoaicongvan" name="Loaicongvan">
                                         <!-- <option value="">select</option>                                                        -->
-                                        @foreach($Loaicongvan as $lcv)
-                                            <option value="{{$lcv->id}}">{{$lcv->TenLoaiCV}}</option>
-                                        @endforeach
+                                        <?php $__currentLoopData = $Loaicongvan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lcv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($lcv->id); ?>"><?php echo e($lcv->TenLoaiCV); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
                                 </div>
                             </div>
@@ -43,9 +43,9 @@
                                     <label>Năm: </label>
                                     <select class="form-control" id="idNam" name="nam">
                                         <option value="">select</option>
-                                        @for($year=date('Y'); $year >1999;$year-- )
-                                            <option value="">{{$year}}</option>
-                                        @endfor
+                                        <?php for($year=date('Y'); $year >1999;$year-- ): ?>
+                                            <option value=""><?php echo e($year); ?></option>
+                                        <?php endfor; ?>
 
                                     </select>
                                 </div>
@@ -55,9 +55,9 @@
                                     <label>Người ký: </label>
                                     <select class="form-control" id="idNguoiKy" name="nguoiky">
                                         <option value="">select</option>
-                                        @foreach($nguoiky as $nk)
-                                            <option value="{{$nk->id}}">{{$nk->HoTen}}</option>
-                                        @endforeach
+                                        <?php $__currentLoopData = $nguoiky; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $nk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($nk->id); ?>"><?php echo e($nk->HoTen); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
                                 </div>
                             </div>
@@ -65,9 +65,9 @@
                                 <div class="form-group">
                                     <label>Thể loại công văn</label>
                                     <select class="form-control" id="idTheLoaicongvan" name="TheLoaicongvan">
-                                        @foreach($Theloaicongvan as $tl)
-                                            <option value="{{$tl->id}}">{{$tl->TenTheLoai}}</option>
-                                        @endforeach
+                                        <?php $__currentLoopData = $Theloaicongvan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tl): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($tl->id); ?>"><?php echo e($tl->TenTheLoai); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
                                 </div>
                             </div>
@@ -96,9 +96,9 @@
                                 <div class="form-group">
                                     <label>Lĩnh vực: <span style="color:red; font-weight:900; font-size:20px;">*</span></label>
                                     <select class="form-control" id="idLinhvuc" name="Linhvuc">
-                                        @foreach($linhvuc as $lv)
-                                            <option value="{{$lv->id}}">{{$lv->TenLinhVuc}}</option>
-                                        @endforeach
+                                        <?php $__currentLoopData = $linhvuc; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($lv->id); ?>"><?php echo e($lv->TenLinhVuc); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
                                 </div>
                             </div>
@@ -110,9 +110,9 @@
                                 <div class="form-group">
                                     <label>Độ mật: </label>
                                     <select class="form-control" id="idDomat" name="Domat">
-                                        @foreach($domat as $dm)
-                                            <option value="{{$dm->id}}">{{$dm->TenDoMat}}</option>
-                                        @endforeach
+                                        <?php $__currentLoopData = $domat; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dm): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($dm->id); ?>"><?php echo e($dm->TenDoMat); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
                                 </div>
                             </div>
@@ -120,9 +120,9 @@
                                 <div class="form-group">
                                     <label>Độ khẩn: </label>
                                     <select class="form-control" id="idDokhan" name="Dokhan">
-                                        @foreach($dokhan as $dk)
-                                            <option value="{{$dk->id}}">{{$dk->TenDoKhan}}</option>
-                                        @endforeach
+                                        <?php $__currentLoopData = $dokhan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($dk->id); ?>"><?php echo e($dk->TenDoKhan); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
                                 </div>
                             </div>
@@ -155,9 +155,9 @@
                                 <div class="form-group">
                                     <label>Nơi nhận ngoài công ty: </label>
                                     <select class="form-control" id="idNoiNhanNgoaiCongTy" name="idNoiNhan">
-                                        @foreach($coquan as $cq)
-                                            <option value="{{$cq->id}}">{{$cq->TenCoQuan}}</option>
-                                        @endforeach
+                                        <?php $__currentLoopData = $coquan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cq): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($cq->id); ?>"><?php echo e($cq->TenCoQuan); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
                                 </div>
                             </div>
@@ -165,9 +165,9 @@
                                 <div class="form-group">
                                     <label>Phòng xử lý</label>
                                     <select class="form-control" id="idPhongbanxuly" name="Phongbanxuly">
-                                        @foreach($phongban as $pb)
-                                            <option value="{{$pb->id}}">{{$pb->TenPhong}}</option>
-                                        @endforeach
+                                        <?php $__currentLoopData = $phongban; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pb): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($pb->id); ?>"><?php echo e($pb->TenPhong); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
                                 </div>
                             </div>
@@ -222,7 +222,7 @@
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary width-150" >Submit</button>
                             <button type="reset" class="btn btn-warning width-150" >Reset</button>
-                            <a href="{{ url('pages')}}"  class="btn btn-default">Cancel</a>
+                            <a href="<?php echo e(url('pages')); ?>"  class="btn btn-default">Cancel</a>
                         </div>
                     </form>
                 </div>
@@ -350,4 +350,4 @@
         });
     </script>
     <!-- END: page scripts -->
-@include('components/footer')
+<?php echo $__env->make('components/footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

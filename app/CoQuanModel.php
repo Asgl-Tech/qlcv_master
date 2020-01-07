@@ -8,5 +8,4 @@ class CoQuanModel extends Model
 {
     protected $table="tbl_coquan";
     public $timestamps=false;
-
 }

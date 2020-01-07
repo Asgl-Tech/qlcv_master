@@ -4,117 +4,115 @@
 {{-- @include('components/breadcrumb') --}}
 <div class="cat__content">
 
-<!-- START: ecommerce/Pages-list -->
-<section class="card">
-    <div class="card-header">
-        <div class="dropdown pull-right">
-           <a href="{{ url('congvanden/create')}}" class="btn btn-info btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Thêm &nbsp; &nbsp;</a>
-       </div>
-        <span class="cat__core__title">
-            <strong>Công văn đi</strong>
+    <!-- START: ecommerce/Pages-list -->
+    <section class="card">
+        <div class="card-header">
+            <div class="dropdown pull-right">
+                <a href="them" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Add &nbsp; &nbsp;</a>
+            </div>
+            <span class="cat__core__title">
+            <strong>Pages List</strong>
         </span>
-    </div>
-	
-	
-	<div class="card-body">
-		 @if ($message = Session::get('error'))
-			<div class="alert alert-danger" role="alert" id="id">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <strong>Oh snap! </strong> {{ $message }}
-            </div>
-		@endif
-		 @if ($message = Session::get('success'))
-			<div class="alert alert-success" role="alert" id="id">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <strong>Well done! </strong> {{ $message }} !
-            </div>
-		@endif
-        <table class="table table-hover nowrap" id="example1" width="100%">
-            <thead class="thead-default">
-            <tr>
-                <th>ID</th>
-                <th>Số/Ký hiệu</th>
-                <th>Ngày phát hành</th>
-                <th>Trích yếu nội dung</th>
-                <th>Action</th>
-            </tr>
-            </thead>
+        </div>
 
-            <tbody>
-			@foreach($congvanden as $page)
-            <tr>
-                <td>{{ $page->page_id }}</td>
-                <td>{{ $page->page_name }}</td>
-                <td>{{ $page->page_title }}</td>
-                <td>{{ $page->meta_title }}</td>
-                <td>{{ $page->created_at->format('d-M-Y') }}</td>
-               <td style="width:250px;">
-                    <a href="{{ route('congvanden.edit',$page->page_id ) }}" class="btn btn-info btn-sm" ><i class="fa fa-eye fa-1x"></i> View</a>
-                    <a href="{{ route('congvanden.edit',$page->page_id ) }}" class="btn btn-info btn-sm" style="margin-left:4px;margin-right:4px;"><i class="fa fa-eye fa-1x"></i> Edit</a>
-                    
-                   {!! Form::open(['method' => 'DELETE','route' => ['pages.destroy', $page->page_id],'style'=>'display:inline','role'=>'form','onsubmit' => 'return confirm("Do you want to delete this ?")']) !!}
-					{!! Form::submit('Remove', ['class' => 'btn btn-danger btn-sm']) !!}
-					{!! Form::close() !!}
-                </td>
-            </tr>
-			@endforeach
-            </tbody>
-        </table>
-    </div>
-</section>
-<!-- END: ecommerce/products-list -->
-<script>
-    $('#id').delay(3000).fadeOut('fast');
-</script>
-<!-- START: page scripts -->
-<script>
-    $(function () {
 
-        // Datatables
-        $('#example1').DataTable({
-            "lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25,50, 100, 200, "All"]],
-            responsive: true,
-            "autoWidth": false
-        });
+        <div class="card-body">
+            @if ($thongbao = Session::get('error'))
+                <div class="alert alert-danger" role="alert" id="id">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Oh snap! </strong> {{ $thongbao }}
+                </div>
+            @endif
+            @if ($thongbao = Session::get('thongbao'))
+                <div class="alert alert-success" role="alert" id="id">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Well done! </strong> {{ $thongbao }} !
+                </div>
+        @endif
+        <!-- @if (session('thongbao'))
+            <div class="alert alert-success">{{session('thongbao')}}</div>
+        @endif -->
+            <table class="table table-hover nowrap" id="example1" width="100%">
+                <thead class="thead-default">
+                <tr >
+                    <th>ID</th>
+                    <th>Số/Ký hiệu</th>
+                    <th>Ngày phát hành</th>
+                    <th>Trích yếu nội dung</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($Pages as $page)
+                    <tr>
+                        <td>{{ $page->id }}</td>
+                        <td>{{ $page->KyHieu }}</td>
+                        <td>{{ $page->NgayPhatHanh }}</td>
+                        <td>{{ $page->TrichYeu }}</td>
+                        <td style="width:250px;">
+                            <a href=""><i class="fa fa-eye"></i> View</a>
+                            <a  href="edit/{{$page->id}}"><i class="fa fa-pencil-square-o" style="margin-left:6px;margin-right:6px;"></i>Sửa</a>
+                            <a href="destroy/{{$page->id}}"> <i class="fa fa-trash fa-fw"></i>Delete</a>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <!-- END: ecommerce/products-list -->
+    <script>
+        $('#id').delay(3000).fadeOut('fast');
+    </script>
+    <!-- START: page scripts -->
+    <script>
+        $(function () {
 
-    })
-</script>
-<!-- END: page scripts -->
-<!-- END: page scripts -->
-<!-- START: page scripts -->
-<script>
-    $( function() {
-		$("#m_section_name").html("Pages");
-        ///////////////////////////////////////////////////////////
-        // tooltips
-        $("[data-toggle=tooltip]").tooltip();
+            // Datatables
+            $('#example1').DataTable({
+                "lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25,50, 100, 200, "All"]],
+                responsive: true,
+                "autoWidth": false
+            });
 
-        ///////////////////////////////////////////////////////////
-        // chart1
-        new Chartist.Line(".chart-line", {
-            labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            series: [
-                [5, 0, 7, 8, 12],
-                [2, 1, 3.5, 7, 3],
-                [1, 3, 4, 5, 6]
-            ]
-        }, {
-            fullWidth: !0,
-            chartPadding: {
-                right: 40
-            },
-            plugins: [
-                Chartist.plugins.tooltip()
-            ]
-        });
+        })
+    </script>
+    <!-- END: page scripts -->
+    <!-- END: page scripts -->
+    <!-- START: page scripts -->
+    <script>
+        $( function() {
+            $("#m_section_name").html("Pages");
+            ///////////////////////////////////////////////////////////
+            // tooltips
+            $("[data-toggle=tooltip]").tooltip();
 
-        ///////////////////////////////////////////////////////////
-        // chart 2
-        var overlappingData = {
+            ///////////////////////////////////////////////////////////
+            // chart1
+            new Chartist.Line(".chart-line", {
+                labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                series: [
+                    [5, 0, 7, 8, 12],
+                    [2, 1, 3.5, 7, 3],
+                    [1, 3, 4, 5, 6]
+                ]
+            }, {
+                fullWidth: !0,
+                chartPadding: {
+                    right: 40
+                },
+                plugins: [
+                    Chartist.plugins.tooltip()
+                ]
+            });
+
+            ///////////////////////////////////////////////////////////
+            // chart 2
+            var overlappingData = {
                     labels: ["Jan", "Feb", "Mar", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
                     series: [
                         [5, 4, 3, 7, 5, 10, 3, 4, 8, 10, 6, 8],
@@ -138,31 +136,31 @@
                     }]
                 ];
 
-        new Chartist.Bar(".chart-overlapping-bar", overlappingData, overlappingOptions, overlappingResponsiveOptions);
+            new Chartist.Bar(".chart-overlapping-bar", overlappingData, overlappingOptions, overlappingResponsiveOptions);
 
-        ///////////////////////////////////////////////////////////
-        // custom scroll
-        if (!('ontouchstart' in document.documentElement) && jQuery().jScrollPane) {
-            $('.custom-scroll').each(function() {
-                $(this).jScrollPane({
-                    contentWidth: '100%',
-                    autoReinitialise: true,
-                    autoReinitialiseDelay: 100
-                });
-                var api = $(this).data('jsp'),
+            ///////////////////////////////////////////////////////////
+            // custom scroll
+            if (!('ontouchstart' in document.documentElement) && jQuery().jScrollPane) {
+                $('.custom-scroll').each(function() {
+                    $(this).jScrollPane({
+                        contentWidth: '100%',
+                        autoReinitialise: true,
+                        autoReinitialiseDelay: 100
+                    });
+                    var api = $(this).data('jsp'),
                         throttleTimeout;
-                $(window).bind('resize', function() {
-                    if (!throttleTimeout) {
-                        throttleTimeout = setTimeout(function() {
-                            api.reinitialise();
-                            throttleTimeout = null;
-                        }, 50);
-                    }
+                    $(window).bind('resize', function() {
+                        if (!throttleTimeout) {
+                            throttleTimeout = setTimeout(function() {
+                                api.reinitialise();
+                                throttleTimeout = null;
+                            }, 50);
+                        }
+                    });
                 });
-            });
-        }
+            }
 
-    } );
-</script>
-<!-- END: page scripts -->
+        } );
+    </script>
+    <!-- END: page scripts -->
 @include('components/footer')
