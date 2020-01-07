@@ -1,4 +1,4 @@
-@section('title', 'Thêm mới')
+@section('title', 'Thêm cơ quan')
 @include('main')
 @include('components/mainmenu')
 {{-- @include('components/breadcrumb') --}}
@@ -32,22 +32,22 @@
                     </div>
                 @endif
                 <div class="col-lg-12">
-                    <form action="pages/danhmuc/domat/domat_add" method="POST">
+                    <form action="pages/danhmuc/coquan/coquan_add" method="POST">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="validation-pagename">Độ mật <span
+                                    <label for="validation-pagename">Cơ quan <span
                                                 style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                                    <input id="validation-pagename" class="form-control" placeholder="Độ mật"
-                                           name="txtTenDoMat" type="text" data-validation="[NOTEMPTY]"
+                                    <input id="validation-pagename" class="form-control" placeholder="Cơ quan"
+                                           name="txtCoQuan" type="text" data-validation="[NOTEMPTY]"
                                            data-validation-message="Page Name must not be empty!">
                                 </div>
                             </div>
                         </div>
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary width-150">Thêm</button>
-                            <a href="pages/danhmuc/domat/domat_list" class="btn btn-danger">Hủy bỏ</a>
+                            <a href="pages/danhmuc/coquan/coquan_list" class="btn btn-danger">Hủy bỏ</a>
                         </div>
                     </form>
                 </div>

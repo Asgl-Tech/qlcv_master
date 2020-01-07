@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @section('title', 'Manage Pages')
 @include('main')
 @include('components/mainmenu')
@@ -9,72 +8,35 @@
     <section class="card">
         <div class="card-header">
             <div class="dropdown pull-right">
-                <a href="them" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Add &nbsp; &nbsp;</a>
+                <a href="pages/danhmuc/dokhan/dokhan_add" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Thêm &nbsp; &nbsp;</a>
             </div>
             <span class="cat__core__title">
-            <strong>Pages List</strong>
+            <strong>Danh mục độ khẩn</strong>
         </span>
         </div>
-
-
         <div class="card-body">
-            {{-- @if ($message = Session::get('error'))
-               <div class="alert alert-danger" role="alert" id="id">
-                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                       <span aria-hidden="true">&times;</span>
-                   </button>
-                   <strong>Oh snap! </strong> {{ $message }}
-               </div>
-           @endif
-            @if ($message = Session::get('success'))
-               <div class="alert alert-success" role="alert" id="id">
-                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                       <span aria-hidden="true">&times;</span>
-                   </button>
-                   <strong>Well done! </strong> {{ $message }} !
-               </div>
-           @endif --}}
-            @if (session('thongbao'))
-                <div class="alert alert-success">{{session('thongbao')}}</div>
+            @if(session('thongbao'))
+                <div class="alert alert-success">
+                    {{session('thongbao')}}
+                </div>
             @endif
             <table class="table table-hover nowrap" id="example1" width="100%">
                 <thead class="thead-default">
                 <tr style="text-align: center;">
                     <th>ID</th>
-                    <th>Page Name</th>
-                    <th>Page Title</th>
-                    <th>Meta Title</th>
-                    <th>Created</th>
-                    <th>Action</th>
+                    <th>Tên độ khẩn</th>
                 </tr>
                 </thead>
-                {{-- <tfoot>
-                <tr style="text-align: center;">
-                    <th>ID</th>
-                    <th>Page Name</th>
-                    <th>Page Title</th>
-                    <th>Meta Title</th>
-                    <th>Created</th>
-                    <th>Action</th>
-                </tr>
-                </tfoot> --}}
-                <tbody>
-                @foreach($pages as $page)
-                    <tr>
-                        <td>{{ $page->page_id }}</td>
-                        <td>{{ $page->page_name }}</td>
-                        <td>{{ $page->page_title }}</td>
-                        <td>{{ $page->meta_title }}</td>
-                        <td>{{ $page->created_at->format('d-M-Y') }}</td>
-                        <td style="width:250px;">
-                            <a href=""><i class="fa fa-eye"></i> View</a>
-                            {{-- href="pages/edit/{{$tl->id}}" --}}
-                            <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a  href="edit/{{$page->page_id}}"> Sửa</a>
 
-                            <i class="fa fa-delete  fa-fw"></i><a href="destroy/{{$page->page_id}}"> Delete</a>
-                            {{-- {!! Form::open(['method' => 'POST','action' => ['pages.congvanden.destroy', $page->page_id],'style'=>'display:inline','role'=>'form','onsubmit' => 'return confirm("Do you want to delete this ?")']) !!}
-                             {!! Form::submit('Remove', ['class' => 'btn btn-danger btn-sm']) !!}
-                             {!! Form::close() !!} --}}
+                <tbody>
+                @foreach($dokhan as $dk)
+                    <tr>
+                        <td>{{$dk->id}}</td>
+                        <td>{{$dk->TenDoKhan}}</td>
+                        <td style="width:250px;">
+
+                            <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a  href="pages/danhmuc/dokhan/dokhan_edit/{{$dk->id}}"> Sửa</a>
+                            <i class="fa fa-delete  fa-fw"></i><a href="pages/danhmuc/dokhan/dokhan_del/{{$dk->id}}"> Xóa</a>
                         </td>
                     </tr>
                 @endforeach
@@ -89,14 +51,12 @@
     <!-- START: page scripts -->
     <script>
         $(function () {
-
             // Datatables
             $('#example1').DataTable({
                 "lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25,50, 100, 200, "All"]],
                 responsive: true,
                 "autoWidth": false
             });
-
         })
     </script>
     <!-- END: page scripts -->
@@ -181,7 +141,4 @@
     } );
 </script> --}}
 <!-- END: page scripts -->
-{{-- @include('components/footer')--}}
-=======
-<?php
->>>>>>> e54c62c58488a1a932e3b56fcaa1eaa3713f4f65
+{{-- @include('components/footer') --}}

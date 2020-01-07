@@ -11,7 +11,7 @@
            <a href="{{ url('pages/create')}}" class="btn btn-success "><i class="fa fa-plus"></i>&nbsp; &nbsp; Add Page &nbsp; &nbsp;</a>
        </div>
         <span class="cat__core__title">
-            <strong>Add Pages</strong>
+            <strong>Thêm công văn</strong>
         </span>
     </div>
     <div class="card-body">

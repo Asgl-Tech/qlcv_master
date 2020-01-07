@@ -1,4 +1,4 @@
-@section('title', 'Manage Pages')
+@section('title', 'Danh mục cơ quan')
 @include('main')
 @include('components/mainmenu')
 {{-- @include('components/breadcrumb') --}}
@@ -8,10 +8,10 @@
     <section class="card">
         <div class="card-header">
             <div class="dropdown pull-right">
-                <a href="pages/danhmuc/domat/domat_add" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Thêm &nbsp; &nbsp;</a>
+                <a href="pages/danhmuc/coquan/coquan_add" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Thêm &nbsp; &nbsp;</a>
             </div>
             <span class="cat__core__title">
-            <strong>Danh mục độ mật</strong>
+            <strong>Danh mục Cơ quan</strong>
         </span>
         </div>
         <div class="card-body">
@@ -24,18 +24,19 @@
                 <thead class="thead-default">
                 <tr style="text-align: center;">
                     <th>ID</th>
-                    <th>Tên độ mật</th>
+                    <th>Tên Cơ quan</th>
                 </tr>
                 </thead>
 
                 <tbody>
-                @foreach($domat as $dk)
+                @foreach($coquan as $dk)
                     <tr>
                         <td>{{$dk->id}}</td>
-                        <td>{{$dk->TenDoMat}}</td>
+                        <td>{{$dk->TenCoQuan}}</td>
                         <td style="width:250px;">
-                            <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a  href="pages/danhmuc/domat/domat_edit/{{$dk->id}}"> Sửa</a>
-                            <i class="fa fa-delete  fa-fw"></i><a href="pages/danhmuc/domat/domat_del/{{$dk->id}}"> Xóa</a>
+
+                            <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a  href="pages/danhmuc/coquan/coquan_edit/{{$dk->id}}"> Sửa</a>
+                            <i class="fa fa-delete  fa-fw"></i><a href="pages/danhmuc/coquan/coquan_del/{{$dk->id}}"> Xóa</a>
                         </td>
                     </tr>
                 @endforeach
