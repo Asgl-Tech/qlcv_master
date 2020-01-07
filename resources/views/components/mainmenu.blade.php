@@ -107,7 +107,7 @@
                         </a>
                     </li>
                     <li class="cat__menu-left__item">
-                        <a href="{{ url('pages/congvandi/create')}}">
+                        <a href="{{ url('pages/congvandi/them')}}">
                             <span class="cat__menu-left__icon fa fa-plus"></span>
                             Thêm mới
                         </a>

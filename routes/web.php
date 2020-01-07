@@ -2,6 +2,8 @@
 Route::get('dangnhap', 'LoginController@getDangNhap');
 Route::post('dangnhap', 'LoginController@postDangNhap');
 Route::get('dangxuat', 'LoginController@dangxuat');
+
+
 //Tân controller congvanden
 Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () {
     Route::group(['prefix' => 'congvanden'], function () {
@@ -66,18 +68,21 @@ Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () 
             Route::get('theloaicv_list', 'TheLoaiCvController@getTheLoaiCv');
             Route::post('theloaicv_edit', 'TheLoaiCvController@postTheLoaiCv');
         });
-        Route::group(['prefix' => 'congvandi'], function () {
-            Route::get('danhsach', 'CongvandiController@pages_index');
-            Route::get('edit/{id}', 'CongvandiController@getEdit');
-            Route::post('edit/{id}', 'CongvandiController@postEdit');
-            Route::get('destroy/{id}', 'CongvandiController@getDestroy');
-            Route::get('them', 'CongvandiController@getThem');
-            Route::post('them', 'CongvandiController@postThem');
-        });
+
 
 });
 
 
-
+    Route::group(['prefix' => 'congvandi'], function () {
+        Route::get('hoten',function(){
+            echo "Tên của bạn là: ";
+        });
+        Route::get('danhsach', 'CongvandiController@pages_index');
+        Route::get('edit/{id}', 'CongvandiController@getEdit');
+        Route::post('edit/{id}', 'CongvandiController@postEdit');
+        Route::get('destroy/{id}', 'CongvandiController@getDestroy');
+        Route::get('them', 'CongvandiController@getThem');
+        Route::post('them', 'CongvandiController@postThem');
+    });
 
 });
