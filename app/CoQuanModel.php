@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class CoQuanModel extends Model
 {
-    //
-    protected  $table='tbl_coquan';
-
+    protected $table="tbl_coquan";
+    public $timestamps=false;
 }

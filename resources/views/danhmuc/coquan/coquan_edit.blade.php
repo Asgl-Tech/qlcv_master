@@ -1,4 +1,4 @@
-@section('title', 'Thêm loại công văn')
+@section('title', 'Edit Pages')
 @include('main')
 @include('components/mainmenu')
 {{-- @include('components/breadcrumb') --}}
@@ -11,7 +11,7 @@
                <a href="{{ url('pages/create')}}" class="btn btn-success "><i class="fa fa-plus"></i>&nbsp; &nbsp; Add Page &nbsp; &nbsp;</a>
            </div> --}}
             <span class="cat__core__title">
-            <strong>Thêm mới</strong>
+            <strong>Chỉnh sửa</strong>
         </span>
         </div>
         <div class="card-body">
@@ -32,22 +32,22 @@
                     </div>
                 @endif
                 <div class="col-lg-12">
-                    <form action="pages/danhmuc/loaicv/loaicv_add" method="POST">
+                    <form action="pages/danhmuc/coquan/coquan_edit/{{$coQuan->id}}" method="POST">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="validation-pagename">Loại công văn <span
+                                    <label for="validation-pagename">Cơ quan <span
                                                 style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                                    <input id="validation-pagename" class="form-control" placeholder="Loại công văn"
-                                           name="txtTenLoaiCv" type="text" data-validation="[NOTEMPTY]"
+                                    <input value="{{$coQuan->TenCoQuan}}" id="validation-pagename" class="form-control" placeholder="Cơ quan"
+                                           name="txtCoQuan" type="text" data-validation="[NOTEMPTY]"
                                            data-validation-message="Page Name must not be empty!">
                                 </div>
                             </div>
                         </div>
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-primary width-150">Thêm</button>
-                            <a href="pages/danhmuc/loaicv/loaicv_list" class="btn btn-danger">Hủy bỏ</a>
+                            <button type="submit" class="btn btn-primary width-150">Sửa</button>
+                            <a href="pages/danhmuc/coquan/coquan_list" class="btn btn-danger">Hủy bỏ</a>
                         </div>
                     </form>
                 </div>

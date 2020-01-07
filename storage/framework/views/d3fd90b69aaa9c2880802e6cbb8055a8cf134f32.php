@@ -37,7 +37,7 @@
         <!-- <?php if(session('thongbao')): ?>
             <div class="alert alert-success"><?php echo e(session('thongbao')); ?></div>
         <?php endif; ?> -->
-        <table class="table table-hover nowrap" id="example1" width="100%">
+        <table class="table table-hover nowrap" style="word-wrap: inherit;" id="example1" width="100%">
             <thead class="thead-default">
             <tr >
                 <th>ID</th>
@@ -55,9 +55,13 @@
                 <td><?php echo e($page->NgayPhatHanh); ?></td>
                 <td><?php echo e($page->TrichYeu); ?></td>
                <td style="width:250px;">
-                     <a href=""><i class="fa fa-eye"></i> View</a>
-                     <a  href="edit/<?php echo e($page->id); ?>"><i class="fa fa-pencil-square-o" style="margin-left:6px;margin-right:6px;"></i>Sửa</a>                   
-                     <a href="destroy/<?php echo e($page->id); ?>"> <i class="fa fa-trash fa-fw"></i>Delete</a>
+                    
+                     <!-- <a href=""><i class="fa fa-eye"></i> View</a> -->
+                     <a href="edit/<?php echo e($page->id); ?>" class="btn btn-primary btn-sm" ><i class="fa fa-eye" style="margin-left:6px;margin-right:6px;"></i> View</a>
+                     <a href="edit/<?php echo e($page->id); ?>" class="btn btn-primary btn-sm" ><i class="fa fa-pencil-square-o" style="margin-left:6px;margin-right:6px;"></i> Edit</a>
+                     <!-- <a  href="edit/<?php echo e($page->id); ?>"><i class="fa fa-pencil-square-o" style="margin-left:6px;margin-right:6px;"></i>Sửa</a>                    -->
+                     <a href="xoa/<?php echo e($page->id); ?>" class="btn btn-warning btn-sm" ><i class="fa fa-trash fa-fw" style="margin-left:6px;margin-right:6px;"></i> Delete</a>
+                     <!-- <a href="xoa/<?php echo e($page->id); ?>"> <i class="fa fa-trash fa-fw"></i>Delete</a> -->
                 </td>
             </tr>
 			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

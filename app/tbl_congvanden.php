@@ -12,7 +12,7 @@ class tbl_congvanden extends Model
      * @var array
      */
    protected $primaryKey = 'id';
-   //  public $timestamps = false;
+    public $timestamps = false;
       protected $fillable = [
          'idLoaiCV', 'NamCV', 'NgayThang', 'GioDen', 'SoDen', 'idNoiPhatHanh', 'KyHieu', 'NgayPhatHanh', 'idTheLoaiCV','idLinhVuc','idDoMat','idDoKhan','SoLuong','TrichYeu','idNoiNhan','DuongDan','GhiChu','idNoiLuu','TinhTrang','HanXuLy','EmailAdd','EmailSend','SendMailTime','EmailCC'
      ];

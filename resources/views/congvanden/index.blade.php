@@ -36,7 +36,7 @@
         <!-- @if (session('thongbao'))
             <div class="alert alert-success">{{session('thongbao')}}</div>
         @endif -->
-        <table class="table table-hover nowrap" id="example1" width="100%">
+        <table class="table table-hover nowrap" style="word-wrap: inherit;" id="example1" width="100%">
             <thead class="thead-default">
             <tr >
                 <th>ID</th>
@@ -54,9 +54,13 @@
                 <td>{{ $page->NgayPhatHanh }}</td>
                 <td>{{ $page->TrichYeu }}</td>
                <td style="width:250px;">
-                     <a href=""><i class="fa fa-eye"></i> View</a>
-                     <a  href="edit/{{$page->id}}"><i class="fa fa-pencil-square-o" style="margin-left:6px;margin-right:6px;"></i>Sửa</a>                   
-                     <a href="destroy/{{$page->id}}"> <i class="fa fa-trash fa-fw"></i>Delete</a>
+                    
+                     <!-- <a href=""><i class="fa fa-eye"></i> View</a> -->
+                     <a href="edit/{{$page->id}}" class="btn btn-primary btn-sm" ><i class="fa fa-eye" style="margin-left:6px;margin-right:6px;"></i> View</a>
+                     <a href="edit/{{$page->id}}" class="btn btn-primary btn-sm" ><i class="fa fa-pencil-square-o" style="margin-left:6px;margin-right:6px;"></i> Edit</a>
+                     <!-- <a  href="edit/{{$page->id}}"><i class="fa fa-pencil-square-o" style="margin-left:6px;margin-right:6px;"></i>Sửa</a>                    -->
+                     <a href="xoa/{{$page->id}}" class="btn btn-warning btn-sm" ><i class="fa fa-trash fa-fw" style="margin-left:6px;margin-right:6px;"></i> Delete</a>
+                     <!-- <a href="xoa/{{$page->id}}"> <i class="fa fa-trash fa-fw"></i>Delete</a> -->
                 </td>
             </tr>
 			@endforeach
