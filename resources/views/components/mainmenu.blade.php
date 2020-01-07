@@ -22,9 +22,8 @@
 
             {{--                Xin các chú đừng xóa danh mục của anh Huy nhé. Anh rất biết ơn--}}
             <li class="cat__menu-left__item cat__menu-left__submenu">
-                <base href="{{asset('')}}">
-                <a href="javascript: void(0);">
-                    <i class="fa fa-bars"></i>
+            <a href="javascript: void(0);">
+                    <span class="cat__menu-left__icon fa fa-list-ol"></span>
                     1. Danh mục
                 </a>
                 <ul class="cat__menu-left__list">
@@ -80,13 +79,13 @@
                 </a>
                 <ul class="cat__menu-left__list">
                     <li class="cat__menu-left__item">
-                        <a href="danhsach">
+                        <a href="pages/congvanden/danhsach">
                             <span class="cat__menu-left__icon icmn-file-text2"></span>
                             Danh sách
                         </a>
                     </li>
                     <li class="cat__menu-left__item">
-                        <a href="them">
+                        <a href="pages/congvanden/them">
                             <span class="cat__menu-left__icon fa fa-plus"></span>
                             Thêm mới
                         </a>
@@ -101,7 +100,7 @@
                 </a>
                 <ul class="cat__menu-left__list">
                     <li class="cat__menu-left__item">
-                        <a href="{{ url('pages/congvandi/danhsach1')}}">
+                        <a href="{{ url('pages/congvandi/danhsach')}}">
                             <span class="cat__menu-left__icon icmn-file-text2"></span>
                             Danh sách
                         </a>

@@ -24,21 +24,21 @@
             <li class="cat__menu-left__item cat__menu-left__submenu">
             <a href="javascript: void(0);">
                     <span class="cat__menu-left__icon fa fa-list-ol"></span>
-                   Danh Mục
+                    1. Danh mục
                 </a>
                 <ul class="cat__menu-left__list">
                     <li class="cat__menu-left__item">
-                        <a href="pages/danhmuc/loaicv/loaicv_list">
+                        <a href="pages/danhmuc/dokhan/loaicv_list">
                             1.1. Loại công văn
                         </a>
                     </li>
                     <li class="cat__menu-left__item">
-                        <a href="pages/danhmuc/theloaicv/theloaicv_list">
+                        <a href="pages/danhmuc/dokhan/theloaicv_list">
                             1.2. Thể loại công văn
                         </a>
                     </li>
                     <li class="cat__menu-left__item">
-                        <a href="pages/danhmuc/linhvuc/linhvuc_list">
+                        <a href="pages/danhmuc/dokhan/linhvuc_list">
                             1.3. Lĩnh vực
                         </a>
                     </li>
@@ -53,17 +53,17 @@
                         </a>
                     </li>
                     <li class="cat__menu-left__item">
-                        <a href="pages/danhmuc/nguoiky/nguoiky_list">
+                        <a href="pages/danhmuc/dokhan/nguoiky_list">
                             1.6. Người ký
                         </a>
                     </li>
                     <li class="cat__menu-left__item">
-                        <a href="pages/danhmuc/phongban/phongban_list">
+                        <a href="pages/danhmuc/dokhan/phongban_list">
                             1.7. Phòng ban
                         </a>
                     </li>
                     <li class="cat__menu-left__item">
-                        <a href="pages/danhmuc/coquan/coquan_list">
+                        <a href="pages/danhmuc/dokhan/coquan_list">
                             1.8. Cơ quan
                         </a>
                     </li>
@@ -79,13 +79,13 @@
                 </a>
                 <ul class="cat__menu-left__list">
                     <li class="cat__menu-left__item">
-                        <a href="danhsach">
+                        <a href="pages/congvanden/danhsach">
                             <span class="cat__menu-left__icon icmn-file-text2"></span>
                             Danh sách
                         </a>
                     </li>
                     <li class="cat__menu-left__item">
-                        <a href="them">
+                        <a href="pages/congvanden/them">
                             <span class="cat__menu-left__icon fa fa-plus"></span>
                             Thêm mới
                         </a>
@@ -100,13 +100,13 @@
                 </a>
                 <ul class="cat__menu-left__list">
                     <li class="cat__menu-left__item">
-                        <a href="<?php echo e(url('pages/congvandi/danhsach1')); ?>">
+                        <a href="<?php echo e(url('pages/congvandi/danhsach')); ?>">
                             <span class="cat__menu-left__icon icmn-file-text2"></span>
                             Danh sách
                         </a>
                     </li>
                     <li class="cat__menu-left__item">
-                        <a href="<?php echo e(url('pages/congvandi/create')); ?>">
+                        <a href="<?php echo e(url('pages/congvandi/them')); ?>">
                             <span class="cat__menu-left__icon fa fa-plus"></span>
                             Thêm mới
                         </a>
@@ -209,7 +209,7 @@
                                     class="dropdown-icon icmn-circle-right"></i> Change Password</a>
                         <!--<a class="dropdown-item" href="javascript:void(0)"><i class="dropdown-icon icmn-circle-right"></i> Support Ticket</a>-->
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?php echo e(URL ('dangxuat')); ?>"><i class="dropdown-icon icmn-exit"></i> Logout</a>
+                        <a class="dropdown-item" href="dangxuat"><i class="dropdown-icon icmn-exit"></i> Logout</a>
                     </ul>
                 </div>
             </div>
