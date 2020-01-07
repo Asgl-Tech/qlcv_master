@@ -31,7 +31,7 @@
                         <div class="form-group">
                             <label>Loại công văn</label>
                                 <select class="form-control" id="idLoaicongvan" name="Loaicongvan">                               
-                                    <!-- <option value="">select</option>                                                        -->
+
                                     <?php $__currentLoopData = $Loaicongvan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lcv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <option value="<?php echo e($lcv->id); ?>"><?php echo e($lcv->TenLoaiCV); ?></option>  
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -162,7 +162,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label for="pagetitle">Thời hạn xử lý <span style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                            <input id="validation-pagetitle" class="form-control"  placeholder="Thời hạn xử lý"   name="Thoihanxuly "  type="date" data-validation="[NOTEMPTY]" data-validation-message="Page Title must not be empty!">
+                            <input id="validation-pagetitle" class="form-control"  placeholder="Số ký hiệu"   name="Hanxuly"  type="date" data-validation="[NOTEMPTY]" data-validation-message="Page Title must not be empty!">
                         </div>
                     </div>
                 </div>

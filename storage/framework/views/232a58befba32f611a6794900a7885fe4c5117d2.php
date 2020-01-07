@@ -100,7 +100,7 @@
                 </a>
                 <ul class="cat__menu-left__list">
                     <li class="cat__menu-left__item">
-                        <a href="<?php echo e(url('pages/congvandi/danhsach')); ?>">
+                        <a href="<?php echo e(url('pages/congvandi/danhsach1')); ?>">
                             <span class="cat__menu-left__icon icmn-file-text2"></span>
                             Danh sách
                         </a>
