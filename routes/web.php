@@ -27,7 +27,7 @@ Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () 
             Route::get('dokhan_edit/{id}', 'DoKhanController@getDoKhan_Edit');
             Route::post('dokhan_edit/{id}', 'DoKhanController@postDoKhan_Edit');
 
-            Route::get('dokhan_del/{id}','DoKhanController@getDoKhan_Del');
+            Route::get('dokhan_del/{id}', 'DoKhanController@getDoKhan_Del');
         });
         // localhost:8080/qlcv/public/pages/danhmuc/domat/domat_list
         // độ mật
@@ -40,7 +40,7 @@ Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () 
             Route::get('domat_edit/{id}', 'DoMatController@getDoMat_Edit');
             Route::post('domat_edit/{id}', 'DoMatController@postDoMat_Edit');
 
-            Route::get('domat_del/{id}','DoMatController@getDoMat_Del');
+            Route::get('domat_del/{id}', 'DoMatController@getDoMat_Del');
         });
         // localhost:8080/qlcv/public/pages/danhmuc/loaicv/loaicv_list
         // Loại công văn: pages/danhmuc/loaicv/loaicv_list
@@ -53,7 +53,7 @@ Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () 
             Route::get('loaicv_edit/{id}', 'LoaiCongVanController@getLoaiCv_Edit');
             Route::post('loaicv_edit/{id}', 'LoaiCongVanController@postLoaiCv_Edit');
 
-            Route::get('loaicv_del/{id}','LoaiCongVanController@getLoaiCv_Del');
+            Route::get('loaicv_del/{id}', 'LoaiCongVanController@getLoaiCv_Del');
         });
         // Cơ quan: pages/danhmuc/coquan/coquan_list
 
@@ -66,13 +66,14 @@ Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () 
             Route::get('coquan_edit/{id}', 'CoQuanController@getCoQuan_Edit');
             Route::post('coquan_edit/{id}', 'CoQuanController@postCoQuan_Edit');
 
-            Route::get('coquan_del/{id}','CoQuanController@getCoQuan_Del');
+            Route::get('coquan_del/{id}', 'CoQuanController@getCoQuan_Del');
         });
 
 
+    });
 
     Route::group(['prefix' => 'congvandi'], function () {
-        Route::get('hoten',function(){
+        Route::get('hoten', function () {
             echo "Tên của bạn là: ";
         });
         Route::get('danhsach', 'CongvandiController@pages_index');
@@ -82,5 +83,4 @@ Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () 
         Route::get('them', 'CongvandiController@getThem');
         Route::post('them', 'CongvandiController@postThem');
     });
-
 });
