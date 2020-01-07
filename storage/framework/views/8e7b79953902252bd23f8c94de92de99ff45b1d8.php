@@ -24,7 +24,7 @@
 				</div>
 			<?php endif; ?>
             <div class="col-lg-12">
-             <form action="them" method="POST">    
+             <form action="them" method="POST" enctype="multipart/form-data">    
                 <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">               
 				<div class="row">
                     <div class="col-lg-3">
@@ -137,24 +137,9 @@
                         </div>
                     </div> 
                 </div>
-
-                <!-- <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="validation-pagename">Page Name <span style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                            <input id="validation-pagename" class="form-control"  placeholder="Page Name"   name="page_name"  type="text" data-validation="[NOTEMPTY]" data-validation-message="Page Name must not be empty!">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="pagetitle">Page Title <span style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                            <input id="validation-pagetitle" class="form-control"  placeholder="Page Title"   name="page_title"  type="text" data-validation="[NOTEMPTY]" data-validation-message="Page Title must not be empty!">
-                        </div>
-                    </div>
-                </div> -->
                 <div class="form-group">
                     <label class="form-control-label">Trích yếu nội dung</label>
-                    <textarea class="summernote" rows="3" id="l15" name="Trichyeunoidung" placeholder="Trích yếu nội dung"></textarea>
+                    <textarea class="form-control" rows="3" id="l15" name="Trichyeunoidung" placeholder="Trích yếu nội dung"></textarea>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label">Nội dung Email</label>
@@ -182,53 +167,35 @@
                     </div>
                 </div>
                 <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Phòng xử lý: </label>
+                        <select class="form-control selectpicker" id="idPhongbanxuly" name="Phongbanxuly[]" multiple data-live-search="true">
+                            <?php $__currentLoopData = $phongban; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pb): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                             <option value="<?php echo e($pb->TenPhong); ?>"><?php echo e($pb->TenPhong); ?></option>  
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                        <label>Nơi lưu: </label>
+                            <select class="form-control " id="idNoiluu" name="Noiluu" >                               
+                                <?php $__currentLoopData = $noiluu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $luucv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($luucv->id); ?>"><?php echo e($luucv->TenNoiLuu); ?></option>  
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                                       
+                            </select>
+                        </div>
+                    </div>
                     <div class="col-lg-3">
                         <div class="form-group"> 
                             <label>File đính kèm</label>
-                            <input type="file" class="form-control" name="filedinhkem"></input>
+                            <input type="file" class="form-control" name="Hinh"></input>
                         </div>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label>Phòng xử lý</label>
-                                <select class="form-control" id="idPhongbanxuly" name="Phongbanxuly">                               
-                                    <?php $__currentLoopData = $phongban; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pb): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($pb->id); ?>"><?php echo e($pb->TenPhong); ?></option>  
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                                       
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                        <label>Nơi lưu: </label>
-                                <select class="form-control" id="idNoiluu" name="Noiluu">                               
-                                    <?php $__currentLoopData = $noiluu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $luucv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($luucv->id); ?>"><?php echo e($luucv->TenNoiLuu); ?></option>  
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                                       
-                            </select>
-                        </div>
-                    </div>
-                      
+
                </div>
-               <!-- <div class="row">
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label>Phòng xử lý</label>
-                                <select class="form-control" id="idPhongbanxuly" name="Phongbanxuly">                               
-                                    <option value="">select</option>                                                       
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                        <label>Nơi lưu: </label>
-                                <select class="form-control" id="idNoiluu" name="Noiluu">                               
-                                    <option value="">select</option>                                                       
-                            </select>
-                        </div>
-                    </div>
-                    
-                </div> -->
+
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary width-150" >Submit</button>
                     <button type="reset" class="btn btn-warning width-150" >Reset</button>
@@ -241,110 +208,24 @@
     </div>
 </section>
 <!-- END: ecommerce/product-edit -->
-<!-- END: ecommerce/products-list -->
-
 <!-- START: page scripts -->
 <script>
-        $(document).ready(function() {
-            $('.summernote').summernote();
+    $(document).ready(function() {
+        $('.summernote').summernote();
+        $('select').selectpicker();
+        $("#idPhongbanxuly").change(function(){
+            var idpb = $(this).val();
+            //  alert(idpb);
+            // $.get("admin/ajax/loaitin/"+idTheLoai,function(data){
+            //     //  alert(data);
+            //     $("#idLoaiTin").html(data);
+            // });
         });
+    });
 </script>
-<script>
-    $(function () {
 
-        // Datatables
-        $('#example1').DataTable({
-            "lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25,50, 100, 200, "All"]],
-            responsive: true,
-            "autoWidth": false
-        });
-
-    })
-</script>
-<!-- END: page scripts -->
-<!-- END: page scripts -->
-<!-- START: page scripts -->
-<script>
-    $( function() {
-		$("#m_section_name").html("Pages");
-        ///////////////////////////////////////////////////////////
-        // tooltips
-        $("[data-toggle=tooltip]").tooltip();
-
-        ///////////////////////////////////////////////////////////
-        // chart1
-        new Chartist.Line(".chart-line", {
-            labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            series: [
-                [5, 0, 7, 8, 12],
-                [2, 1, 3.5, 7, 3],
-                [1, 3, 4, 5, 6]
-            ]
-        }, {
-            fullWidth: !0,
-            chartPadding: {
-                right: 40
-            },
-            plugins: [
-                Chartist.plugins.tooltip()
-            ]
-        });
-
-        ///////////////////////////////////////////////////////////
-        // chart 2
-        var overlappingData = {
-                    labels: ["Jan", "Feb", "Mar", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                    series: [
-                        [5, 4, 3, 7, 5, 10, 3, 4, 8, 10, 6, 8],
-                        [3, 2, 9, 5, 4, 6, 4, 6, 7, 8, 7, 4]
-                    ]
-                },
-                overlappingOptions = {
-                    seriesBarDistance: 10,
-                    plugins: [
-                        Chartist.plugins.tooltip()
-                    ]
-                },
-                overlappingResponsiveOptions = [
-                    ["", {
-                        seriesBarDistance: 5,
-                        axisX: {
-                            labelInterpolationFnc: function(value) {
-                                return value[0]
-                            }
-                        }
-                    }]
-                ];
-
-        new Chartist.Bar(".chart-overlapping-bar", overlappingData, overlappingOptions, overlappingResponsiveOptions);
-
-        ///////////////////////////////////////////////////////////
-        // custom scroll
-        if (!('ontouchstart' in document.documentElement) && jQuery().jScrollPane) {
-            $('.custom-scroll').each(function() {
-                $(this).jScrollPane({
-                    contentWidth: '100%',
-                    autoReinitialise: true,
-                    autoReinitialiseDelay: 100
-                });
-                var api = $(this).data('jsp'),
-                        throttleTimeout;
-                $(window).bind('resize', function() {
-                    if (!throttleTimeout) {
-                        throttleTimeout = setTimeout(function() {
-                            api.reinitialise();
-                            throttleTimeout = null;
-                        }, 50);
-                    }
-                });
-            });
-        }
-
-    } );
-</script>
 <script>
     $(function() {
-
         // Form Validation
         $('#form-validation').validate({
             submit: {

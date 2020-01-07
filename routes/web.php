@@ -8,7 +8,7 @@ Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () 
         Route::get('danhsach', 'CongvandenController@pages_index');
         Route::get('edit/{id}', 'CongvandenController@getEdit');
         Route::post('edit/{id}', 'CongvandenController@postEdit');
-        Route::get('destroy/{id}', 'CongvandenController@getDestroy');
+        Route::get('xoa/{id}', 'CongvandenController@getDestroy');
         Route::get('them', 'CongvandenController@getThem');
         Route::post('them', 'CongvandenController@postThem');
     });

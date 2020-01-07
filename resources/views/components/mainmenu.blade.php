@@ -134,7 +134,8 @@
                         if(isset(Auth::user()->user_id) && isset(Auth::user()->profile_image) && !empty(Auth::user()->profile_image))
                         {
                             $profileimage=Auth::user();
-                    ?>   
+                        
+                        ?>   
                         <a href="javascript: void(0);" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                             <span class="cat__top-bar__avatar" href="javascript:void(0);">
                                 <img src="<?php echo asset("/upload/profileimage/$profileimage->profile_image") ?>" />
@@ -154,7 +155,7 @@
                         <a class="dropdown-item" href="{{ URL ('changepassword')}}"><i class="dropdown-icon icmn-circle-right"></i> Change Password</a>
                         <!--<a class="dropdown-item" href="javascript:void(0)"><i class="dropdown-icon icmn-circle-right"></i> Support Ticket</a>-->
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="dangxuat"><i class="dropdown-icon icmn-exit"></i> Logout</a>
+                        <a class="dropdown-item" href="{{ URL ('dangxuat')}}"><i class="dropdown-icon icmn-exit"></i> Logout</a>
                     </ul>
                 </div>
             </div>
