@@ -26,7 +26,6 @@
                 <tr style="text-align: center;">
                     <th>ID</th>
                     <th>Tên độ mật</th>
-                    <th></th>
                 </tr>
                 </thead>
 

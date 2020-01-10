@@ -100,7 +100,7 @@ Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () 
 
         //-----------------------------------------------------------
         // Người ký: pages/danhmuc/theloai/theloai_list
-
+                    //pages/danhmuc/theloaicv/theloaicv_list
         Route::group(['prefix' => 'theloaicv'], function () {
 
             Route::get('theloaicv_list', 'TheLoaiController@getTheLoai');
