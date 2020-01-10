@@ -24,7 +24,7 @@
 				</div>
 			<?php endif; ?>
             <div class="col-lg-12">
-             <form action="<?php echo e($congvanden->id); ?>" method="POST" enctype="multipart/form-data">    
+             <form action="pages/congvanden/edit/<?php echo e($congvanden->id); ?>" method="POST" enctype="multipart/form-data">    
                 <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">               
 				<div class="row">
                     <div class="col-lg-3">
@@ -43,7 +43,7 @@
                             <label>Năm: </label>
                             <select class="form-control" id="idNam" name="nam">                               
                                 <?php $__currentLoopData = $namcv; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ncv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($ncv->Nam); ?>"><?php echo e($ncv->Nam); ?></option>  
+                                    <option value="<?php echo e($ncv->id); ?>"><?php echo e($ncv->Nam); ?></option>  
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                                       
                             </select>
                         </div>
@@ -172,7 +172,7 @@
                         <label>Phòng xử lý: </label>
                         <select class="form-control selectpicker" id="idPhongbanxuly"  name="Phongbanxuly[]" multiple data-live-search="true">
                             <?php $__currentLoopData = $phongban; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pb): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                             <option value="<?php echo e($pb->TenPhong); ?>"><?php echo e($pb->TenPhong); ?></option>  
+                             <option value="<?php echo e($pb->id); ?>"><?php echo e($pb->TenPhong); ?></option>  
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                         </div>

@@ -6,18 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class tbl_congvandi extends Model
 {
+    protected $table ='tbl_congvandi';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $primaryKey = 'id';
+//    protected $primaryKey = 'id';
     //  public $timestamps = false;
-    protected $fillable = [
-        'NgayPhatHanh', 'GioPhatHanh', 'MaPhongPH', 'KyHieu', 'TrichYeu', 'idNguoiKy', 'idTheLoaiCV',
-        'idLoaiCV', 'idLinhVuc','idDoMat','idDoKhan','idNoiNhan','NamCV','idPhongLuu','SoLuong','DuongDan',
-        'GhiChu','So','EmailAdd','CanCu','EmailSend','EmailSendTime','EmailCC'
-    ];
+//    protected $fillable = [
+//        'NgayPhatHanh', 'GioPhatHanh', 'MaPhongPH', 'KyHieu', 'TrichYeu', 'idNguoiKy', 'idTheLoaiCV',
+//        'idLoaiCV', 'idLinhVuc','idDoMat','idDoKhan','idNoiNhan','NamCV','idPhongLuu','SoLuong','DuongDan',
+//        'GhiChu','So','EmailAdd','CanCu','EmailSend','EmailSendTime','EmailCC'
+//    ];
 //
 //id int(11) NOT NULL AUTO_INCREMENT,
 //NgayPhatHanh date DEFAULT NULL,

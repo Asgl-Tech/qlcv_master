@@ -8,7 +8,7 @@
 <section class="card">
     <div class="card-header">
         <div class="dropdown pull-right">
-           <a href="them" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Add &nbsp; &nbsp;</a>
+           <a href="pages/congvanden/them" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Add &nbsp; &nbsp;</a>
        </div>
         <span class="cat__core__title">
             <strong>Pages List</strong>
@@ -56,10 +56,10 @@
                <td style="width:250px;">
                     
                      <!-- <a href=""><i class="fa fa-eye"></i> View</a> -->
-                     <a href="edit/{{$page->id}}" class="btn btn-primary btn-sm" ><i class="fa fa-eye" style="margin-left:6px;margin-right:6px;"></i> View</a>
-                     <a href="edit/{{$page->id}}" class="btn btn-primary btn-sm" ><i class="fa fa-pencil-square-o" style="margin-left:6px;margin-right:6px;"></i> Edit</a>
+                     <a href="pages/congvanden/preview/{{$page->id}}/{{$page->idLoaiCV}}/{{$page->NamCV}}/{{$page->idNoiPhatHanh}}/{{$page->idTheLoaiCV}}/{{$page->idLinhVuc}}/{{$page->idDoKhan}}/{{$page->idDoMat}}/{{$page->idNoiLuu}}" class="btn btn-primary btn-sm" ><i class="fa fa-eye" style="margin-left:6px;margin-right:6px;"></i> View</a>
+                     <a href="pages/congvanden/edit/{{$page->id}}" class="btn btn-primary btn-sm" ><i class="fa fa-pencil-square-o" style="margin-left:6px;margin-right:6px;"></i> Edit</a>
                      <!-- <a  href="edit/{{$page->id}}"><i class="fa fa-pencil-square-o" style="margin-left:6px;margin-right:6px;"></i>Sửa</a>                    -->
-                     <a href="xoa/{{$page->id}}" class="btn btn-warning btn-sm" ><i class="fa fa-trash fa-fw" style="margin-left:6px;margin-right:6px;"></i> Delete</a>
+                     <a href="pages/congvanden/xoa/{{$page->id}}" class="btn btn-warning btn-sm" ><i class="fa fa-trash fa-fw" style="margin-left:6px;margin-right:6px;"></i> Delete</a>
                      <!-- <a href="xoa/{{$page->id}}"> <i class="fa fa-trash fa-fw"></i>Delete</a> -->
                 </td>
             </tr>

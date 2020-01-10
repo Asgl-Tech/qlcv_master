@@ -8,7 +8,7 @@ class NamcvModel extends Model
 {
     protected $table ='tbl_namcv';
     public $timestamps = false;
-    public function tbl_congvanden()
+    public function namcv()
     {
         return $this->hasMany('App\tbl_congvanden','id','id');
     }

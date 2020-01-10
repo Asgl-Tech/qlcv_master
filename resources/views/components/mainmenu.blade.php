@@ -25,6 +25,7 @@
                 <base href="{{asset('')}}">
                 <a href="javascript: void(0);">
                     <span class="cat__menu-left__icon fa fa-list-ol"></span>
+                <span class="cat__menu-left__icon fa fa-list-ol"></span>
                     1. Danh mục
                 </a>
                 <ul class="cat__menu-left__list">
@@ -71,10 +72,10 @@
 
                 </ul>
             </li>
+            {{--                Chào thân ái và quyết thắng :) --}}
 
-            {{--                Chào thân ái và tạm biệt--}}
             <li class="cat__menu-left__item cat__menu-left__submenu">
-                <base href="{{asset('')}}">
+            <base href="{{asset('')}}">
                 <a href="javascript: void(0);">
                     <span class="cat__menu-left__icon fa fa-list-ol"></span>
                     Công văn đến
