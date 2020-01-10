@@ -73,9 +73,7 @@ Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () 
     });
 
     Route::group(['prefix' => 'congvandi'], function () {
-        Route::get('hoten', function () {
-            echo "Tên của bạn là: ";
-        });
+
         Route::get('danhsach', 'CongvandiController@pages_index');
         Route::get('edit/{id}', 'CongvandiController@getEdit');
         Route::post('edit/{id}', 'CongvandiController@postEdit');
