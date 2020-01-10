@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Chỉnh sửa lĩnh vực'); ?>
+<?php $__env->startSection('title', 'Sửa Lĩnh vực'); ?>
 <?php echo $__env->make('main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('components/mainmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
@@ -16,7 +16,7 @@
             <div class="row">
                 <?php if(count($errors) > 0): ?>
                     <div class="alert alert-danger">
-                        <strong>Thông báo!</strong> Có sự cố trong quá trình nhập dữ liệu.<br><br>
+                        <strong>Thông báo!</strong> Có lỗi nhập liệu.<br><br>
                         <ul>
                             <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <li><?php echo e($error); ?></li>
@@ -38,7 +38,7 @@
                                 <div class="form-group">
                                     <label for="validation-pagename">Lĩnh vực <span
                                                 style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                                    <input value="<?php echo e($linhVuc->TenLinhVuc); ?>" id="validation-pagename" class="form-control" placeholder="Lĩnh vực"
+                                    <input value="<?php echo e($linhVuc->TenLinhVuc); ?>" id="validation-pagename" class="form-control" placeholder="Tên lĩnh vực"
                                            name="txtTenLinhVuc" type="text" data-validation="[NOTEMPTY]"
                                            data-validation-message="Page Name must not be empty!">
                                 </div>
