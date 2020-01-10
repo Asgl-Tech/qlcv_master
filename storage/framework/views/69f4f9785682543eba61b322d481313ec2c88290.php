@@ -26,6 +26,7 @@
                 <tr style="text-align: center;">
                     <th>ID</th>
                     <th>Tên Loại công văn</th>
+                    <th></th>
                 </tr>
                 </thead>
 
