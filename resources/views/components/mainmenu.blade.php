@@ -22,8 +22,9 @@
 
             {{--                Xin các chú đừng xóa danh mục của anh Huy nhé. Anh rất biết ơn--}}
             <li class="cat__menu-left__item cat__menu-left__submenu">
-            <a href="javascript: void(0);">
-                    <span class="cat__menu-left__icon fa fa-list-ol"></span>
+                <base href="{{asset('')}}">
+                <a href="javascript: void(0);">
+                <span class="cat__menu-left__icon fa fa-list-ol"></span>
                     1. Danh mục
                 </a>
                 <ul class="cat__menu-left__list">
@@ -73,6 +74,7 @@
 
             {{--                Chào thân ái và tạm biệt--}}
             <li class="cat__menu-left__item cat__menu-left__submenu">
+            <base href="{{asset('')}}">
                 <a href="javascript: void(0);">
                     <span class="cat__menu-left__icon fa fa-list-ol"></span>
                     Công văn đến

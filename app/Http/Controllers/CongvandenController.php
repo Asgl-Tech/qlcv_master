@@ -15,6 +15,7 @@ use App\DomatModel;
 use App\PhongbanModel;
 use App\NoiluuModel;
 use App\NamcvModel;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 class CongvandenController extends Controller
 {
@@ -28,7 +29,23 @@ class CongvandenController extends Controller
 		$pages = tbl_congvanden::all();
         return view('congvanden', ['Pages' => $pages]);				
     }
-	
+    
+    public function preview($id,$idloaicv,$Namcv,$idNoiphathanh,$idTheloaicv,$idLinhVuc,$idDokhan,$idDomat,$idNoiluu)
+    {
+        $loaicongvan = Loaicongvan::find($idloaicv);
+        $congvanden = tbl_congvanden::find($id);
+        $noiphathanh = Noiphathanh::find($idNoiphathanh);
+        $theloaicongvan = Theloaicongvan::find($idTheloaicv);
+        $linhvuc = Linhvuc::find($idLinhVuc);
+        $domat = DomatModel::find($idDomat);
+        $dokhan = DokhanModel::find($idDokhan);
+        // $phongban = PhongbanModel::all();
+        $noiluucv = NoiluuModel::find($idNoiluu);
+        $namcv = NamcvModel::find($Namcv);
+        return view ('congvanden.preview',['congvanden'=>$congvanden,'Loaicongvan' => $loaicongvan,'Noiphathanh' => $noiphathanh,'Theloaicongvan' => $theloaicongvan,'Theloaicongvan' => $theloaicongvan,'linhvuc' => $linhvuc,'domat' => $domat,'dokhan' => $dokhan,'noiluu' => $noiluucv,'namcv' => $namcv]);      
+
+    }
+
     public function pages_index(){
         $pages = tbl_congvanden::all();
         return view('congvanden.index', ['Pages' => $pages]);
@@ -52,6 +69,7 @@ class CongvandenController extends Controller
     }
     public function getThem(){
         // echo 'xin chào';
+        
         $loaicongvan = Loaicongvan::all();
         $noiphathanh = Noiphathanh::all();
         $theloaicongvan = Theloaicongvan::all();
@@ -98,6 +116,7 @@ class CongvandenController extends Controller
         $values= str_replace('"]','',$values);
         $values= str_replace('"','',$values);
         $pages->NoiNhan = $values;
+        echo $values;
         $pages->idNoiLuu = $request->Noiluu;
 
         if($request->hasFile('Hinh'))
@@ -126,8 +145,8 @@ class CongvandenController extends Controller
             $pages->DuongDan="";
             // echo 'Không có';
         }        
-        $pages->save();
-        return redirect('pages/congvanden/danhsach/')->with('thongbao','Thêm công văn thành công');
+        // $pages->save();
+        // return redirect('pages/congvanden/danhsach/')->with('thongbao','Thêm công văn thành công');
 
     }
     

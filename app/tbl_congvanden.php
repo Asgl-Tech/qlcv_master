@@ -23,7 +23,19 @@ class tbl_congvanden extends Model
       * @var array
       */
     
-       public function tbl_congvanden(){
+      public function tbl_congvanden(){
        return $this->belongsTo('App\congvanden');
-     }
+      }
+
+      // public function loaicongvan()
+      // {
+      //   return $this->hasMany('App\Loaicongvan','id','idLoaiCV');
+      // }
+
+
+      // public function nam()
+      // {
+      //   return $this->belongsTo('App\NamcvModel','NamCV','id');
+      // }
+
 }

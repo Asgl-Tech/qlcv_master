@@ -43,7 +43,7 @@
                             <label>Năm: </label>
                             <select class="form-control" id="idNam" name="nam">                               
                                 @foreach($namcv as $ncv)
-                                    <option value="{{$ncv->Nam}}">{{$ncv->Nam}}</option>  
+                                    <option value="{{$ncv->id}}">{{$ncv->Nam}}</option>  
                                 @endforeach                                                       
                             </select>
                         </div>

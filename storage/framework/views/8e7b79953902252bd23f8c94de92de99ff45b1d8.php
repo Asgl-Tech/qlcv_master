@@ -43,7 +43,7 @@
                             <label>Năm: </label>
                             <select class="form-control" id="idNam" name="nam">                               
                                 <?php $__currentLoopData = $namcv; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ncv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($ncv->Nam); ?>"><?php echo e($ncv->Nam); ?></option>  
+                                    <option value="<?php echo e($ncv->id); ?>"><?php echo e($ncv->Nam); ?></option>  
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                                       
                             </select>
                         </div>
