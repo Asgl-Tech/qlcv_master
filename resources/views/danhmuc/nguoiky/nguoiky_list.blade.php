@@ -1,4 +1,4 @@
-@section('title', 'Manage Pages')
+@section('title', 'Danh mục Người ký')
 @include('main')
 @include('components/mainmenu')
 {{-- @include('components/breadcrumb') --}}
@@ -8,10 +8,10 @@
     <section class="card">
         <div class="card-header">
             <div class="dropdown pull-right">
-                <a href="pages/danhmuc/loaicv/loaicv_add" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Thêm &nbsp; &nbsp;</a>
+                <a href="pages/danhmuc/nguoiky/nguoiky_add" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Thêm &nbsp; &nbsp;</a>
             </div>
             <span class="cat__core__title">
-            <strong>Danh mục Loại công văn</strong>
+            <strong>Danh mục Người ký</strong>
         </span>
         </div>
         <div class="card-body">
@@ -23,20 +23,21 @@
             <table class="table table-hover nowrap" id="example1" width="100%">
                 <thead class="thead-default">
                 <tr style="text-align: center;">
-                    <th>ID</th>
-                    <th>Tên Loại công văn</th>
+                    <th>Họ tên</th>
+                    <th>Chức vụ</th>
+                    <th></th>
                 </tr>
                 </thead>
 
                 <tbody>
-                @foreach($loaicv as $dk)
+                @foreach($nguoiky as $dk)
                     <tr>
-                        <td>{{$dk->id}}</td>
-                        <td>{{$dk->TenLoaiCV}}</td>
+                        <td>{{$dk->HoTen}}</td>
+                        <td>{{$dk->ChucVu}}</td>
                         <td style="width:250px;">
 
-                            <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a  href="pages/danhmuc/loaicv/loaicv_edit/{{$dk->id}}"> Sửa</a>
-                            <i class="fa fa-delete  fa-fw"></i><a href="pages/danhmuc/loaicv/loaicv_del/{{$dk->id}}"> Xóa</a>
+                            <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a  href="pages/danhmuc/nguoiky/nguoiky_edit/{{$dk->id}}"> Sửa</a>
+                            <i class="fa fa-delete  fa-fw"></i><a href="pages/danhmuc/nguoiky/nguoiky_del/{{$dk->id}}"> Xóa</a>
                         </td>
                     </tr>
                 @endforeach

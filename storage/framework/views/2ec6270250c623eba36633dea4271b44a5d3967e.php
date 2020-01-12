@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Thêm loại công văn'); ?>
+<?php $__env->startSection('title', 'Thêm mới danh mục Người ký'); ?>
 <?php echo $__env->make('main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('components/mainmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
@@ -9,14 +9,14 @@
         <div class="card-header">
             
             <span class="cat__core__title">
-            <strong>Thêm mới Người ký</strong>
+            <strong>Thêm mới</strong>
         </span>
         </div>
         <div class="card-body">
             <div class="row">
                 <?php if(count($errors) > 0): ?>
                     <div class="alert alert-danger">
-                        <strong>Thông báo</strong> Bạn chưa nhập đủ thông tin<br><br>
+                        <strong>Thông báo!</strong> Có lỗi khi nhập liệu.<br><br>
                         <ul>
                             <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <li><?php echo e($error); ?></li>
@@ -30,7 +30,7 @@
 
                     </div>
                 <?php endif; ?>
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <form action="pages/danhmuc/nguoiky/nguoiky_add" method="POST">
                         <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
                         <div class="row">
@@ -39,11 +39,10 @@
                                     <label for="validation-pagename">Họ tên <span
                                                 style="color:red; font-weight:900; font-size:20px;">*</span></label>
                                     <input id="validation-pagename" class="form-control" placeholder="Họ tên"
-                                           name="txtHoTen" style="border: 1px solid gray" type="text" data-validation="[NOTEMPTY]"
+                                           name="txtHoTen" type="text" data-validation="[NOTEMPTY]"
                                            data-validation-message="Page Name must not be empty!">
                                 </div>
                             </div>
-
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
@@ -51,7 +50,7 @@
                                     <label for="validation-pagename">Chức vụ <span
                                                 style="color:red; font-weight:900; font-size:20px;">*</span></label>
                                     <input id="validation-pagename" class="form-control" placeholder="Chức vụ"
-                                           name="txtChucVu" style="border: 1px solid gray" type="text" data-validation="[NOTEMPTY]"
+                                           name="txtChucVu" type="text" data-validation="[NOTEMPTY]"
                                            data-validation-message="Page Name must not be empty!">
                                 </div>
                             </div>
