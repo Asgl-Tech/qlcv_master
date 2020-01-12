@@ -1,4 +1,4 @@
-@section('title', 'Thêm loại công văn')
+@section('title', 'Thêm mới Phòng ban')
 @include('main')
 @include('components/mainmenu')
 {{-- @include('components/breadcrumb') --}}
@@ -18,7 +18,7 @@
             <div class="row">
                 @if (count($errors) > 0)
                     <div class="alert alert-danger">
-                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                        <strong>Thông báo!</strong> Có một vài sự cố khi nhập liệu.<br><br>
                         <ul>
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
@@ -32,22 +32,42 @@
                     </div>
                 @endif
                 <div class="col-lg-12">
-                    <form action="pages/danhmuc/loaicv/loaicv_add" method="POST">
+                    <form action="pages/danhmuc/phongban/phongban_add" method="POST">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="validation-pagename">Loại công văn <span
+                                    <label for="validation-pagename">Mã Phòng ban <span
                                                 style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                                    <input id="validation-pagename" class="form-control" placeholder="Loại công văn"
-                                           name="txtTenLoaiCv" type="text" data-validation="[NOTEMPTY]"
+                                    <input id="validation-pagename" class="form-control" placeholder="Mã Phòng ban"
+                                           name="txtMaPhong" type="text" data-validation="[NOTEMPTY]"
+                                           data-validation-message="Page Name must not be empty!">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="validation-pagename">Tên Phòng <span
+                                                style="color:red; font-weight:900; font-size:20px;">*</span></label>
+                                    <input id="validation-pagename" class="form-control" placeholder="Tên phòng"
+                                           name="txtTenPhong" type="text" data-validation="[NOTEMPTY]"
+                                           data-validation-message="Page Name must not be empty!">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="validation-pagename">Email <span
+                                                style="color:red; font-weight:900; font-size:20px;">*</span></label>
+                                    <input id="validation-pagename" class="form-control" placeholder="Email"
+                                           name="txtEmail" type="text" data-validation="[NOTEMPTY]"
                                            data-validation-message="Page Name must not be empty!">
                                 </div>
                             </div>
                         </div>
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary width-150">Thêm</button>
-                            <a href="pages/danhmuc/loaicv/loaicv_list" class="btn btn-danger">Hủy bỏ</a>
+                            <a href="pages/danhmuc/phongban/phongban_list" class="btn btn-danger">Hủy bỏ</a>
                         </div>
                     </form>
                 </div>

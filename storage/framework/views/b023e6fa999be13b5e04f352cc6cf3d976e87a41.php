@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Manage Pages'); ?>
+<?php $__env->startSection('title', 'Danh mục Phòng ban'); ?>
 <?php echo $__env->make('main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('components/mainmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
@@ -8,10 +8,10 @@
     <section class="card">
         <div class="card-header">
             <div class="dropdown pull-right">
-                <a href="pages/danhmuc/loaicv/loaicv_add" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Thêm &nbsp; &nbsp;</a>
+                <a href="pages/danhmuc/phongban/phongban_add" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Thêm &nbsp; &nbsp;</a>
             </div>
             <span class="cat__core__title">
-            <strong>Danh mục Loại công văn</strong>
+            <strong>Danh mục Phòng ban</strong>
         </span>
         </div>
         <div class="card-body">
@@ -24,20 +24,23 @@
             <table class="table table-hover nowrap" id="example1" width="100%">
                 <thead class="thead-default">
                 <tr style="text-align: center;">
-                    <th>ID</th>
-                    <th>Tên Loại công văn</th>
+                    <th>Mã phòng</th>
+                    <th>Tên phòng</th>
+                    <th>Email</th>
+                    <th></th>
                 </tr>
                 </thead>
 
                 <tbody>
-                <?php $__currentLoopData = $loaicv; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php $__currentLoopData = $phongban; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
-                        <td><?php echo e($dk->id); ?></td>
-                        <td><?php echo e($dk->TenLoaiCV); ?></td>
+                        <td><?php echo e($dk->MaPhong); ?></td>
+                        <td><?php echo e($dk->TenPhong); ?></td>
+                        <td><?php echo e($dk->Email); ?></td>
                         <td style="width:250px;">
 
-                            <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a  href="pages/danhmuc/loaicv/loaicv_edit/<?php echo e($dk->id); ?>"> Sửa</a>
-                            <i class="fa fa-delete  fa-fw"></i><a href="pages/danhmuc/loaicv/loaicv_del/<?php echo e($dk->id); ?>"> Xóa</a>
+                            <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a  href="pages/danhmuc/phongban/phongban_edit/<?php echo e($dk->id); ?>"> Sửa</a>
+                            <i class="fa fa-delete  fa-fw"></i><a href="pages/danhmuc/phongban/phongban_del/<?php echo e($dk->id); ?>"> Xóa</a>
                         </td>
                     </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

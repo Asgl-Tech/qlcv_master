@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Sửa Phòng ban'); ?>
+<?php $__env->startSection('title', 'Sửa danh mục Phòng ban'); ?>
 <?php echo $__env->make('main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('components/mainmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
@@ -16,7 +16,7 @@
             <div class="row">
                 <?php if(count($errors) > 0): ?>
                     <div class="alert alert-danger">
-                        <strong>Thông báo!</strong> Thiếu thông tin cần chỉnh sửa<br><br>
+                        <strong>Thông báo!</strong> Có một vài sự cố khi nhập liệu.<br><br>
                         <ul>
                             <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <li><?php echo e($error); ?></li>
@@ -31,15 +31,15 @@
                     </div>
                 <?php endif; ?>
                 <div class="col-lg-12">
-                    <form action="pages/danhmuc/phongban/phongban_edit/<?php echo e($phongBan->id); ?>" method="POST">
+                    <form action="pages/danhmuc/phongban/phongban_edit/<?php echo e($phongban->id); ?>" method="POST">
                         <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="validation-pagename">Mã PB <span
+                                    <label for="validation-pagename">Mã Phòng ban <span
                                                 style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                                    <input id="validation-pagename" class="form-control" placeholder="Mã phòng ban"
-                                           name="txtMaPhong" value="<?php echo e($phongBan->MaPhong); ?>" style="border: 1px solid gray" type="text" data-validation="[NOTEMPTY]"
+                                    <input value="<?php echo e($phongban->MaPhong); ?>" id="validation-pagename" class="form-control" placeholder="Mã phòng"
+                                           name="txtMaPhong" type="text" data-validation="[NOTEMPTY]"
                                            data-validation-message="Page Name must not be empty!">
                                 </div>
                             </div>
@@ -47,8 +47,8 @@
                                 <div class="form-group">
                                     <label for="validation-pagename">Tên phòng ban <span
                                                 style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                                    <input id="validation-pagename" class="form-control" placeholder="Tên phòng ban"
-                                           name="txtTenPhong" value="<?php echo e($phongBan->TenPhong); ?>" style="border: 1px solid gray" type="text" data-validation="[NOTEMPTY]"
+                                    <input value="<?php echo e($phongban->TenPhong); ?>" id="validation-pagename" class="form-control" placeholder="Tên phòng"
+                                           name="txtTenPhong" type="text" data-validation="[NOTEMPTY]"
                                            data-validation-message="Page Name must not be empty!">
                                 </div>
                             </div>
@@ -58,8 +58,8 @@
                                 <div class="form-group">
                                     <label for="validation-pagename">Email <span
                                                 style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                                    <input id="validation-pagename" class="form-control" placeholder="Email"
-                                           name="txtEmail" value="<?php echo e($phongBan->Email); ?>" style="border: 1px solid gray" type="Email" data-validation="[NOTEMPTY]"
+                                    <input value="<?php echo e($phongban->Email); ?>" id="validation-pagename" class="form-control" placeholder="Email"
+                                           name="txtEmail" type="text" data-validation="[NOTEMPTY]"
                                            data-validation-message="Page Name must not be empty!">
                                 </div>
                             </div>

@@ -48,7 +48,7 @@ class PhongBanController extends Controller
     {
         $phongBan=PhongbanModel::find($id);
 
-        return view('danhmuc.phongban.phongban_edit',['phongBan'=>$phongBan]);
+        return view('danhmuc.phongban.phongban_edit',['phongban'=>$phongBan]);
     }
     function postPhongBan_Edit(Request $request,$id)
     {
