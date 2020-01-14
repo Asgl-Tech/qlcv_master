@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Sửa Phòng ban'); ?>
+<?php $__env->startSection('title', 'Sửa Thể loại công văn'); ?>
 <?php echo $__env->make('main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('components/mainmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
@@ -16,7 +16,7 @@
             <div class="row">
                 <?php if(count($errors) > 0): ?>
                     <div class="alert alert-danger">
-                        <strong>Thông báo!</strong> Thiếu thông tin cần chỉnh sửa<br><br>
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
                         <ul>
                             <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <li><?php echo e($error); ?></li>
@@ -31,29 +31,30 @@
                     </div>
                 <?php endif; ?>
                 <div class="col-lg-12">
-                    <form action="pages/danhmuc/theloaicv/theloaicv_edit/<?php echo e($theLoai->id); ?>" method="POST">
+                    <form action="pages/danhmuc/theloaicv/theloaicv_edit/<?php echo e($theloai->id); ?>" method="POST">
                         <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="validation-pagename">Mã thể loại <span
                                                 style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                                    <input id="validation-pagename" class="form-control" placeholder="Mã phòng ban"
-                                           name="txtMaTheLoai" value="<?php echo e($theLoai->MaTheLoai); ?>" style="border: 1px solid gray" type="text" data-validation="[NOTEMPTY]"
-                                           data-validation-message="Page Name must not be empty!">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="validation-pagename">Tên Thể loại <span
-                                                style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                                    <input id="validation-pagename" class="form-control" placeholder="Tên phòng ban"
-                                           name="txtTenTheLoai" value="<?php echo e($theLoai->TenTheLoai); ?>" style="border: 1px solid gray" type="text" data-validation="[NOTEMPTY]"
+                                    <input value="<?php echo e($theloai->MaTheLoai); ?>" id="validation-pagename" class="form-control" placeholder="Loại công văn"
+                                           name="txtMaTheLoai" type="text" data-validation="[NOTEMPTY]"
                                            data-validation-message="Page Name must not be empty!">
                                 </div>
                             </div>
                         </div>
-
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="validation-pagename">Tên thể loại công văn <span
+                                                style="color:red; font-weight:900; font-size:20px;">*</span></label>
+                                    <input value="<?php echo e($theloai->TenTheLoai); ?>" id="validation-pagename" class="form-control" placeholder="Loại công văn"
+                                           name="txtTenTheLoai" type="text" data-validation="[NOTEMPTY]"
+                                           data-validation-message="Page Name must not be empty!">
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary width-150">Sửa</button>
                             <a href="pages/danhmuc/theloaicv/theloaicv_list" class="btn btn-danger">Hủy bỏ</a>
@@ -179,6 +180,8 @@
                     }
                 }
             });
+
+
         });
     </script>
     <!-- END: page scripts -->

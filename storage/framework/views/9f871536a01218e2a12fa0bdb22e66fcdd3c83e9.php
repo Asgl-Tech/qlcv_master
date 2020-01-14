@@ -26,7 +26,6 @@
                 <tr style="text-align: center;">
                     <th>ID</th>
                     <th>Tên Cơ quan</th>
-                    <th></th>
                 </tr>
                 </thead>
 

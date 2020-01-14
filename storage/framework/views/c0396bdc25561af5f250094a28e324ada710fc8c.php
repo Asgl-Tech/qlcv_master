@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Danh mục thể loại'); ?>
+<?php $__env->startSection('title', 'Danh mục thể loại công văn'); ?>
 <?php echo $__env->make('main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('components/mainmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
@@ -11,7 +11,7 @@
                 <a href="pages/danhmuc/theloaicv/theloaicv_add" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Thêm &nbsp; &nbsp;</a>
             </div>
             <span class="cat__core__title">
-            <strong>Danh mục Thể loại</strong>
+            <strong>Danh mục Thể loại công văn</strong>
         </span>
         </div>
         <div class="card-body">
@@ -24,9 +24,8 @@
             <table class="table table-hover nowrap" id="example1" width="100%">
                 <thead class="thead-default">
                 <tr style="text-align: center;">
-
                     <th>Mã thể loại</th>
-                    <th>Tên thể loại</th>
+                    <th>Tên Loại công văn</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -34,10 +33,10 @@
                 <tbody>
                 <?php $__currentLoopData = $theloai; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
-
                         <td><?php echo e($dk->MaTheLoai); ?></td>
                         <td><?php echo e($dk->TenTheLoai); ?></td>
                         <td style="width:250px;">
+
                             <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a  href="pages/danhmuc/theloaicv/theloaicv_edit/<?php echo e($dk->id); ?>"> Sửa</a>
                             <i class="fa fa-delete  fa-fw"></i><a href="pages/danhmuc/theloaicv/theloaicv_del/<?php echo e($dk->id); ?>"> Xóa</a>
                         </td>

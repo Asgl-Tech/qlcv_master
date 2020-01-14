@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Manage Pages'); ?>
+<?php $__env->startSection('title', 'Danh mục Người ký'); ?>
 <?php echo $__env->make('main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('components/mainmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
@@ -24,10 +24,9 @@
             <table class="table table-hover nowrap" id="example1" width="100%">
                 <thead class="thead-default">
                 <tr style="text-align: center;">
-
                     <th>Họ tên</th>
                     <th>Chức vụ</th>
-<th></th>
+                    <th></th>
                 </tr>
                 </thead>
 
@@ -36,8 +35,8 @@
                     <tr>
                         <td><?php echo e($dk->HoTen); ?></td>
                         <td><?php echo e($dk->ChucVu); ?></td>
-
                         <td style="width:250px;">
+
                             <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a  href="pages/danhmuc/nguoiky/nguoiky_edit/<?php echo e($dk->id); ?>"> Sửa</a>
                             <i class="fa fa-delete  fa-fw"></i><a href="pages/danhmuc/nguoiky/nguoiky_del/<?php echo e($dk->id); ?>"> Xóa</a>
                         </td>

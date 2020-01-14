@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Thêm mới'); ?>
+<?php $__env->startSection('title', 'Thêm loại công văn'); ?>
 <?php echo $__env->make('main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('components/mainmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
@@ -16,7 +16,7 @@
             <div class="row">
                 <?php if(count($errors) > 0): ?>
                     <div class="alert alert-danger">
-                        <strong>Thông báo!</strong> Có một vài sự cố khi nhập liệu<br><br>
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
                         <ul>
                             <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <li><?php echo e($error); ?></li>
@@ -38,7 +38,7 @@
                                 <div class="form-group">
                                     <label for="validation-pagename">Lĩnh vực <span
                                                 style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                                    <input id="validation-pagename" class="form-control" placeholder="Lĩnh vực"
+                                    <input id="validation-pagename" class="form-control" placeholder="Tên lĩnh vực"
                                            name="txtTenLinhVuc" type="text" data-validation="[NOTEMPTY]"
                                            data-validation-message="Page Name must not be empty!">
                                 </div>

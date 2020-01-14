@@ -45,7 +45,7 @@ class NguoiKyController extends Controller
     function getNguoiKy_Edit($id)
     {
         $nguoiKy = NguoiKyModel::find($id);
-        return view('danhmuc.nguoiky.nguoiky_edit', ['nguoiKy' => $nguoiKy]);
+        return view('danhmuc.nguoiky.nguoiky_edit', ['nguoiky' => $nguoiKy]);
     }
 
     function postNguoiKy_Edit(Request $request, $id)

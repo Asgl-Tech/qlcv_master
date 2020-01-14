@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Manage Pages'); ?>
+<?php $__env->startSection('title', 'Danh mục Phòng ban'); ?>
 <?php echo $__env->make('main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('components/mainmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
@@ -24,7 +24,6 @@
             <table class="table table-hover nowrap" id="example1" width="100%">
                 <thead class="thead-default">
                 <tr style="text-align: center;">
-                    <th>ID</th>
                     <th>Mã phòng</th>
                     <th>Tên phòng</th>
                     <th>Email</th>
@@ -35,13 +34,12 @@
                 <tbody>
                 <?php $__currentLoopData = $phongban; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
-                        <td><?php echo e($dk->id); ?></td>
                         <td><?php echo e($dk->MaPhong); ?></td>
                         <td><?php echo e($dk->TenPhong); ?></td>
-                        <td style="white-space: pre-wrap"><?php echo e($dk->Email); ?></td>
+                        <td><?php echo e($dk->Email); ?></td>
                         <td style="width:250px;">
 
-                            <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a  href="pages/danhmuc/phongban/phongban_edit<?php echo e($dk->id); ?>"> Sửa</a>
+                            <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a  href="pages/danhmuc/phongban/phongban_edit/<?php echo e($dk->id); ?>"> Sửa</a>
                             <i class="fa fa-delete  fa-fw"></i><a href="pages/danhmuc/phongban/phongban_del/<?php echo e($dk->id); ?>"> Xóa</a>
                         </td>
                     </tr>

@@ -45,9 +45,9 @@ class TheLoaiController extends Controller
 
     function getTheLoai_Edit($id)
     {
-        $theLoai = Theloaicongvan::find($id);
+        $theloai = Theloaicongvan::find($id);
 
-        return view('danhmuc.theloaicv.theloai_edit', ['theLoai' => $theLoai]);
+        return view('danhmuc.theloaicv.theloai_edit', ['theloai' => $theloai]);
     }
 
     function postTheLoai_Edit(Request $request, $id)

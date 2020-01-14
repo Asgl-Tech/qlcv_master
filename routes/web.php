@@ -104,7 +104,7 @@ Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () 
 
         //-----------------------------------------------------------
         // Người ký: pages/danhmuc/theloai/theloai_list
-
+                    //pages/danhmuc/theloaicv/theloaicv_list
         Route::group(['prefix' => 'theloaicv'], function () {
 
             Route::get('theloaicv_list', 'TheLoaiController@getTheLoai');
@@ -137,9 +137,7 @@ Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () 
     //-------------------- end of danh mục
 
     Route::group(['prefix' => 'congvandi'], function () {
-        Route::get('hoten', function () {
-            echo "Tên của bạn là: ";
-        });
+
         Route::get('danhsach', 'CongvandiController@pages_index');
         Route::get('edit/{id}', 'CongvandiController@getEdit');
         Route::post('edit/{id}', 'CongvandiController@postEdit');

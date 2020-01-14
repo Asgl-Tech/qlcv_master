@@ -24,6 +24,7 @@
             <table class="table table-hover nowrap" id="example1" width="100%">
                 <thead class="thead-default">
                 <tr style="text-align: center;">
+                    <th>ID</th>
                     <th>Tên Lĩnh vực</th>
                     <th></th>
                 </tr>
@@ -32,6 +33,7 @@
                 <tbody>
                 <?php $__currentLoopData = $linhvuc; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
+                        <td><?php echo e($dk->id); ?></td>
                         <td><?php echo e($dk->TenLinhVuc); ?></td>
                         <td style="width:250px;">
                             <i class="fa fa-trash fa-fw" style="margin-left:4px;margin-right:4px;"></i><a  href="pages/danhmuc/linhvuc/linhvuc_edit/<?php echo e($dk->id); ?>"> Sửa</a>

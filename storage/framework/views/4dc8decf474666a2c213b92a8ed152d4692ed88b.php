@@ -1,74 +1,81 @@
-<?php $__env->startSection('title', 'Sửa Lĩnh vực'); ?>
+<?php $__env->startSection('title', 'Manage Pages'); ?>
 <?php echo $__env->make('main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('components/mainmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 <div class="cat__content">
 
-    <!-- START: ecommerce/Pages-edit -->
+    <!-- START: ecommerce/Pages-list -->
     <section class="card">
         <div class="card-header">
-            
+            <div class="dropdown pull-right">
+                <a href="them" class="btn btn-success btn-sm"><i class="fa fa-plus "></i>&nbsp; &nbsp; Add &nbsp; &nbsp;</a>
+            </div>
             <span class="cat__core__title">
-            <strong>Chỉnh sửa</strong>
+            <strong>Pages List</strong>
         </span>
         </div>
+
+
         <div class="card-body">
-            <div class="row">
-                <?php if(count($errors) > 0): ?>
-                    <div class="alert alert-danger">
-                        <strong>Thông báo!</strong> Có lỗi nhập liệu.<br><br>
-                        <ul>
-                            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <li><?php echo e($error); ?></li>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </ul>
-                    </div>
-                <?php endif; ?>
-                <?php if(session('thongbao')): ?>
-                    <div class="alert alert-success">
-                        <?php echo e(session('thongbao')); ?>
+            <?php if($thongbao = Session::get('error')): ?>
+                <div class="alert alert-danger" role="alert" id="id">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Oh snap! </strong> <?php echo e($thongbao); ?>
 
-                    </div>
-                <?php endif; ?>
-                <div class="col-lg-12">
-                    <form action="pages/danhmuc/linhvuc/linhvuc_edit/<?php echo e($linhVuc->id); ?>" method="POST">
-                        <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="validation-pagename">Lĩnh vực <span
-                                                style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                                    <input value="<?php echo e($linhVuc->TenLinhVuc); ?>" id="validation-pagename" class="form-control" placeholder="Tên lĩnh vực"
-                                           name="txtTenLinhVuc" type="text" data-validation="[NOTEMPTY]"
-                                           data-validation-message="Page Name must not be empty!">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-primary width-150">Sửa</button>
-                            <a href="pages/danhmuc/linhvuc/linhvuc_list" class="btn btn-danger">Hủy bỏ</a>
-                        </div>
-                    </form>
                 </div>
-
-            </div>
+            <?php endif; ?>
+            <?php if($thongbao = Session::get('thongbao')): ?>
+                <div class="alert alert-success" role="alert" id="id">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Well done! </strong> <?php echo e($thongbao); ?> !
+                </div>
+        <?php endif; ?>
+        <!-- <?php if(session('thongbao')): ?>
+            <div class="alert alert-success"><?php echo e(session('thongbao')); ?></div>
+        <?php endif; ?> -->
+            <table class="table table-hover nowrap" id="example1" width="100%">
+                <thead class="thead-default">
+                <tr >
+                    <th>ID</th>
+                    <th>Số/Ký hiệu</th>
+                    <th>Ngày phát hành</th>
+                    <th>Trích yếu nội dung</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php $__currentLoopData = $Pages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $page): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <tr>
+                        <td><?php echo e($page->id); ?></td>
+                        <td><?php echo e($page->KyHieu); ?></td>
+                        <td><?php echo e($page->NgayPhatHanh); ?></td>
+                        <td><?php echo e($page->TrichYeu); ?></td>
+                        <td style="width:250px;">
+                            <a href=""><i class="fa fa-eye"></i> View</a>
+                            <a  href="edit/<?php echo e($page->id); ?>"><i class="fa fa-pencil-square-o" style="margin-left:6px;margin-right:6px;"></i>Sửa</a>
+                            <a href="destroy/<?php echo e($page->id); ?>"> <i class="fa fa-trash fa-fw"></i>Delete</a>
+                        </td>
+                    </tr>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </tbody>
+            </table>
         </div>
     </section>
-    <!-- END: ecommerce/product-edit -->
     <!-- END: ecommerce/products-list -->
-
-    <!-- START: page scripts -->
     <script>
-        $(document).ready(function () {
-            $('.summernote').summernote();
-        });
+        $('#id').delay(3000).fadeOut('fast');
     </script>
+    <!-- START: page scripts -->
     <script>
         $(function () {
 
             // Datatables
             $('#example1').DataTable({
-                "lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]],
+                "lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25,50, 100, 200, "All"]],
                 responsive: true,
                 "autoWidth": false
             });
@@ -79,7 +86,7 @@
     <!-- END: page scripts -->
     <!-- START: page scripts -->
     <script>
-        $(function () {
+        $( function() {
             $("#m_section_name").html("Pages");
             ///////////////////////////////////////////////////////////
             // tooltips
@@ -123,7 +130,7 @@
                     ["", {
                         seriesBarDistance: 5,
                         axisX: {
-                            labelInterpolationFnc: function (value) {
+                            labelInterpolationFnc: function(value) {
                                 return value[0]
                             }
                         }
@@ -135,7 +142,7 @@
             ///////////////////////////////////////////////////////////
             // custom scroll
             if (!('ontouchstart' in document.documentElement) && jQuery().jScrollPane) {
-                $('.custom-scroll').each(function () {
+                $('.custom-scroll').each(function() {
                     $(this).jScrollPane({
                         contentWidth: '100%',
                         autoReinitialise: true,
@@ -143,9 +150,9 @@
                     });
                     var api = $(this).data('jsp'),
                         throttleTimeout;
-                    $(window).bind('resize', function () {
+                    $(window).bind('resize', function() {
                         if (!throttleTimeout) {
-                            throttleTimeout = setTimeout(function () {
+                            throttleTimeout = setTimeout(function() {
                                 api.reinitialise();
                                 throttleTimeout = null;
                             }, 50);
@@ -154,24 +161,7 @@
                 });
             }
 
-        });
-    </script>
-    <script>
-        $(function () {
-
-            // Form Validation
-            $('#form-validation').validate({
-                submit: {
-                    settings: {
-                        inputContainer: '.form-group',
-                        errorListClass: 'form-control-error',
-                        errorClass: 'has-danger'
-                    }
-                }
-            });
-
-
-        });
+        } );
     </script>
     <!-- END: page scripts -->
 <?php echo $__env->make('components/footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

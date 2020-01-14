@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Thêm mới thể loại công văn'); ?>
+<?php $__env->startSection('title', 'Thêm mới'); ?>
 <?php echo $__env->make('main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('components/mainmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
@@ -9,14 +9,14 @@
         <div class="card-header">
             
             <span class="cat__core__title">
-            <strong>Thêm mới thể loại công văn</strong>
+            <strong>Thêm mới</strong>
         </span>
         </div>
         <div class="card-body">
             <div class="row">
                 <?php if(count($errors) > 0): ?>
                     <div class="alert alert-danger">
-                        <strong>Thông báo</strong> Có một vài vấn đề khi tạo mới<br><br>
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
                         <ul>
                             <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <li><?php echo e($error); ?></li>
@@ -36,24 +36,25 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="validation-pagename">Mã thể loại <span
+                                    <label for="validation-pagename">Mã thể loại công văn <span
                                                 style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                                    <input id="validation-pagename" class="form-control" placeholder="Mã thể loại"
-                                           name="txtMaTheLoai" style="border: 1px solid gray" type="text" data-validation="[NOTEMPTY]"
-                                           data-validation-message="Page Name must not be empty!">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="validation-pagename">Tên Thể loại <span
-                                                style="color:red; font-weight:900; font-size:20px;">*</span></label>
-                                    <input id="validation-pagename" class="form-control" placeholder="Tên thể loại"
-                                           name="txtTenTheLoai" style="border: 1px solid gray" type="text" data-validation="[NOTEMPTY]"
+                                    <input id="validation-pagename" class="form-control" placeholder="Mã Thể loại công văn"
+                                           name="txtMaTheLoai" type="text" data-validation="[NOTEMPTY]"
                                            data-validation-message="Page Name must not be empty!">
                                 </div>
                             </div>
                         </div>
-
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="validation-pagename">Tên thể loại công văn <span
+                                                style="color:red; font-weight:900; font-size:20px;">*</span></label>
+                                    <input id="validation-pagename" class="form-control" placeholder="Thể loại công văn"
+                                           name="txtTenTheLoai" type="text" data-validation="[NOTEMPTY]"
+                                           data-validation-message="Page Name must not be empty!">
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary width-150">Thêm</button>
                             <a href="pages/danhmuc/theloaicv/theloaicv_list" class="btn btn-danger">Hủy bỏ</a>
