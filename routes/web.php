@@ -1,5 +1,7 @@
 <?php
 Route::get('profile', 'UserController@profile');
+Route::get('changepassword', 'UserController@changepassword');
+
 Route::get('dangnhap', 'LoginController@getDangNhap');
 Route::post('dangnhap', 'LoginController@postDangNhap');
 Route::get('dangxuat', 'LoginController@dangxuat');
@@ -14,7 +16,7 @@ Route::group(['prefix' => 'pages', 'middleware' => 'MyMiddleware'], function () 
         Route::get('xoa/{id}', 'CongvandenController@getDestroy');
         Route::get('them', 'CongvandenController@getThem');
         Route::post('them', 'CongvandenController@postThem');
-        Route::get('preview/{id}/{idloaicv}/{Namcv}/{idNoiphathanh}/{idTheloaicv}/{idLinhVuc}/{idDoKhan}/{idDomat}/{idNoiluu}', 'CongvandenController@preview');
+        Route::get('preview/{id}/{idloaicv}/{Namcv}/{idNoiphathanh}/{idTheloaicv}/{idLinhVuc}/{idDoKhan}/{idDomat}/{idNoiluu}/{idNoinhan}', 'CongvandenController@preview');
     });
     // hello các em, phần route danh mục anh Huy nhé
     // localhost:8080/qlcv/public/pages/danhmuc/dokhan/dokhan_list

@@ -57,7 +57,7 @@
                <td style="width:250px;">
                     
                      <!-- <a href=""><i class="fa fa-eye"></i> View</a> -->
-                     <a href="pages/congvanden/preview/<?php echo e($page->id); ?>/<?php echo e($page->idLoaiCV); ?>/<?php echo e($page->NamCV); ?>/<?php echo e($page->idNoiPhatHanh); ?>/<?php echo e($page->idTheLoaiCV); ?>/<?php echo e($page->idLinhVuc); ?>/<?php echo e($page->idDoKhan); ?>/<?php echo e($page->idDoMat); ?>/<?php echo e($page->idNoiLuu); ?>" class="btn btn-primary btn-sm" ><i class="fa fa-eye" style="margin-left:6px;margin-right:6px;"></i> View</a>
+                     <a href="pages/congvanden/preview/<?php echo e($page->id); ?>/<?php echo e($page->idLoaiCV); ?>/<?php echo e($page->NamCV); ?>/<?php echo e($page->idNoiPhatHanh); ?>/<?php echo e($page->idTheLoaiCV); ?>/<?php echo e($page->idLinhVuc); ?>/<?php echo e($page->idDoKhan); ?>/<?php echo e($page->idDoMat); ?>/<?php echo e($page->idNoiLuu); ?>/<?php echo e($page->NoiNhan); ?>" class="btn btn-primary btn-sm" ><i class="fa fa-eye" style="margin-left:6px;margin-right:6px;"></i> View</a>
                      <a href="pages/congvanden/edit/<?php echo e($page->id); ?>" class="btn btn-primary btn-sm" ><i class="fa fa-pencil-square-o" style="margin-left:6px;margin-right:6px;"></i> Edit</a>
                      <!-- <a  href="edit/<?php echo e($page->id); ?>"><i class="fa fa-pencil-square-o" style="margin-left:6px;margin-right:6px;"></i>Sửa</a>                    -->
                      <a href="pages/congvanden/xoa/<?php echo e($page->id); ?>" class="btn btn-warning btn-sm" ><i class="fa fa-trash fa-fw" style="margin-left:6px;margin-right:6px;"></i> Delete</a>

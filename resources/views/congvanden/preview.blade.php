@@ -55,8 +55,14 @@
                         <dt class="col-xl-3">Nội dung Email</dt>
                         <dd class="col-xl-9">{{$congvanden->GhiChu}}</dd>
 
-                        <dt class="col-xl-3">Phòng ban xử lý</dt>
-                        <dd class="col-xl-9">{{$congvanden->NoiNhan}}</dd>
+                        
+                        @foreach($Phongban as $pb)
+                        <dt class="col-xl-3">Phòng ban xử lý: </dt>
+                             <!-- <option value="{{$pb->id}}">{{$pb->TenPhong}}</option>   -->
+                             <dd class="col-xl-9">{{$pb->TenPhong}}.</dd>
+                        @endforeach
+
+                        
 
                         <dt class="col-xl-3">Email khác</dt>
                         <dd class="col-xl-9">{{$congvanden->EmailAdd}}</dd>

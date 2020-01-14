@@ -24,7 +24,7 @@
 				</div>
 			@endif
             <div class="col-lg-12">
-             <form action="them" method="POST" enctype="multipart/form-data">    
+             <form action="pages/congvanden/them" method="POST" enctype="multipart/form-data">    
                 <input type="hidden" name="_token" value="{{csrf_token()}}">               
 				<div class="row">
                     <div class="col-lg-3">
@@ -172,7 +172,7 @@
                         <label>Phòng xử lý: </label>
                         <select class="form-control selectpicker" id="idPhongbanxuly" name="Phongbanxuly[]" multiple data-live-search="true">
                             @foreach($phongban as $pb)
-                             <option value="{{$pb->TenPhong}}">{{$pb->TenPhong}}</option>  
+                             <option value="{{$pb->id}}">{{$pb->TenPhong}}</option>  
                             @endforeach
                         </select>
                         </div>

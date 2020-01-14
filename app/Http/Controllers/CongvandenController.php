@@ -30,8 +30,14 @@ class CongvandenController extends Controller
         return view('congvanden', ['Pages' => $pages]);				
     }
     
-    public function preview($id,$idloaicv,$Namcv,$idNoiphathanh,$idTheloaicv,$idLinhVuc,$idDokhan,$idDomat,$idNoiluu)
+    public function preview($id,$idloaicv,$Namcv,$idNoiphathanh,$idTheloaicv,$idLinhVuc,$idDokhan,$idDomat,$idNoiluu,$idNoinhan)
     {
+        $data = array();
+        $xx = explode(',', $idNoinhan);
+        foreach ($xx as $item)
+        {
+            $data[]=$item;
+        }
         $loaicongvan = Loaicongvan::find($idloaicv);
         $congvanden = tbl_congvanden::find($id);
         $noiphathanh = Noiphathanh::find($idNoiphathanh);
@@ -39,10 +45,20 @@ class CongvandenController extends Controller
         $linhvuc = Linhvuc::find($idLinhVuc);
         $domat = DomatModel::find($idDomat);
         $dokhan = DokhanModel::find($idDokhan);
-        // $phongban = PhongbanModel::all();
+        // echo $congvanden->NoiNhan;
+        $phongban = PhongbanModel::whereIn('id', $data)->select('TenPhong')->get();
+        // $idCount = count($phongban);
+        // // echo $idCount;
+        // for($i=0;$i<$idCount; $i++)
+        // {
+        //     $sString =  $phongban->TenPhong.',';
+        // }
+        // echo json_encode( $sString, JSON_UNESCAPED_UNICODE);
+
         $noiluucv = NoiluuModel::find($idNoiluu);
         $namcv = NamcvModel::find($Namcv);
-        return view ('congvanden.preview',['congvanden'=>$congvanden,'Loaicongvan' => $loaicongvan,'Noiphathanh' => $noiphathanh,'Theloaicongvan' => $theloaicongvan,'Theloaicongvan' => $theloaicongvan,'linhvuc' => $linhvuc,'domat' => $domat,'dokhan' => $dokhan,'noiluu' => $noiluucv,'namcv' => $namcv]);      
+
+        return view ('congvanden.preview',['Phongban'=>$phongban,'congvanden'=>$congvanden,'Loaicongvan' => $loaicongvan,'Noiphathanh' => $noiphathanh,'Theloaicongvan' => $theloaicongvan,'Theloaicongvan' => $theloaicongvan,'linhvuc' => $linhvuc,'domat' => $domat,'dokhan' => $dokhan,'noiluu' => $noiluucv,'namcv' => $namcv]);      
 
     }
 
@@ -69,7 +85,6 @@ class CongvandenController extends Controller
     }
     public function getThem(){
         // echo 'xin chào';
-        
         $loaicongvan = Loaicongvan::all();
         $noiphathanh = Noiphathanh::all();
         $theloaicongvan = Theloaicongvan::all();
@@ -77,6 +92,7 @@ class CongvandenController extends Controller
         $domat = DomatModel::all();
         $dokhan = DokhanModel::all();
         $phongban = PhongbanModel::all();
+        // echo json_encode( $phongban, JSON_UNESCAPED_UNICODE );;
         $noiluucv = NoiluuModel::all();
         $namcv = NamcvModel::all();
         return view ('congvanden.create',['Loaicongvan' => $loaicongvan,'Noiphathanh' => $noiphathanh,'Theloaicongvan' => $theloaicongvan,'Theloaicongvan' => $theloaicongvan,'linhvuc' => $linhvuc,'domat' => $domat,'dokhan' => $dokhan,'phongban' => $phongban,'noiluu' => $noiluucv,'namcv' => $namcv]);
@@ -88,6 +104,9 @@ class CongvandenController extends Controller
         //     'page_title' => 'required',
 		// 	'meta_title' => 'required',
         // ]);
+        $data = array();
+        $dataSet = [];
+        $values ="";
  
         $pages = new tbl_congvanden;
         $pages->idLoaiCV=$request->Loaicongvan;
@@ -104,21 +123,44 @@ class CongvandenController extends Controller
         $pages->idDoKhan = $request->Dokhan;
         $pages->TrichYeu = $request->Trichyeunoidung;
         $pages->GhiChu = $request->Noidungemail;
-        $pages->EmailSend = $request->Emailkhac;
+        $pages->EmailAdd = $request->Emailkhac;
         $pages->EmailCC = $request->EmailCC;
         $pages->HanXuLy = $request->Hanxuly;
         // echo  $request->Hanxuly;
-        $dataSet = [];
-        $values ="";
+        
         $dataSet= $request->Phongbanxuly;
         $values= json_encode( $dataSet, JSON_UNESCAPED_UNICODE );
         $values= str_replace('["','',$values);
         $values= str_replace('"]','',$values);
         $values= str_replace('"','',$values);
-        $pages->NoiNhan = $values;
-        echo $values;
-        $pages->idNoiLuu = $request->Noiluu;
 
+        $xxx = explode(',', $values);
+        foreach ($xxx as $item)
+        {
+            $data[]=$item;
+        }
+
+        $Tenpb = PhongbanModel::whereIn('id', $data)->select('TenPhong')->get();
+        $xTenPhong= json_encode($Tenpb, JSON_UNESCAPED_UNICODE );
+        $xTenPhong = str_replace('[{"TenPhong":"','',$xTenPhong);
+        $xTenPhong = str_replace('"},{"TenPhong":"',',',$xTenPhong);
+        $xTenPhong = str_replace('"}]','',$xTenPhong);
+            // echo $xTenPhong;
+        $pages->NoiNhan = $values;
+
+        $pages->idNoiLuu = $request->Noiluu;
+        $xx = explode(',', $values);
+        foreach ($xx as $item)
+        {
+            $data[]=$item;
+        }        
+        $phongban = PhongbanModel::whereIn('id', $data)->select('Email')->get();
+        $eMailget= json_encode($phongban, JSON_UNESCAPED_UNICODE );
+        $eMailget = str_replace('[{"Email":"','',$eMailget);
+        $eMailget = str_replace('"},{"Email":"',',',$eMailget);
+        $eMailget = str_replace('"}]','',$eMailget);
+        //  echo $eMailget;
+        $pages->EmailSend = $eMailget;
         if($request->hasFile('Hinh'))
         {
             $file = $request->file('Hinh');
@@ -145,8 +187,8 @@ class CongvandenController extends Controller
             $pages->DuongDan="";
             // echo 'Không có';
         }        
-        // $pages->save();
-        // return redirect('pages/congvanden/danhsach/')->with('thongbao','Thêm công văn thành công');
+        $pages->save();
+        return redirect('pages/congvanden/danhsach/')->with('thongbao','Thêm công văn thành công');
 
     }
     
@@ -175,19 +217,44 @@ class CongvandenController extends Controller
         $pages->idDoKhan = $request->Dokhan;
         $pages->TrichYeu = $request->Trichyeunoidung;
         $pages->GhiChu = $request->Noidungemail;
-        $pages->EmailSend = $request->Emailkhac;
+        $pages->EmailAdd = $request->Emailkhac;
         $pages->EmailCC = $request->EmailCC;
         $pages->HanXuLy = $request->Hanxuly;
        
-        echo  $request->Hanxuly;
+        // echo  $request->Hanxuly;
         $dataSet= $request->Phongbanxuly;
         $values= json_encode( $dataSet, JSON_UNESCAPED_UNICODE );
         $values= str_replace('["','',$values);
         $values= str_replace('"]','',$values);
         $values= str_replace('"','',$values);
-        $pages->NoiNhan = $values;
-        $pages->idNoiLuu = $request->Noiluu;
 
+        $xxx = explode(',', $values);
+        foreach ($xxx as $item)
+        {
+            $data[]=$item;
+        }
+
+        $Tenpb = PhongbanModel::whereIn('id', $data)->select('TenPhong')->get();
+        $xTenPhong= json_encode($Tenpb, JSON_UNESCAPED_UNICODE );
+        $xTenPhong = str_replace('[{"TenPhong":"','',$xTenPhong);
+        $xTenPhong = str_replace('"},{"TenPhong":"',',',$xTenPhong);
+        $xTenPhong = str_replace('"}]','',$xTenPhong);
+            // echo $xTenPhong;
+        $pages->NoiNhan = $values;
+
+        $pages->idNoiLuu = $request->Noiluu;
+        $xx = explode(',', $values);
+        foreach ($xx as $item)
+        {
+            $data[]=$item;
+        }        
+        $phongban = PhongbanModel::whereIn('id', $data)->select('Email')->get();
+        $eMailget= json_encode($phongban, JSON_UNESCAPED_UNICODE );
+        $eMailget = str_replace('[{"Email":"','',$eMailget);
+        $eMailget = str_replace('"},{"Email":"',',',$eMailget);
+        $eMailget = str_replace('"}]','',$eMailget);
+        //  echo $eMailget;
+        $pages->EmailSend = $eMailget;
         if($request->hasFile('Hinh'))
         {
             $file = $request->file('Hinh');

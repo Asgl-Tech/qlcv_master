@@ -24,7 +24,7 @@
 				</div>
 			<?php endif; ?>
             <div class="col-lg-12">
-             <form action="them" method="POST" enctype="multipart/form-data">    
+             <form action="pages/congvanden/them" method="POST" enctype="multipart/form-data">    
                 <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">               
 				<div class="row">
                     <div class="col-lg-3">
@@ -172,7 +172,7 @@
                         <label>Phòng xử lý: </label>
                         <select class="form-control selectpicker" id="idPhongbanxuly" name="Phongbanxuly[]" multiple data-live-search="true">
                             <?php $__currentLoopData = $phongban; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pb): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                             <option value="<?php echo e($pb->TenPhong); ?>"><?php echo e($pb->TenPhong); ?></option>  
+                             <option value="<?php echo e($pb->id); ?>"><?php echo e($pb->TenPhong); ?></option>  
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                         </div>

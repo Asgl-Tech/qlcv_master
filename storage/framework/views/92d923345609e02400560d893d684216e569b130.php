@@ -55,8 +55,14 @@
                         <dt class="col-xl-3">Nội dung Email</dt>
                         <dd class="col-xl-9"><?php echo e($congvanden->GhiChu); ?></dd>
 
-                        <dt class="col-xl-3">Phòng ban xử lý</dt>
-                        <dd class="col-xl-9"><?php echo e($congvanden->NoiNhan); ?></dd>
+                        
+                        <?php $__currentLoopData = $Phongban; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pb): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <dt class="col-xl-3">Phòng ban xử lý: </dt>
+                             <!-- <option value="<?php echo e($pb->id); ?>"><?php echo e($pb->TenPhong); ?></option>   -->
+                             <dd class="col-xl-9"><?php echo e($pb->TenPhong); ?>.</dd>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                        
 
                         <dt class="col-xl-3">Email khác</dt>
                         <dd class="col-xl-9"><?php echo e($congvanden->EmailAdd); ?></dd>
